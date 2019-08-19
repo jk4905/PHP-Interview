@@ -1,0 +1,648 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.类型 · PHP-Interview</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Kagami丶">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2.变量与常量.html" />
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    PHP-基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="1.类型.html">
+            
+                <a href="1.类型.html">
+            
+                    
+                    1.类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="2.变量与常量.html">
+            
+                <a href="2.变量与常量.html">
+            
+                    
+                    2.变量与常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="3.运算符.html">
+            
+                <a href="3.运算符.html">
+            
+                    
+                    3.运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.4" data-path="4.流程控制.html">
+            
+                <a href="4.流程控制.html">
+            
+                    
+                    4.流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.5" data-path="5.函数.html">
+            
+                <a href="5.函数.html">
+            
+                    
+                    5.函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.6" data-path="6.类与对象1.html">
+            
+                <a href="6.类与对象1.html">
+            
+                    
+                    6.类与对象1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.7" data-path="7.类与对象2.html">
+            
+                <a href="7.类与对象2.html">
+            
+                    
+                    7.类与对象2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.8" data-path="8.类与对象3.html">
+            
+                <a href="8.类与对象3.html">
+            
+                    
+                    8.类与对象3
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.类型</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#1&#x7C7B;&#x578B;"><b>1.1.1. </b>1.&#x7C7B;&#x578B;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="1&#x7C7B;&#x578B;"><a name="1&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#1&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1. 1.&#x7C7B;&#x578B;</h3>
+<hr>
+<blockquote>
+<p>php &#x5F00;&#x542F; &apos;<code><span class="token prolog">&lt;? ?&gt;</span></code>&apos; &#x77ED;&#x6807;&#x7B7E;&#xFF1A;&#x5728; <strong><em>php.ini</em></strong> &#x4E2D;&#x627E;&#x5230; <strong><em>short_open_tag</em></strong> &#x6539;&#x4E3A; true&#x3002;&#xFF08;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#xFF09;
+&#x5982;&#x679C;&#x6587;&#x672C;&#x4E3A;&#x7EAF; PHP &#x4EE3;&#x7801;&#xFF0C;&#x5219;&#x6700;&#x597D;&#x5220;&#x9664; PHP &#x7ED3;&#x675F;&#x6807;&#x8BB0;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x610F;&#x5916;&#x52A0;&#x5165;&#x7684;&#x7A7A;&#x683C;&#x548C;&#x6362;&#x884C;&#x7B26;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4; PHP &#x8F93;&#x51FA;&#x672C;&#x65E0;&#x610F;&#x8F93;&#x51FA;&#x7684;&#x7A7A;&#x683C;&#x3002;
+php &#x7684; <code>?&gt;</code> &#x7ED3;&#x5C3E;&#x81EA;&#x5E26;&#x4E00;&#x4E2A;&#x5206;&#x53F7;&#xFF0C;&#x5982; <code><span class="token prolog">&lt;?php echo &apos;a&apos;?&gt;</span></code> &#x5408;&#x6CD5;&#x3002;</p>
+</blockquote>
+<h4 id="1&#x3001;&#x7C7B;&#x578B;"><a name="1&#x3001;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#1&#x3001;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>1&#x3001;&#x7C7B;&#x578B;</h4>
+<blockquote>
+<p>PHP &#x652F;&#x6301; 9 &#x79CD;&#x539F;&#x59CB;&#x6570;&#x636E;&#x7C7B;&#x578B;</p>
+<h6 id="&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF0C;&#x6807;&#x91CF;"><a name="&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF0C;&#x6807;&#x91CF;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF0C;&#x6807;&#x91CF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x672C;&#x7C7B;&#x578B;&#xFF0C;&#x6807;&#x91CF;</h6>
+<ol>
+<li>&#x6574;&#x5F62; integer</li>
+<li>&#x5B57;&#x7B26;&#x4E32; string</li>
+<li>&#x6D6E;&#x70B9;&#x578B; float</li>
+<li>&#x5E03;&#x5C14;&#x578B; boolean<h6 id="&#x590D;&#x5408;&#x7C7B;&#x578B;"><a name="&#x590D;&#x5408;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#&#x590D;&#x5408;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x590D;&#x5408;&#x7C7B;&#x578B;</h6>
+</li>
+<li>&#x5BF9;&#x8C61; object</li>
+<li>&#x6570;&#x7EC4; array</li>
+<li>&#x53EF;&#x8C03;&#x7528; callback<h6 id="&#x5176;&#x4ED6;"><a name="&#x5176;&#x4ED6;" class="anchor-navigation-ex-anchor" href="#&#x5176;&#x4ED6;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5176;&#x4ED6;</h6>
+</li>
+<li>&#x8D44;&#x6E90; resource</li>
+<li>NULL
+&#x5176;&#x7C7B;&#x578B;&#x5224;&#x65AD;&#x53EF;&#x901A;&#x8FC7;&#xFF1A;is_integer , is_string() , is_float() , is_bool() , is_array() , is_object() , is_resource() , is_null() , is_numeric() , is_scalar() &#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x6807;&#x91CF;</li>
+</ol>
+</blockquote>
+<h5 id="11-boolean-&#x5E03;&#x5C14;&#x7C7B;&#x578B;"><a name="11-boolean-&#x5E03;&#x5C14;&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#11-boolean-&#x5E03;&#x5C14;&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1 Boolean &#x5E03;&#x5C14;&#x7C7B;&#x578B;</h5>
+<pre class="language-"><code class="lang-php">  <span class="token variable">$bool</span> <span class="token operator">=</span> <span class="token boolean constant">True</span><span class="token punctuation">;</span> <span class="token comment">// &#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;</span>
+</code></pre>
+<h6 id="&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;&#x6362;"><a name="&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;&#x6362;" class="anchor-navigation-ex-anchor" href="#&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;&#x6362;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;&#x6362;</h6>
+<p>&#x5F53;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x4E3A; Boolean &#x65F6;&#xFF0C;&#x4EE5;&#x4E0B; 7 &#x4E2A;&#x4F1A;&#x88AB;&#x8BA4;&#x4E3A;&#x662F; FALSE&#xFF1A;</p>
+<ol>
+<li>&#x5E03;&#x5C14; FALSE &#x672C;&#x8EAB;</li>
+<li>&#x6574;&#x578B; 0</li>
+<li>&#x6D6E;&#x70B9;&#x578B; 0.0</li>
+<li>&#x7A7A;&#x5B57;&#x7B26;&#x4E32; &apos;&apos; <u>&#x4EE5;&#x53CA; &apos;0&apos;</u></li>
+<li>&#x4E0D;&#x5305;&#x542B;&#x4EFB;&#x4F55;&#x5143;&#x7D20;&#x7684;&#x7A7A;&#x6570;&#x7EC4; []</li>
+<li>&#x7279;&#x6B8A;&#x7C7B;&#x578B; NULL</li>
+<li>&#x4ECE;&#x7A7A;&#x6807;&#x8BB0;&#x751F;&#x6210;&#x7684; SimpleXML &#x5BF9;&#x8C61;&#x3002;</li>
+</ol>
+<h5 id="12-integer-&#x6574;&#x578B;"><a name="12-integer-&#x6574;&#x578B;" class="anchor-navigation-ex-anchor" href="#12-integer-&#x6574;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2 Integer &#x6574;&#x578B;</h5>
+<p>32 &#x4F4D;&#x7CFB;&#x7EDF;&#x4E2D;&#x8303;&#x56F4;&#x4E3A; -2^31-1 ~ 2^31-1
+64 &#x4F4D;&#x7CFB;&#x7EDF;&#x4E2D;&#x8303;&#x56F4;&#x4E3A; -2*63-1 ~ 2^63-1</p>
+<pre class="language-"><code class="lang-php">    <span class="token number">123</span>
+    <span class="token operator">-</span><span class="token number">123</span>
+    <span class="token number">0123</span> <span class="token shell-comment comment">#&#x516B;&#x8FDB;&#x5236;</span>
+    <span class="token number">0x123</span> <span class="token shell-comment comment">#&#x5341;&#x516D;&#x8FDB;&#x5236;</span>
+</code></pre>
+<blockquote>
+<p>&#x5F53;&#x7ED9;&#x5B9A;&#x7684;&#x6570;&#x8D85;&#x8FC7;&#x8303;&#x56F4;&#x65F6;&#xFF0C;php &#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x5176;&#x53D8;&#x4E3A; <strong><em>&#x6D6E;&#x70B9;&#x578B;&#xFF08;Float&#xFF09;</em></strong> &#x3002;&#x540C;&#x6837;&#x901A;&#x8FC7;&#x8BA1;&#x7B97;&#x7684;&#x8D85;&#x8FC7;&#x8303;&#x56F4;&#x4E5F;&#x4F1A;&#x8FD4;&#x56DE; <strong><em>&#x6D6E;&#x70B9;&#x578B;&#xFF08;Float&#xFF09;</em></strong> &#x3002;&#x505A;&#x9664;&#x6CD5;&#x8FD0;&#x7B97;&#x65F6;&#xFF0C;&#x9664;&#x4E0D;&#x5C3D;&#x7684;&#x4E5F;&#x4F1A;&#x53D8;&#x6210; <strong><em>&#x6D6E;&#x70B9;&#x578B;&#xFF08;Float&#xFF09;</em></strong> &#x3002;</p>
+<p>PHP 7.0.0 &#x8D77;&#xFF0C;NaN &#x548C; Infinity &#x5728;&#x8F6C;&#x6362;&#x6210; integer &#x65F6;&#xFF0C;&#x4E0D;&#x518D;&#x662F; undefined &#x6216;&#x8005;&#x4F9D;&#x8D56;&#x4E8E;&#x5E73;&#x53F0;&#xFF0C;&#x800C;&#x662F;&#x90FD;&#x4F1A;&#x53D8;&#x6210;&#x96F6;&#x3002;</p>
+</blockquote>
+<h6 id="&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;&#x6362;_1"><a name="&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;&#x6362;_1" class="anchor-navigation-ex-anchor" href="#&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;&#x6362;_1"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x8F6C;&#x6362;</h6>
+<ol>
+<li>&#x8D44;&#x6E90;&#x7C7B;&#x578B; Resource
+ &#x5C06;&#x8FD4;&#x56DE; php &#x8FD0;&#x884C;&#x65F6; resource &#x5206;&#x914D;&#x7684;&#x552F;&#x4E00;&#x8D44;&#x6E90;&#x53F7;</li>
+<li>&#x5E03;&#x5C14;&#x578B; Boolean
+ false=0&#xFF0C;true=1</li>
+<li>&#x6D6E;&#x70B9;&#x578B; Float
+ &#x901A;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x5411;&#x4E0B;&#x53D6;&#x6574;&#xFF0C;&#x4F46;&#x662F;&#x7531;&#x4E8E;&#x7CBE;&#x5EA6;&#x95EE;&#x9898;&#x53EF;&#x80FD;&#x9020;&#x6210;&#x65E0;&#x6CD5;&#x9884;&#x4F30;&#x7684;&#x60C5;&#x51B5;</li>
+</ol>
+<pre class="language-"><code class="lang-php"><span class="token keyword">echo</span> <span class="token punctuation">(</span>int<span class="token punctuation">)</span> <span class="token punctuation">(</span> <span class="token punctuation">(</span><span class="token number">0.1</span><span class="token operator">+</span><span class="token number">0.7</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">10</span> <span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x663E;&#x793A; 7!</span>
+</code></pre>
+<ol>
+<li>&#x5B57;&#x7B26;&#x4E32; String
+ &#x5982;&#x679C;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6CA1;&#x6709;&#x5305;&#x542B; &apos;,&apos;&#xFF0C;&apos;E&apos;&#x6216;&apos;e&apos;&#xFF0C;&#x8BE5;&#x5B57;&#x7B26;&#x4E32;&#x5C06;&#x88AB;&#x5F53;&#x6210; integer &#x6765;&#x53D6;&#x503C;&#x3002;&#x5176;&#x5B83;&#x6240;&#x6709;&#x60C5;&#x51B5;&#x4E0B;&#x90FD;&#x88AB;&#x4F5C;&#x4E3A; float &#x6765;&#x53D6;&#x503C;&#x3002;&#x8BE5;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5F00;&#x59CB;&#x90E8;&#x5206;&#x51B3;&#x5B9A;&#x4E86;&#x5B83;&#x7684;&#x503C;&#x3002;&#x5982;&#x679C;&#x8BE5;&#x5B57;&#x7B26;&#x4E32;&#x4EE5;&#x5408;&#x6CD5;&#x7684;&#x6570;&#x503C;&#x5F00;&#x59CB;&#xFF0C;&#x5219;&#x4F7F;&#x7528;&#x8BE5;&#x6570;&#x503C;&#x3002;&#x5426;&#x5219;&#x5176;&#x503C;&#x4E3A; 0&#xFF08;&#x96F6;&#xFF09;&#x3002;&#x5408;&#x6CD5;&#x6570;&#x503C;&#x7531;&#x53EF;&#x9009;&#x7684;&#x6B63;&#x8D1F;&#x53F7;&#xFF0C;&#x540E;&#x9762;&#x8DDF;&#x7740;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6570;&#x5B57;&#xFF08;&#x53EF;&#x80FD;&#x6709;&#x5C0F;&#x6570;&#x70B9;&#xFF09;&#xFF0C;&#x518D;&#x8DDF;&#x7740;&#x53EF;&#x9009;&#x7684;&#x6307;&#x6570;&#x90E8;&#x5206;&#x3002;&#x6307;&#x6570;&#x90E8;&#x5206;&#x7531; &apos;e&apos; &#x6216; &apos;E&apos; &#x540E;&#x9762;&#x8DDF;&#x7740;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x6570;&#x5B57;&#x6784;&#x6210;&#x3002;</li>
+</ol>
+<h5 id="13-float-&#x6D6E;&#x70B9;&#x578B;"><a name="13-float-&#x6D6E;&#x70B9;&#x578B;" class="anchor-navigation-ex-anchor" href="#13-float-&#x6D6E;&#x70B9;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3 Float &#x6D6E;&#x70B9;&#x578B;</h5>
+<p>&#x6D6E;&#x70B9;&#x6570;&#x7CBE;&#x5EA6;&#x6709;&#x9650;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x7CFB;&#x7EDF;&#x3002;&#x6C38;&#x8FDC;&#x4E0D;&#x8981;&#x76F8;&#x4FE1;&#x6D6E;&#x70B9;&#x6570;&#x6700;&#x540E;&#x4E00;&#x4F4D;&#x3002;&#x4E5F;&#x4E0D;&#x8981;&#x76F4;&#x63A5;&#x6BD4;&#x8F83;&#x4E24;&#x4E2A;&#x6D6E;&#x70B9;&#x6570;&#xFF0C;&#x5982;&#x9700;&#x8981;&#x8BF7;&#x4F7F;&#x7528;&#x7CBE;&#x5EA6;&#x51FD;&#x6570; bc&#x3002;</p>
+<h6 id="&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x503C;"><a name="&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x503C;" class="anchor-navigation-ex-anchor" href="#&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x4E3A;&#x6570;&#x503C;</h6>
+<pre class="language-"><code class="lang-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token double-quoted-string string">&quot;10.5&quot;</span><span class="token punctuation">;</span>                <span class="token comment">// $foo is float (11.5)</span>
+<span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token double-quoted-string string">&quot;-1.3e3&quot;</span><span class="token punctuation">;</span>              <span class="token comment">// $foo is float (-1299)</span>
+<span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token double-quoted-string string">&quot;bob-1.3e3&quot;</span><span class="token punctuation">;</span>           <span class="token comment">// $foo is integer (1)</span>
+<span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token double-quoted-string string">&quot;bob3&quot;</span><span class="token punctuation">;</span>                <span class="token comment">// $foo is integer (1)</span>
+<span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">+</span> <span class="token double-quoted-string string">&quot;10 Small Pigs&quot;</span><span class="token punctuation">;</span>       <span class="token comment">// $foo is integer (11)</span>
+<span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token number">4</span> <span class="token operator">+</span> <span class="token double-quoted-string string">&quot;10.2 Little Piggies&quot;</span><span class="token punctuation">;</span> <span class="token comment">// $foo is float (14.2)</span>
+<span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token double-quoted-string string">&quot;10.0 pigs &quot;</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>          <span class="token comment">// $foo is float (11)</span>
+<span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token double-quoted-string string">&quot;10.0 pigs &quot;</span> <span class="token operator">+</span> <span class="token number">1.0</span><span class="token punctuation">;</span>        <span class="token comment">// $foo is float (11)     </span>
+<span class="token operator">?</span><span class="token operator">&gt;</span>
+</code></pre>
+<h5 id="14-string-&#x5B57;&#x7B26;&#x4E32;"><a name="14-string-&#x5B57;&#x7B26;&#x4E32;" class="anchor-navigation-ex-anchor" href="#14-string-&#x5B57;&#x7B26;&#x4E32;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4 String &#x5B57;&#x7B26;&#x4E32;</h5>
+<blockquote>
+<p>&#x5B57;&#x7B26;&#x4E32;&#x6709; 4 &#x79CD;&#x8868;&#x793A;&#x65B9;&#x6CD5;</p>
+</blockquote>
+<ul>
+<li>&#x5355;&#x5F15;&#x53F7;&#xFF0C;&#x5355;&#x5F15;&#x53F7;&#x4E2D;&#x53D8;&#x91CF;&#x4E0D;&#x88AB;&#x89E3;&#x6790;&#x3002;&#x5982;&#x679C;&#x8981;&#x8868;&#x8FBE;&#x5355;&#x5F15;&#x53F7;&#x672C;&#x8EAB;&#x9700;&#x8981;&#x52A0;&#x53CD;&#x659C;&#x7EBF;\&#x3002;<pre class="language-"><code class="lang-php">  <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token single-quoted-string string">&apos;abc&apos;</span><span class="token punctuation">;</span>
+  <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token single-quoted-string string">&apos;$a&apos;</span><span class="token punctuation">;</span><span class="token comment">//$a </span>
+  <span class="token variable">$c</span> <span class="token operator">=</span> <span class="token double-quoted-string string">&quot;<span class="token interpolation"><span class="token variable">$a</span></span>&quot;</span><span class="token punctuation">;</span> <span class="token comment">//abc</span>
+</code></pre>
+</li>
+<li>&#x53CC;&#x5F15;&#x53F7;&#xFF0C;&#x53CC;&#x5F15;&#x53F7;&#x4E2D;&#x7684;&#x53D8;&#x91CF;&#x4EE5;&#x53CA;&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x4F1A;&#x88AB;&#x89E3;&#x6790;&#x3002;<pre class="language-"><code class="lang-txt">\n    &#x6362;&#x884C;&#xFF08;ASCII &#x5B57;&#x7B26;&#x96C6;&#x4E2D;&#x7684; LF &#x6216; 0x0A (10)&#xFF09;
+\r    &#x56DE;&#x8F66;&#xFF08;ASCII &#x5B57;&#x7B26;&#x96C6;&#x4E2D;&#x7684; CR &#x6216; 0x0D (13)&#xFF09;
+\t    &#x6C34;&#x5E73;&#x5236;&#x8868;&#x7B26;&#xFF08;ASCII &#x5B57;&#x7B26;&#x96C6;&#x4E2D;&#x7684; HT &#x6216; 0x09 (9)&#xFF09;
+\\    &#x53CD;&#x659C;&#x7EBF;
+\$    &#x7F8E;&#x5143;&#x6807;&#x8BB0;
+\&quot;    &#x53CC;&#x5F15;&#x53F7;
+</code></pre>
+</li>
+<li>heredoc &#x7ED3;&#x6784;&#x662F;&#x4E00;&#x79CD;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x5F00;&#x59CB;&#x6807;&#x8BB0;&#x548C;&#x4E00;&#x4E2A;&#x7ED3;&#x675F;&#x6807;&#x8BB0;&#x3002;&#x65B9;&#x4FBF;&#x4E66;&#x5199;&#x5927;&#x6BB5;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;&#x7ED3;&#x675F;&#x6807;&#x8BB0;&#x5FC5;&#x987B;<strong>&#x9876;&#x683C;</strong>&#x5199;&#x3002;&#x7C7B;&#x4F3C;&#x53CC;&#x5F15;&#x53F7;&#x3002;&#x5355;&#x5F15;&#x53F7;&#x4E0D;&#x8F6C;&#x4E49;&#x3002;&#x53D8;&#x91CF;&#x89E3;&#x6790;</li>
+</ul>
+<pre class="language-"><code class="lang-php"><span class="token delimiter important">&lt;?php</span>
+    <span class="token keyword">class</span> <span class="token class-name">foo</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">/* &#x542B;&#x6709;&#x53D8;&#x91CF;&#x7684;&#x66F4;&#x590D;&#x6742;&#x793A;&#x4F8B; */</span>
+        <span class="token keyword">var</span> <span class="token variable">$foo</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> <span class="token variable">$bar</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">function</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">foo</span> <span class="token operator">=</span> <span class="token single-quoted-string string">&apos;Foo&apos;</span><span class="token punctuation">;</span>
+            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">bar</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;Bar1&apos;</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">&apos;Bar2&apos;</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">&apos;Bar3&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token variable">$foo</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token variable">$name</span> <span class="token operator">=</span> <span class="token single-quoted-string string">&apos;MyName&apos;</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">echo</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span><span class="token operator">&lt;</span><span class="token constant">EOT</span>
+    My name is <span class="token double-quoted-string string">&quot;<span class="token interpolation"><span class="token variable">$name</span></span>&quot;</span><span class="token punctuation">.</span> <span class="token constant">I</span> am printing some <span class="token variable">$foo</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">foo</span><span class="token punctuation">.</span>
+    Now<span class="token punctuation">,</span> <span class="token constant">I</span> am printing some <span class="token punctuation">{</span><span class="token variable">$foo</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">bar</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">.</span>
+    This should <span class="token keyword">print</span> a capital <span class="token single-quoted-string string">&apos;A&apos;</span><span class="token punctuation">:</span> \<span class="token package">x41</span>
+    <span class="token constant">EOT</span><span class="token punctuation">;</span> 
+
+    <span class="token comment">// &#x8F93;&#x51FA; My name is &quot;MyName&quot;. I am printing some Foo.</span>
+    Now<span class="token punctuation">,</span> <span class="token constant">I</span> am printing some Bar2<span class="token punctuation">.</span>
+    This should <span class="token keyword">print</span> a capital <span class="token single-quoted-string string">&apos;A&apos;</span><span class="token punctuation">:</span> <span class="token constant">A</span>
+</code></pre>
+<ul>
+<li>Nowdoc &#x7ED3;&#x6784;&#x662F;&#x7C7B;&#x4F3C;&#x4E8E;&#x5355;&#x5F15;&#x53F7;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x3002;Nowdoc &#x7ED3;&#x6784;&#x5F88;&#x8C61; heredoc &#x7ED3;&#x6784;&#xFF0C;&#x4F46;&#x662F; nowdoc &#x4E2D;&#x4E0D;&#x8FDB;&#x884C;&#x89E3;&#x6790;&#x64CD;&#x4F5C; nowdoc&#x524D;&#x9700;&#x8981;&#x52A0;&#x4E0A;&#x5355;&#x5F15;&#x53F7;&#x3002;</li>
+</ul>
+<pre class="language-"><code class="lang-php"><span class="token delimiter important">&lt;?php</span>
+    <span class="token variable">$str</span> <span class="token operator">=</span> <span class="token operator">&lt;</span><span class="token operator">&lt;</span><span class="token operator">&lt;</span><span class="token single-quoted-string string">&apos;EOD&apos;</span>
+    Example of string
+    spanning multiple lines
+    using nowdoc syntax<span class="token punctuation">.</span>
+    <span class="token constant">EOD</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>string&#x4E2D;&#x7684;&#x5B57;&#x7B26;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x4ECE; 0 &#x5F00;&#x59CB;&#x7684;&#x4E0B;&#x6807;&#xFF0C;&#x7528;&#x7C7B;&#x4F3C; Array &#x7ED3;&#x6784;&#x4E2D;&#x7684;&#x65B9;&#x62EC;&#x53F7;&#x5305;&#x542B;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x5B57;&#x6765;&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x82B1;&#x62EC;&#x53F7;{}&#x3002;</p>
+</blockquote>
+<pre class="language-"><code class="lang-php">    <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token single-quoted-string string">&apos;start&apos;</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token variable">$a</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// &#x8F93;&#x51FA; s</span>
+    <span class="token keyword">echo</span> <span class="token variable">$a</span><span class="token punctuation">{</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment">// &#x8F93;&#x51FA; s</span>
+</code></pre>
+<blockquote>
+<p>&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x8FDE;&#x63A5;&#x4F7F;&#x7528; . &#x6765;&#x5B8C;&#x6210;&#x3002;</p>
+</blockquote>
+<pre class="language-"><code class="lang-php">    <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token single-quoted-string string">&apos;a&apos;</span><span class="token punctuation">;</span>
+    <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token single-quoted-string string">&apos;b&apos;</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token variable">$a</span><span class="token punctuation">.</span><span class="token variable">$b</span><span class="token punctuation">;</span> <span class="token comment">// ab</span>
+</code></pre>
+<p>&#x590D;&#x6742;&#xFF08;&#x82B1;&#x62EC;&#x53F7;&#xFF09;&#x8BED;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x4F7F;&#x7528;&#x590D;&#x6742;&#x8868;&#x8FBE;&#x5F0F;&#x3002;&#x5176;&#x65B9;&#x5F0F;&#x4E3A;&#x5728; string &#x4E2D;&#x5C06;&#x8868;&#x8FBE;&#x5F0F;&#x901A;&#x8FC7; {}&#xFF08;&#x82B1;&#x62EC;&#x53F7;&#xFF09;&#x62EC;&#x8D77;&#x6765;&#x3002;&#x53D8;&#x91CF;$&#x7B26;&#x53F7;&#x5FC5;&#x987B;&#x7D27;&#x6328;{&#xFF08;&#x5DE6;&#x82B1;&#x62EC;&#x53F7;&#xFF09;&#x3002;</p>
+<pre class="language-"><code class="lang-php">    <span class="token variable">$great</span> <span class="token operator">=</span> <span class="token single-quoted-string string">&apos;fantastic&apos;</span><span class="token punctuation">;</span>
+    <span class="token keyword">echo</span> <span class="token double-quoted-string string">&quot;This is <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$great</span><span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">;</span> <span class="token comment">// &#x6709;&#x6548;</span>
+    <span class="token keyword">echo</span> <span class="token double-quoted-string string">&quot;This is { <span class="token interpolation"><span class="token variable">$great</span></span>}&quot;</span><span class="token punctuation">;</span> <span class="token comment">// &#x65E0;&#x6548;</span>
+    <span class="token keyword">echo</span> <span class="token double-quoted-string string">&quot;This is ${great}&quot;</span><span class="token punctuation">;</span> <span class="token comment">// &#x6709;&#x6548;</span>
+
+    <span class="token keyword">echo</span> <span class="token double-quoted-string string">&quot;This square is <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$square</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">width</span><span class="token punctuation">}</span></span>00 centimeters broad.&quot;</span><span class="token punctuation">;</span> <span class="token comment">// &#x6709;&#x6548;</span>
+    <span class="token keyword">echo</span> <span class="token double-quoted-string string">&quot;This works: <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token single-quoted-string string">&apos;key&apos;</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">;</span><span class="token comment">// &#x6709;&#x6548;&#xFF0C;&#x53EA;&#x6709;&#x901A;&#x8FC7;&#x82B1;&#x62EC;&#x53F7;&#x8BED;&#x6CD5;&#x624D;&#x80FD;&#x6B63;&#x786E;&#x89E3;&#x6790;&#x5E26;&#x5F15;&#x53F7;&#x7684;&#x952E;&#x540D;</span>
+    <span class="token keyword">echo</span> <span class="token double-quoted-string string">&quot;This works: <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">;</span> <span class="token comment">// &#x6709;&#x6548;</span>
+
+    <span class="token keyword">echo</span> <span class="token double-quoted-string string">&quot;This works: <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token single-quoted-string string">&apos;foo&apos;</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">;</span> <span class="token comment">// &#x6709;&#x6548;&#xFF0C;&#x5F53;&#x5728;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x4F7F;&#x7528;&#x591A;&#x91CD;&#x6570;&#x7EC4;&#x65F6;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x7528;&#x62EC;&#x53F7;&#x5C06;&#x5B83;&#x62EC;&#x8D77;&#x6765;</span>
+
+    <span class="token comment">// &#x6709;&#x6548;</span>
+    <span class="token keyword">echo</span> <span class="token double-quoted-string string">&quot;This works: &quot;</span> <span class="token punctuation">.</span> <span class="token variable">$arr</span><span class="token punctuation">[</span><span class="token single-quoted-string string">&apos;foo&apos;</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">echo</span> <span class="token double-quoted-string string">&quot;This works too: <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$obj</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">values</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">name</span><span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">echo</span> <span class="token double-quoted-string string">&quot;This is the value of the var named <span class="token interpolation"><span class="token variable">$name</span></span>: <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$</span><span class="token punctuation">{</span><span class="token variable">$name</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">echo</span> <span class="token double-quoted-string string">&quot;This is the value of the var named by the return value of getName(): <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$</span><span class="token punctuation">{</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">echo</span> <span class="token double-quoted-string string">&quot;This is the value of the var named by the return value of \$object-&gt;getName(): <span class="token interpolation"><span class="token punctuation">{</span><span class="token variable">$</span><span class="token punctuation">{</span><span class="token variable">$object</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">;</span>
+</code></pre>
+<h6 id="&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;"><a name="&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;" class="anchor-navigation-ex-anchor" href="#&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8F6C;&#x6362;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;</h6>
+<blockquote>
+<ol>
+<li>boolean &#x7684; true &#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x4E3A; string &quot;1&quot;&#xFF0C;&#x800C; false &#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x4E3A; string &#x2018;&#x2019;&#x3002;</li>
+<li>&#x6574;&#x6570;&#x548C;&#x6D6E;&#x70B9;&#x6570;&#x5C31;&#x76F4;&#x63A5;&#x88AB;&#x88C5;&#x6362;&#x4E3A;&#x5B57;&#x9762;&#x7684; string&#x3002;</li>
+<li>array &#x7C7B;&#x578B;&#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x4E3A; string &#x201C;Array&#x201D;&#x3002;</li>
+<li>object &#x7C7B;&#x578B;&#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x4E3A; string &#x201C;Object&#x201D;&#x3002;</li>
+<li>&#x8D44;&#x6E90; resource &#x603B;&#x4F1A;&#x88AB;&#x8F6C;&#x53D8;&#x6210; &quot;Resource id #1&quot; &#x8FD9;&#x79CD;&#x7ED3;&#x6784;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002; </li>
+<li>NULL &#x603B;&#x662F;&#x88AB;&#x8F6C;&#x53D8;&#x6210;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x3002;</li>
+</ol>
+</blockquote>
+<h5 id="15-array-&#x6570;&#x7EC4;"><a name="15-array-&#x6570;&#x7EC4;" class="anchor-navigation-ex-anchor" href="#15-array-&#x6570;&#x7EC4;"><i class="fa fa-link" aria-hidden="true"></i></a>1.5 Array &#x6570;&#x7EC4;</h5>
+<p>PHP &#x4E2D;&#x7684;&#x6570;&#x7EC4;&#x662F;&#x4E00;&#x4E2A;&#x6709;&#x5E8F;&#x6620;&#x5C04;&#x3002;&#x6620;&#x5C04;&#x662F;&#x4E00;&#x79CD;&#x628A; values &#x6620;&#x5C04;&#x5230; keys &#x7684;&#x7C7B;&#x578B;&#x3002;</p>
+<pre class="language-"><code class="lang-php">    <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token keyword">array</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x7D22;&#x5F15;&#x6570;&#x7EC4;</span>
+    <span class="token variable">$b</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">&apos;a&apos;</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token single-quoted-string string">&apos;abc&apos;</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">&apos;d&apos;</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token single-quoted-string string">&apos;def&apos;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment">// &#x7B80;&#x5199; php5.4+&#xFF0C;&#x5173;&#x8054;&#x6570;&#x7EC4;</span>
+</code></pre>
+<blockquote>
+<p>&#x952E;&#x540D;</p>
+<ul>
+<li>&#x5305;&#x542B;&#x6709;&#x5408;&#x6CD5;&#x6574;&#x578B;&#x503C;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x4E3A;&#x6574;&#x578B;&#x3002;&#x4F8B;&#x5982;&#x952E;&#x540D; &quot;8&quot; &#x5B9E;&#x9645;&#x4F1A;&#x88AB;&#x50A8;&#x5B58;&#x4E3A; 8&#x3002;&#x4F46;&#x662F; &quot;08&quot; &#x5219;&#x4E0D;&#x4F1A;&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#xFF0C;&#x56E0;&#x4E3A;&#x5176;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5408;&#x6CD5;&#x7684;&#x5341;&#x8FDB;&#x5236;&#x6570;&#x503C;&#x3002;</li>
+<li>&#x6D6E;&#x70B9;&#x6570;&#x4E5F;&#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x4E3A;&#x6574;&#x578B;&#xFF0C;&#x610F;&#x5473;&#x7740;&#x5176;&#x5C0F;&#x6570;&#x90E8;&#x5206;&#x4F1A;&#x88AB;&#x820D;&#x53BB;&#x3002;&#x4F8B;&#x5982;&#x952E;&#x540D; 8.7 &#x5B9E;&#x9645;&#x4F1A;&#x88AB;&#x50A8;&#x5B58;&#x4E3A; 8&#x3002;</li>
+<li>&#x5E03;&#x5C14;&#x503C;&#x4E5F;&#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x6210;&#x6574;&#x578B;&#x3002;&#x5373;&#x952E;&#x540D; true &#x5B9E;&#x9645;&#x4F1A;&#x88AB;&#x50A8;&#x5B58;&#x4E3A; 1 &#x800C;&#x952E;&#x540D; false &#x4F1A;&#x88AB;&#x50A8;&#x5B58;&#x4E3A; 0&#x3002;</li>
+<li>Null &#x4F1A;&#x88AB;&#x8F6C;&#x6362;&#x4E3A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5373;&#x952E;&#x540D; null &#x5B9E;&#x9645;&#x4F1A;&#x88AB;&#x50A8;&#x5B58;&#x4E3A; &quot;&quot;&#x3002;</li>
+<li>&#x6570;&#x7EC4;&#x548C;&#x5BF9;&#x8C61;&#x4E0D;&#x80FD;&#x88AB;&#x7528;&#x4E3A;&#x952E;&#x540D;&#x3002;&#x575A;&#x6301;&#x8FD9;&#x4E48;&#x505A;&#x4F1A;&#x5BFC;&#x81F4;&#x8B66;&#x544A;&#xFF1A;Illegal offset type&#x3002;</li>
+</ul>
+</blockquote>
+<h4 id="16-object-&#x5BF9;&#x8C61;"><a name="16-object-&#x5BF9;&#x8C61;" class="anchor-navigation-ex-anchor" href="#16-object-&#x5BF9;&#x8C61;"><i class="fa fa-link" aria-hidden="true"></i></a>1.6 Object &#x5BF9;&#x8C61;</h4>
+<p>&#x901A;&#x8FC7; new &#x6765;&#x5B9E;&#x4F8B;&#x5316;&#x5BF9;&#x8C61;</p>
+<pre class="language-"><code class="lang-php">    <span class="token keyword">class</span> <span class="token class-name">a</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token variable">$obj</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">a</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h4 id="17-resource-&#x8D44;&#x6E90;"><a name="17-resource-&#x8D44;&#x6E90;" class="anchor-navigation-ex-anchor" href="#17-resource-&#x8D44;&#x6E90;"><i class="fa fa-link" aria-hidden="true"></i></a>1.7 Resource &#x8D44;&#x6E90;</h4>
+<p>&#x8D44;&#x6E90;&#x7C7B;&#x578B;&#x662F;&#x4FDD;&#x6301;&#x5916;&#x90E8;&#x7684;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x3002;&#x5982;&#x6570;&#x636E;&#x5E93;&#x7684;&#x94FE;&#x63A5;&#xFF0C;&#x6587;&#x4EF6;&#x7684;&#x53E5;&#x67C4;&#x7B49;&#x3002;</p>
+<pre class="language-"><code>    $fp = fopen(&quot;./a.log&quot;);//resource
+</code></pre><h4 id="18-null"><a name="18-null" class="anchor-navigation-ex-anchor" href="#18-null"><i class="fa fa-link" aria-hidden="true"></i></a>1.8 Null</h4>
+<blockquote>
+<p>Null &#x8868;&#x793A;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x6CA1;&#x6709;&#x503C;&#x3002;Null &#x7C7B;&#x578B;&#x552F;&#x4E00;&#x7684;&#x503C;&#x5C31;&#x662F; Null&#x3002;
+3 &#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x4F1A;&#x88AB;&#x8BA4;&#x4E3A;&#x662F; Null</p>
+<ol>
+<li>&#x53D8;&#x91CF;&#x6CA1;&#x6709;&#x8D4B;&#x503C;</li>
+<li>&#x53D8;&#x91CF;&#x8D4B;&#x503C; Null</li>
+<li>&#x53D8;&#x91CF;&#x88AB; unset();<pre class="language-"><code class="lang-php"><span class="token variable">$a</span> <span class="token operator">=</span> <span class="token constant">null</span> <span class="token comment">// null</span>
+<span class="token variable">$b</span><span class="token punctuation">;</span><span class="token comment">//var_dump($b); null</span>
+<span class="token variable">$c</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token keyword">unset</span><span class="token punctuation">(</span><span class="token variable">$c</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//var_dump($c); null</span>
+</code></pre>
+</li>
+</ol>
+</blockquote>
+<h4 id="19-callback-&#x7C7B;&#x578B;"><a name="19-callback-&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#19-callback-&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>1.9 Callback &#x7C7B;&#x578B;</h4>
+<p>&#x4E00;&#x4E9B;&#x51FD;&#x6570;&#x5982; call_user_func() &#x6216; usort() &#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x3002;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x4E0D;&#x6B62;&#x53EF;&#x4EE5;&#x662F;&#x7B80;&#x5355;&#x51FD;&#x6570;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x662F;&#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5305;&#x62EC;&#x9759;&#x6001;&#x7C7B;&#x65B9;&#x6CD5;&#x3002;</p>
+<pre class="language-"><code class="lang-php">    <span class="token comment">// An example callback function</span>
+    <span class="token keyword">function</span> <span class="token function">my_callback_function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">echo</span> <span class="token single-quoted-string string">&apos;hello world!&apos;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// An example callback method</span>
+    <span class="token keyword">class</span> <span class="token class-name">MyClass</span> <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token keyword">function</span> <span class="token function">myCallbackMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">echo</span> <span class="token single-quoted-string string">&apos;Hello World!&apos;</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// Type 1: Simple callback</span>
+    <span class="token function">call_user_func</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;my_callback_function&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+    <span class="token comment">// Type 2: Static class method call</span>
+    <span class="token function">call_user_func</span><span class="token punctuation">(</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;MyClass&apos;</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">&apos;myCallbackMethod&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+
+    <span class="token comment">// Type 3: Object method call</span>
+    <span class="token variable">$obj</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">MyClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">call_user_func</span><span class="token punctuation">(</span><span class="token keyword">array</span><span class="token punctuation">(</span><span class="token variable">$obj</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">&apos;myCallbackMethod&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Type 4: Static class method call (As of PHP 5.2.3)</span>
+    <span class="token function">call_user_func</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;MyClass::myCallbackMethod&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; Kagami&#x4E36; 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-08-19 13:30:31
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="2.变量与常量.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 2.变量与常量">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.类型","level":"1.2.1","depth":2,"next":{"title":"2.变量与常量","level":"1.2.2","depth":2,"path":"PHP-基础知识/2.变量与常量.md","ref":"PHP-基础知识/2.变量与常量.md","articles":[]},"previous":{"title":"PHP-基础知识","level":"1.2","depth":1,"ref":"","articles":[{"title":"1.类型","level":"1.2.1","depth":2,"path":"PHP-基础知识/1.类型.md","ref":"PHP-基础知识/1.类型.md","articles":[]},{"title":"2.变量与常量","level":"1.2.2","depth":2,"path":"PHP-基础知识/2.变量与常量.md","ref":"PHP-基础知识/2.变量与常量.md","articles":[]},{"title":"3.运算符","level":"1.2.3","depth":2,"path":"PHP-基础知识/3.运算符.md","ref":"PHP-基础知识/3.运算符.md","articles":[]},{"title":"4.流程控制","level":"1.2.4","depth":2,"path":"PHP-基础知识/4.流程控制.md","ref":"PHP-基础知识/4.流程控制.md","articles":[]},{"title":"5.函数","level":"1.2.5","depth":2,"path":"PHP-基础知识/5.函数.md","ref":"PHP-基础知识/5.函数.md","articles":[]},{"title":"6.类与对象1","level":"1.2.6","depth":2,"path":"PHP-基础知识/6.类与对象1.md","ref":"PHP-基础知识/6.类与对象1.md","articles":[]},{"title":"7.类与对象2","level":"1.2.7","depth":2,"path":"PHP-基础知识/7.类与对象2.md","ref":"PHP-基础知识/7.类与对象2.md","articles":[]},{"title":"8.类与对象3","level":"1.2.8","depth":2,"path":"PHP-基础知识/8.类与对象3.md","ref":"PHP-基础知识/8.类与对象3.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["theme-comscore","prism","-highlight","copy-code-button","search-pro","-search","-lunr","expandable-chapters","splitter","-sharing","github-buttons","tbfed-pagefooter","anchor-navigation-ex","disqus","github"],"ignores":["node_modules","docs"],"root":".","styles":{"website":"./styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy Kagami丶 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"shell":"bash"}},"disqus":{"useIdentifier":false,"shortName":"jk4905"},"github":{"url":"https://github.com/jk4905"},"splitter":{},"search-pro":{},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"theme-comscore":{},"github-buttons":{"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"}]},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"Kagami丶","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Kagami丶PHP-Interview","variables":{},"title":"PHP-Interview","language":"zh-hans","output.name":"docs","catalog":"all","gitbook":"3.2.3","unchanged":[],"description":"Kagami丶 的 PHP 复习笔记","outputfile":"SUMMARY.md"},"file":{"path":"PHP-基础知识/1.类型.md","mtime":"2019-08-19T05:30:31.778Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-08-19T06:43:58.178Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
