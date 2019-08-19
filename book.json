@@ -32,11 +32,25 @@
     "tbfed-pagefooter",
     "anchor-navigation-ex",
     "disqus",
-    "github"
+    "github",
+    "hide-element",
+    "back-to-top-button",
+    "insert-logo",
+    "pageview-count",
+    "popup"
   ],
   "pluginsConfig": {
+    "hide-element": {
+        "elements": [
+          ".gitbook-link"
+        ]
+    },
+    "insert-logo": {
+        "url": "images/logo.png",
+        "style": "background: none; max-height: 30px; min-height: 30px"
+    },
     "disqus": {
-          "shortName": "jk4905"
+        "shortName": "jk4905"
     },
     "github": {
         "url": "https://github.com/jk4905"
@@ -47,6 +61,13 @@
           "user": "jk4905",
           "repo": "PHP-Interview", 
           "type": "star",
+          "count": true,
+          "size": "small"
+        }, 
+        {
+          "user": "Kagami丶",
+          "width": "160", 
+          "type": "follow", 
           "count": true,
           "size": "small"
         }
