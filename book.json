@@ -36,8 +36,7 @@
     "hide-element",
     "insert-logo",
     "pageview-count",
-    "popup",
-    "custom-favicon"
+    "popup"
   ],
   "pluginsConfig": {
     "hide-element": {
@@ -48,9 +47,6 @@
     "insert-logo": {
         "url": "https://raw.githubusercontent.com/jk4905/PHP-Interview/master/docs/images/logo.png",
         "style": "background: none; max-height: 30px; min-height: 30px"
-    },
-    "pluginsConfig" : {
-        "favicon": "https://raw.githubusercontent.com/jk4905/PHP-Interview/master/docs/images/favicon.ico"
     },
     "disqus": {
         "shortName": "jk4905"
