@@ -1,0 +1,72 @@
+{
+  "title": "PHP-Interview",
+  "author": "Kagami丶",
+  "description": "Kagami丶 的 PHP 复习笔记",
+  "language": "zh-hans",
+  "output.name": "docs",
+  "gitbook": "3.2.3",
+  "root":".",
+  "bookname": "Kagami丶PHP-Interview",
+  "outputfile": "SUMMARY.md",
+  "catalog": "all",
+  "ignores": [
+    "node_modules",
+    "docs"
+  ],
+  "unchanged": [],
+  "styles": {
+    "website": "./styles/website.css"
+  },
+  "plugins": [
+    "theme-comscore",
+    "prism",
+    "-highlight",
+    "copy-code-button",
+    "search-pro",
+    "-search",
+    "-lunr",
+    "expandable-chapters",
+    "splitter",
+    "-sharing",
+    "github-buttons",
+    "tbfed-pagefooter",
+    "anchor-navigation-ex",
+    "disqus",
+    "github"
+  ],
+  "pluginsConfig": {
+    "disqus": {
+          "shortName": "jk4905"
+    },
+    "github": {
+        "url": "https://github.com/jk4905"
+    },
+    "github-buttons": {
+      "buttons": [
+        {
+          "user": "jk4905",
+          "repo": "PHP-Interview", 
+          "type": "star",
+          "count": true,
+          "size": "small"
+        }
+      ]
+    },
+    "prism": {
+      "css": [
+        "prismjs/themes/prism-solarizedlight.css"
+      ],
+      "lang": {
+        "shell": "bash"
+      }
+    },
+    "tbfed-pagefooter": {
+      "copyright":"Copyright &copy Kagami丶 2019",
+      "modify_label": "该文件修订时间：",
+      "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "anchor-navigation-ex": {
+      "showLevel": true
+    }
+  }
+}
