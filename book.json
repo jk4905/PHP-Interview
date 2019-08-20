@@ -13,6 +13,7 @@
     "node_modules",
     "docs"
   ],
+  "sortedBy": "num.",
   "unchanged": [],
   "styles": {
     "website": "./styles/website.css"
