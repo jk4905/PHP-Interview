@@ -1,5 +1,8 @@
 # PHP-Interview
 
+- My SQL
+  * [01.初识 MySQL](MySQL/01.初识 MySQL.md)
+  * [02.字符集与比较规则](MySQL/02.字符集与比较规则.md)
 - PHP-基础知识
   * [01.类型](PHP-基础知识/01.类型.md)
   * [02.变量与常量](PHP-基础知识/02.变量与常量.md)
