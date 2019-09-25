@@ -1,0 +1,889 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>12.Redis 集群-sentinel · PHP-Interview</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Kagami丶">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="11.主从同步.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"},{"user":"jk4905","width":"160","type":"follow","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    My SQL
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../MySQL/01.初识 MySQL.html">
+            
+                <a href="../MySQL/01.初识 MySQL.html">
+            
+                    
+                    01.初识 MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../MySQL/02.字符集与比较规则.html">
+            
+                <a href="../MySQL/02.字符集与比较规则.html">
+            
+                    
+                    02.字符集与比较规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    PHP-基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../PHP-基础知识/01.类型.html">
+            
+                <a href="../PHP-基础知识/01.类型.html">
+            
+                    
+                    01.类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../PHP-基础知识/02.变量与常量.html">
+            
+                <a href="../PHP-基础知识/02.变量与常量.html">
+            
+                    
+                    02.变量与常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../PHP-基础知识/03.运算符.html">
+            
+                <a href="../PHP-基础知识/03.运算符.html">
+            
+                    
+                    03.运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../PHP-基础知识/04.流程控制.html">
+            
+                <a href="../PHP-基础知识/04.流程控制.html">
+            
+                    
+                    04.流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../PHP-基础知识/05.函数.html">
+            
+                <a href="../PHP-基础知识/05.函数.html">
+            
+                    
+                    05.函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../PHP-基础知识/06.类与对象1.html">
+            
+                <a href="../PHP-基础知识/06.类与对象1.html">
+            
+                    
+                    06.类与对象1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../PHP-基础知识/07.类与对象2.html">
+            
+                <a href="../PHP-基础知识/07.类与对象2.html">
+            
+                    
+                    07.类与对象2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../PHP-基础知识/08.类与对象3.html">
+            
+                <a href="../PHP-基础知识/08.类与对象3.html">
+            
+                    
+                    08.类与对象3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../PHP-基础知识/09.命名空间.html">
+            
+                <a href="../PHP-基础知识/09.命名空间.html">
+            
+                    
+                    09.命名空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../PHP-基础知识/10.PHP-FPM 与 Nginx.html">
+            
+                <a href="../PHP-基础知识/10.PHP-FPM 与 Nginx.html">
+            
+                    
+                    10.PHP-FPM 与 Nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    Redis
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="01.基础数据结构.html">
+            
+                <a href="01.基础数据结构.html">
+            
+                    
+                    01.基础数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="02.分布式锁.html">
+            
+                <a href="02.分布式锁.html">
+            
+                    
+                    02.分布式锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="03.延时队列.html">
+            
+                <a href="03.延时队列.html">
+            
+                    
+                    03.延时队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="04.位图.html">
+            
+                <a href="04.位图.html">
+            
+                    
+                    04.位图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="05.HyperLogLog 统计.html">
+            
+                <a href="05.HyperLogLog 统计.html">
+            
+                    
+                    05.HyperLogLog 统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="06.布隆过滤器.html">
+            
+                <a href="06.布隆过滤器.html">
+            
+                    
+                    06.布隆过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="07.限流.html">
+            
+                <a href="07.限流.html">
+            
+                    
+                    07.限流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="08.GeoHash 算法.html">
+            
+                <a href="08.GeoHash 算法.html">
+            
+                    
+                    08.GeoHash 算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="09.大海捞针-scan.html">
+            
+                <a href="09.大海捞针-scan.html">
+            
+                    
+                    09.大海捞针-scan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="10.内存回收机制.html">
+            
+                <a href="10.内存回收机制.html">
+            
+                    
+                    10.内存回收机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="11.主从同步.html">
+            
+                <a href="11.主从同步.html">
+            
+                    
+                    11.主从同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.12" data-path="12.Redis 集群-sentinel.html">
+            
+                <a href="12.Redis 集群-sentinel.html">
+            
+                    
+                    12.Redis 集群-sentinel
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >12.Redis 集群-sentinel</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#12redis-&#x96C6;&#x7FA4;-sentinel"><b>1.1.1. </b>12.Redis &#x96C6;&#x7FA4;-sentinel</a></li></ul></ul><li><span class="title-icon "></span><a href="#&#x4ECE;&#x670D;&#x52A1;&#x5668;ip&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;&#x662F;-6381-&#x548C;-6382"><b>2. </b>&quot;&#x4ECE;&quot;&#x670D;&#x52A1;&#x5668;iP&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;&#x662F; 6381 &#x548C; 6382</a></li></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="12redis-&#x96C6;&#x7FA4;-sentinel"><a name="12redis-&#x96C6;&#x7FA4;-sentinel" class="anchor-navigation-ex-anchor" href="#12redis-&#x96C6;&#x7FA4;-sentinel"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1. 12.Redis &#x96C6;&#x7FA4;-sentinel</h3>
+<hr>
+<h4 id="sentinel"><a name="sentinel" class="anchor-navigation-ex-anchor" href="#sentinel"><i class="fa fa-link" aria-hidden="true"></i></a>sentinel</h4>
+<p>&#x4E4B;&#x524D;&#x53EA;&#x8BF4;&#x5230;&#x4E3B;&#x4ECE;&#x65B9;&#x6848;&#xFF0C;&#x6700;&#x7EC8;&#x4E00;&#x81F4;&#x6027;&#x3002;&#x90A3;&#x4E48;&#x73B0;&#x5728;&#x6709;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5982;&#x679C;&#x5F53;&#x4E3B;&#x8282;&#x70B9;&#x53D1;&#x751F;&#x6545;&#x969C;&#x65F6;&#xFF0C;&#x5C31;&#x5FC5;&#x987B;&#x4EBA;&#x4E3A;&#x6765;&#x64CD;&#x4F5C;&#x4FEE;&#x6539;&#x4E3B;&#x8282;&#x70B9;&#x7B49;&#x7B49;&#xFF0C;&#x8FD9;&#x6837;&#x6548;&#x7387;&#x592A;&#x4F4E;&#xFF0C;Redis &#x5B98;&#x65B9;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x65B9;&#x6848;-sentinel&#xFF08;&#x54E8;&#x5175;&#xFF09;&#x3002;</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/7/4/16464072b3430480?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="&#x54E8;&#x5175;"></p>
+<p>&#x5982;&#x56FE;&#x6240;&#x793A;&#xFF0C;Redis-sentinel &#x53EF;&#x4EE5;&#x770B;&#x505A;&#x662F;&#x96C6;&#x7FA4;&#x9AD8;&#x53EF;&#x7528;&#x7684;&#x5FC3;&#x810F;&#xFF0C;&#x8D1F;&#x8D23;&#x76D1;&#x89C6;&#x7EC4;&#x4ECE;&#x8282;&#x70B9;&#x7684;&#x5065;&#x5EB7;&#x72B6;&#x6001;&#xFF0C;&#x5F53;&#x4E3B;&#x8282;&#x70B9;&#x53D1;&#x751F;&#x6545;&#x969C;&#x65F6;&#xFF0C;&#x4F1A;&#x4ECE;&#x4ECE;&#x8282;&#x70B9;&#x4E2D;&#x9009;&#x53D6;&#x6700;&#x4F18;&#x8282;&#x70B9;&#x4F5C;&#x4E3A;&#x4E3B;&#x8282;&#x70B9;&#x3002;</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x96C6;&#x7FA4;&#x65F6;&#xFF0C;&#x4F1A;&#x9996;&#x5148;&#x8FDE;&#x63A5; Redis-sentinel &#xFF0C;Redis-sentinel &#x4F1A;&#x67E5;&#x8BE2;&#x4E3B;&#x8282;&#x70B9;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x5E76;&#x544A;&#x8BC9;&#x5BA2;&#x6237;&#x7AEF;&#x3002;&#x5982;&#x6B64;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x65E0;&#x9700;&#x91CD;&#x542F;&#x5373;&#x53EF;&#x5B8C;&#x6210;&#x4E3B;&#x4ECE;&#x8282;&#x70B9;&#x5207;&#x6362;&#x3002;</p>
+<p>&#x5982;&#x4E0B;&#x56FE;&#xFF0C;&#x5F53;&#x4E3B;&#x8282;&#x70B9;&#x53D1;&#x751F;&#x6545;&#x969C;&#x65F6;&#xFF0C;&#x539F;&#x6765;&#x7684;&#x4E3B;&#x4ECE;&#x8FDE;&#x63A5;&#x5C06;&#x65AD;&#x5F00;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x539F;&#x6765;&#x7684;&#x4E3B;&#x8282;&#x70B9;&#x4E5F;&#x4F1A;&#x65AD;&#x5F00;&#x3002;&#x4ECE;&#x8282;&#x70B9;&#x88AB;&#x63D0;&#x5347;&#x4E3A;&#x4E3B;&#x8282;&#x70B9;&#x540E;&#xFF0C;&#x5176;&#x4ED6;&#x4ECE;&#x8282;&#x70B9;&#x548C;&#x65B0;&#x4E3B;&#x8282;&#x70B9;&#x5EFA;&#x7ACB;&#x590D;&#x5236;&#x5173;&#x7CFB;&#x3002;
+<img src="https://user-gold-cdn.xitu.io/2018/7/4/164640d92239dacf?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="&#x4E3B;&#x8282;&#x70B9;&#x6545;&#x969C;"></p>
+<p>&#x5BA2;&#x6237;&#x7AEF;&#x4F1A;&#x548C;&#x65B0;&#x4E3B;&#x8282;&#x70B9;&#x7EE7;&#x7EED;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x3002;Redis-sentinel &#x4F1A;&#x6301;&#x7EED;&#x76D1;&#x89C6;&#x5DF2;&#x7ECF;&#x6302;&#x6389;&#x7684;&#x4E3B;&#x8282;&#x70B9;&#xFF0C;&#x5F85;&#x5176;&#x6062;&#x590D;&#x540E;&#xFF0C;&#x4F1A;&#x53D8;&#x6210;&#x65B0;&#x7684;&#x4ECE;&#x8282;&#x70B9;&#xFF0C;&#x96C6;&#x7FA4;&#x5C06;&#x4F1A;&#x8C03;&#x6574;&#x4E3A;&#x4E0B;&#x56FE;&#x3002;&#x539F;&#x6765;&#x7684;&#x4E3B;&#x8282;&#x70B9;&#x53D8;&#x6210;&#x4E86;&#x4ECE;&#x8282;&#x70B9;&#xFF0C;&#x4E0E;&#x65B0;&#x7684;&#x4E3B;&#x8282;&#x70B9;&#x5EFA;&#x7ACB;&#x590D;&#x5236;&#x5173;&#x7CFB;&#x3002;
+<img src="https://user-gold-cdn.xitu.io/2018/7/4/1646410c0581795a?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="&#x65B0;&#x96C6;&#x7FA4;"></p>
+<h4 id="&#x6D88;&#x606F;&#x4E22;&#x5931;"><a name="&#x6D88;&#x606F;&#x4E22;&#x5931;" class="anchor-navigation-ex-anchor" href="#&#x6D88;&#x606F;&#x4E22;&#x5931;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6D88;&#x606F;&#x4E22;&#x5931;</h4>
+<p>Redis &#x7684;&#x590D;&#x5236;&#x5173;&#x7CFB;&#x662F;&#x5F02;&#x6B65;&#x7684;&#xFF0C;&#x5F53;&#x4E3B;&#x8282;&#x70B9;&#x6302;&#x6389;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x80FD;&#x8FD8;&#x6CA1;&#x6709;&#x5C06;&#x6240;&#x6709;&#x6D88;&#x606F;&#x540C;&#x6B65;&#x7ED9;&#x4ECE;&#x8282;&#x70B9;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x90E8;&#x5206;&#x6D88;&#x606F;&#x53EF;&#x80FD;&#x4E22;&#x5931;&#x3002;&#x5982;&#x679C;&#x5EF6;&#x8FDF;&#x7279;&#x522B;&#x5927;&#xFF0C;&#x4E22;&#x7684;&#x6D88;&#x606F;&#x4E5F;&#x5C31;&#x4F1A;&#x8D8A;&#x591A;&#x3002;</p>
+<p>sentinel &#x65E0;&#x6CD5;&#x4FDD;&#x8BC1;&#x6D88;&#x606F;&#x5B8C;&#x5168;&#x4E0D;&#x4E22;&#x5931;&#xFF0C;&#x4F46;&#x662F;&#x80AF;&#x4F9D;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x4FDD;&#x8BC1;&#x5C11;&#x4E22;&#x5931;&#x3002;&#x6709;&#x4E0B;&#x9762;&#x4E24;&#x4E2A;&#x9009;&#x9879;</p>
+<pre class="language-"><code>min-slaves-to-write 1
+min-slaves-max-lag 10
+</code></pre><p>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x8868;&#x793A;&#xFF0C;&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A;&#x4ECE;&#x8282;&#x70B9;&#x5728;&#x8FDB;&#x884C;&#x6B63;&#x5E38;&#x590D;&#x5236;&#xFF0C;&#x5426;&#x5219;&#x505C;&#x6B62;&#x5BF9;&#x5916;&#x670D;&#x52A1;&#xFF0C;&#x4E27;&#x5931;&#x53EF;&#x7528;&#x6027;&#x3002;
+&#x90A3;&#x4F55;&#x4E3A;&#x6B63;&#x5E38;&#x590D;&#x5236;&#xFF0C;&#x4F55;&#x4E3A;&#x5F02;&#x5E38;&#x590D;&#x5236;&#x5462;&#xFF1F;&#x8FD9;&#x4E2A;&#x662F;&#x7531;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x63A7;&#x5236;&#xFF0C;&#x5B83;&#x5355;&#x4F4D;&#x662F;&#x79D2;&#xFF0C;&#x8868;&#x793A; 10s &#x6CA1;&#x6536;&#x5230;&#x4ECE;&#x8282;&#x70B9;&#x53CD;&#x9988;&#xFF0C;&#x5C31;&#x610F;&#x5473;&#x4ECE;&#x8282;&#x70B9;&#x540C;&#x6B65;&#x4E0D;&#x6B63;&#x5E38;&#xFF0C;&#x8981;&#x4E48;&#x7F51;&#x7EDC;&#x5206;&#x533A;&#xFF0C;&#x8981;&#x4E48;&#x4E00;&#x76F4;&#x6CA1;&#x53CD;&#x9988;&#x3002;</p>
+<h4 id="&#x914D;&#x7F6E;"><a name="&#x914D;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x914D;&#x7F6E;</h4>
+<p>&#x57FA;&#x4E8E; homestead &#x73AF;&#x5883;</p>
+<h5 id="&#x4E3B;&#x4ECE;&#x914D;&#x7F6E;"><a name="&#x4E3B;&#x4ECE;&#x914D;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#&#x4E3B;&#x4ECE;&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4E3B;&#x4ECE;&#x914D;&#x7F6E;</h5>
+<pre class="language-"><code class="lang-shell"><span class="token comment"># &#x8DF3;&#x8F6C;&#x5230; redis &#x914D;&#x7F6E;&#x76EE;&#x5F55;</span>
+<span class="token builtin class-name">cd</span> /etc/redis
+<span class="token comment"># &#x590D;&#x5236;&#x4E24;&#x4E2A;&#x4ECE;&#x8282;&#x70B9;&#x914D;&#x7F6E;</span>
+<span class="token function">sudo</span> <span class="token function">cp</span> redis.conf redis-6381.conf
+<span class="token function">sudo</span> <span class="token function">cp</span> redis.conf redis-6382.conf
+</code></pre>
+<p>&#x6253;&#x5F00;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x4ECE;&#x8282;&#x70B9;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x4FEE;&#x6539;&#x3002;</p>
+<pre class="language-"><code class="lang-text">#&#x4FEE;&#x6539;
+port 6381
+
+#&#x4FEE;&#x6539;
+pidfile /var/run/redis/redis-server-6381.pid
+#&#x4FEE;&#x6539;
+logfile /var/log/redis/redis-server-6381.log
+
+# &#x589E;&#x52A0;&#x4E00;&#x884C;
+slaveof 127.0.0.1 6379
+</code></pre>
+<p>&#x4FDD;&#x5B58;&#x4E4B;&#x540E;&#xFF0C;&#x542F;&#x52A8;&#x4E24;&#x4E2A;&#x4ECE;&#x8282;&#x70B9;&#x5B9E;&#x4F8B;</p>
+<pre class="language-"><code class="lang-shell"><span class="token function">sudo</span> redis-server /etc/redis/redis-6381.conf
+
+<span class="token function">sudo</span> redis-server /etc/redis/redis-6382.conf
+</code></pre>
+<p>&#x7136;&#x540E;&#x901A;&#x8FC7; redis-cli &#x8FDB;&#x5165;&#x4E3B;&#x8282;&#x70B9;&#xFF0C;&#x4F7F;&#x7528;&#x547D;&#x4EE4; info &#x67E5;&#x770B;&#x3002;</p>
+<pre class="language-"><code class="lang-shell"><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> info
+<span class="token builtin class-name">.</span>
+<span class="token builtin class-name">.</span>
+<span class="token builtin class-name">.</span>
+<span class="token comment"># Replication</span>
+role:master
+connected_slaves:2
+slave0:ip<span class="token operator">=</span><span class="token number">127.0</span>.0.1,port<span class="token operator">=</span><span class="token number">6381</span>,state<span class="token operator">=</span>online,offset<span class="token operator">=</span><span class="token number">784</span>,lag<span class="token operator">=</span><span class="token number">1</span>
+slave1:ip<span class="token operator">=</span><span class="token number">127.0</span>.0.1,port<span class="token operator">=</span><span class="token number">6382</span>,state<span class="token operator">=</span>online,offset<span class="token operator">=</span><span class="token number">784</span>,lag<span class="token operator">=</span><span class="token number">1</span>
+master_replid:125d233d1f1ddf1f52300d8ca4720a979b01283f
+master_replid2:0000000000000000000000000000000000000000
+master_repl_offset:798
+second_repl_offset:-1
+repl_backlog_active:1
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:1
+repl_backlog_histlen:798
+</code></pre>
+<p>&#x7701;&#x7565;&#x4E86;&#x4E00;&#x90E8;&#x5206;&#x7ED3;&#x679C;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;</p>
+<blockquote>
+<p>role:master #&#x672C;&#x673A;&#x662F;&#x300E;&#x4E3B;&#x8282;&#x70B9;&#x300F;
+connected_slaves:2 #&#x6709;2&#x4E2A;&#x300E;&#x4ECE;&#x8282;&#x70B9;&#x300F;
+slave0:ip=127.0.0.1,port=6381,state=online,offset=784,lag=1
+slave1:ip=127.0.0.1,port=6382,state=online,offset=784,lag=1</p>
+<h1 id="&#x4ECE;&#x670D;&#x52A1;&#x5668;ip&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;&#x662F;-6381-&#x548C;-6382"><a name="&#x4ECE;&#x670D;&#x52A1;&#x5668;ip&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;&#x662F;-6381-&#x548C;-6382" class="anchor-navigation-ex-anchor" href="#&#x4ECE;&#x670D;&#x52A1;&#x5668;ip&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;&#x662F;-6381-&#x548C;-6382"><i class="fa fa-link" aria-hidden="true"></i></a>2. &quot;&#x4ECE;&quot;&#x670D;&#x52A1;&#x5668;iP&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;&#x662F; 6381 &#x548C; 6382</h1>
+</blockquote>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x8BD5;&#x9A8C;&#x4E0B;,&#x9996;&#x5148;&#x5728;&#x4E3B;&#x8282;&#x70B9;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A; key&#x3002;</p>
+<pre class="language-"><code class="lang-lua"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> set name demo1
+OK
+<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> get name
+<span class="token string">&quot;demo1&quot;</span>
+</code></pre>
+<pre class="language-"><code class="lang-shell"><span class="token comment"># &#x5207;&#x6362;&#x4E3A;&#x4ECE;&#x8282;&#x70B9;</span>
+vagrant@homestead:/etc/redis$ redis-cli -p <span class="token number">6381</span>
+
+<span class="token number">127.0</span>.0.1:638<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> get name
+<span class="token string">&quot;demo1&quot;</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4ECE;&#x8282;&#x70B9;&#x5DF2;&#x7ECF;&#x6709;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x4E3B;&#x4ECE;&#x8282;&#x70B9;&#x5DF2;&#x7ECF;&#x6709;&#x590D;&#x5236;&#x5173;&#x7CFB;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x5C1D;&#x8BD5;&#x5728;&#x4ECE;&#x8282;&#x70B9;&#x8FDB;&#x884C;&#x5199;&#x64CD;&#x4F5C;</p>
+<pre class="language-"><code class="lang-lua"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6381</span><span class="token operator">&gt;</span> set name <span class="token function">lisi</span>
+<span class="token punctuation">(</span>error<span class="token punctuation">)</span> READONLY You can&apos;t write against a read only slave<span class="token punctuation">.</span>
+</code></pre>
+<p>&#x62A5;&#x9519;&#xFF0C;&#x8BF4;&#x660E;&#x4ECE;&#x8282;&#x70B9;&#x53EA;&#x80FD;&#x8BFB;&#x53D6;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x8BFB;&#x5199;&#x5206;&#x79BB;&#x3002;</p>
+<h5 id="&#x5728;-laravel-&#x4E2D;&#x914D;&#x7F6E;&#x4E3B;&#x4ECE;"><a name="&#x5728;-laravel-&#x4E2D;&#x914D;&#x7F6E;&#x4E3B;&#x4ECE;" class="anchor-navigation-ex-anchor" href="#&#x5728;-laravel-&#x4E2D;&#x914D;&#x7F6E;&#x4E3B;&#x4ECE;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5728; laravel &#x4E2D;&#x914D;&#x7F6E;&#x4E3B;&#x4ECE;</h5>
+<p>&#x5728; config/database.php &#x4E2D;&#x4FEE;&#x6539;&#x3001;</p>
+<pre class="language-"><code class="lang-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">return</span> <span class="token punctuation">[</span>
+&#xB7;
+&#xB7;
+&#xB7;
+    <span class="token single-quoted-string string">&apos;redis&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">&apos;client&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;REDIS_CLIENT&apos;</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">&apos;predis&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">&apos;cluster&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token boolean constant">false</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">&apos;default&apos;</span><span class="token operator">=</span><span class="token operator">&gt;</span><span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">&apos;tcp://127.0.0.1:6379&apos;</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">&apos;tcp://127.0.0.1:6381&apos;</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">&apos;tcp://127.0.0.1:6382&apos;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+</code></pre>
+<h5 id="sentinel_1"><a name="sentinel_1" class="anchor-navigation-ex-anchor" href="#sentinel_1"><i class="fa fa-link" aria-hidden="true"></i></a>sentinel</h5>
+<p>&#x7531;&#x4E8E;&#x5F53;&#x524D;&#x73AF;&#x5883;&#x6CA1;&#x6709;&#x5B89;&#x88C5; redis-sentinel&#xFF0C;&#x6240;&#x4EE5;&#x5148;&#x5B89;&#x88C5;</p>
+<pre class="language-"><code class="lang-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> redis-sentinel
+</code></pre>
+<p>&#x5B89;&#x88C5;&#x5B8C;&#x6210;&#x540E;&#xFF0C;/etc/redis &#x76EE;&#x5F55;&#x4E0B;&#x624D;&#x4F1A;&#x6709; sentinel.conf &#x6587;&#x4EF6;,&#x6253;&#x5F00;&#x6587;&#x4EF6;&#x5E76;&#x4FEE;&#x6539; </p>
+<pre class="language-"><code class="lang-shell">port <span class="token number">26379</span>
+
+pidfile <span class="token string">&quot;/var/run/redis-sentinel-26379.pid&quot;</span>
+
+logfile <span class="token string">&quot;/var/log/redis/redis-sentinel-26379.log&quot;</span>
+
+<span class="token comment">#&#x4E3B;&#x8282;&#x70B9;&#x522B;&#x540D;&#x4E3A;mymaster&#xFF0C;&#x540E;&#x9762;&#x662F;ip&#x548C;&#x7AEF;&#x53E3;&#xFF0C;2&#x4EE3;&#x8868;&#x5224;&#x65AD;&#x4E3B;&#x8282;&#x70B9;&#x5931;&#x8D25;&#x81F3;&#x5C11;&#x9700;&#x8981;2&#x4E2A;sentinel&#x8282;&#x70B9;&#x540C;&#x610F;</span>
+sentinel monitor mymaster <span class="token number">11.11</span>.11.11 <span class="token number">6379</span> <span class="token number">2</span> 
+
+<span class="token comment"># &#x8BBE;&#x7F6E;&#x5BC6;&#x7801;</span>
+<span class="token comment"># sentinel auth-pass mymaster 123456</span>
+
+<span class="token comment">#&#x4E3B;&#x8282;&#x70B9;&#x6545;&#x969C;30&#x79D2;&#x540E;&#x542F;&#x7528;&#x65B0;&#x7684;&#x4E3B;&#x8282;&#x70B9;</span>
+sentinel down-after-milliseconds mymaster <span class="token number">30000</span> 
+
+<span class="token comment">#&#x6545;&#x969C;&#x8F6C;&#x79FB;&#x65F6;&#x6700;&#x591A;&#x53EF;&#x4EE5;&#x6709;1&#x4E2A;&#x4ECE;&#x8282;&#x70B9;&#x540C;&#x65F6;&#x5BF9;&#x4E3B;&#x8282;&#x70B9;&#x8FDB;&#x884C;&#x6570;&#x636E;&#x540C;&#x6B65;&#xFF0C;&#x6570;&#x5B57;&#x8D8A;&#x5927;&#xFF0C;&#x7528;&#x65F6;&#x8D8A;&#x77ED;&#xFF0C;&#x5B58;&#x5728;&#x7F51;&#x7EDC;&#x548C; IO &#x5F00;&#x9500;</span>
+sentinel parallel-syncs mymaster <span class="token number">1</span> 
+
+<span class="token comment">#&#x6545;&#x969C;&#x8F6C;&#x79FB;&#x8D85;&#x65F6;&#x65F6;&#x95F4;180s&#xFF1A;a &#x5982;&#x679C;&#x8F6C;&#x79FB;&#x8D85;&#x65F6;&#x5931;&#x8D25;&#xFF0C;&#x4E0B;&#x6B21;&#x8F6C;&#x79FB;&#x65F6;&#x65F6;&#x95F4;&#x4E3A;&#x4E4B;&#x524D;&#x7684;2&#x500D;&#xFF1B;b &#x4ECE;&#x8282;&#x70B9;&#x53D8;&#x4E3B;&#x8282;&#x70B9;&#x65F6;&#xFF0C;&#x4ECE;&#x8282;&#x70B9;&#x6267;&#x884C; slaveof no one &#x547D;&#x4EE4;&#x4E00;&#x76F4;&#x5931;&#x8D25;&#x7684;&#x8BDD;&#xFF0C;&#x5F53;&#x65F6;&#x95F4;&#x8D85;&#x8FC7;180S&#x65F6;&#xFF0C;&#x5219;&#x6545;&#x969C;&#x8F6C;&#x79FB;&#x5931;&#x8D25;&#xFF1B;c &#x4ECE;&#x8282;&#x70B9;&#x590D;&#x5236;&#x65B0;&#x4E3B;&#x8282;&#x70B9;&#x65F6;&#x95F4;&#x8D85;&#x8FC7;180S&#x8F6C;&#x79FB;&#x5931;&#x8D25;</span>
+sentinel failover-timeout mymaster <span class="token number">180000</span>
+</code></pre>
+<p>&#x7136;&#x540E;&#x590D;&#x5236;&#x4E24;&#x4EFD; sentinel.conf</p>
+<pre class="language-"><code class="lang-shell">vagrant@homestead:/etc/redis$ <span class="token function">sudo</span> <span class="token function">cp</span> sentinel.conf sentinel-26381.conf
+vagrant@homestead:/etc/redis$ <span class="token function">sudo</span> <span class="token function">cp</span> sentinel.conf sentinel-26382.conf
+</code></pre>
+<p>&#x5206;&#x522B;&#x6253;&#x5F00;&#x4FEE;&#x6539; </p>
+<pre class="language-"><code class="lang-shell">pidfile <span class="token string">&quot;/var/run/sentinel/redis-sentinel-26381.pid&quot;</span>
+logfile <span class="token string">&quot;/var/log/redis/redis-sentinel-26381.log&quot;</span>
+
+port <span class="token number">26381</span>
+
+<span class="token comment"># myid &#x4E3A;&#x5F53;&#x524D; sentinel &#x7684; id&#xFF0C;&#x968F;&#x610F;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x5C31;&#x884C;&#xFF0C;&#x53EA;&#x8981;&#x4E0D;&#x91CD;&#x590D;&#xFF0C;&#x6700;&#x5F00;&#x59CB;&#x6211;&#x5C31;&#x662F;&#x6CA1;&#x4FEE;&#x6539;&#x8FD9;&#x4E2A;&#xFF0C;&#x5BFC;&#x81F4;&#x59CB;&#x7EC8;&#x65E0;&#x6CD5;&#x5EFA;&#x7ACB;&#x591A;&#x4E2A; sentinel</span>
+sentinel myid 8f2969662f6bcd3553661608c213a3d637ab9987
+</code></pre>
+<p>&#x4E0A;&#x9762;&#x914D;&#x7F6E;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x542F;&#x52A8;</p>
+<pre class="language-"><code class="lang-shell">vagrant@homestead:/etc/redis$ <span class="token function">sudo</span> redis-sentinel sentinel.conf
+vagrant@homestead:/etc/redis$ <span class="token function">sudo</span> redis-sentinel sentinel-26381.conf
+vagrant@homestead:/etc/redis$ <span class="token function">sudo</span> redis-sentinel sentinel-26382.conf
+</code></pre>
+<p>&#x5F53;&#x542F;&#x52A8;&#x540E;&#xFF0C;&#x67E5;&#x770B;&#x65E5;&#x5FD7;&#x53D1;&#x73B0; /var/log/redis/redis-sentinel.log</p>
+<pre class="language-"><code class="lang-shell"><span class="token number">29329</span>:X <span class="token number">25</span> Sep <span class="token number">17</span>:15:33.445 <span class="token comment"># oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span>
+<span class="token number">29329</span>:X <span class="token number">25</span> Sep <span class="token number">17</span>:15:33.445 <span class="token comment"># Redis version=4.0.9, bits=64, commit=00000000, modified=0, pid=29329, just started</span>
+<span class="token number">29329</span>:X <span class="token number">25</span> Sep <span class="token number">17</span>:15:33.445 <span class="token comment"># Configuration loaded</span>
+<span class="token number">29330</span>:X <span class="token number">25</span> Sep <span class="token number">17</span>:15:33.448 * Increased maximum number of <span class="token function">open</span> files to <span class="token number">10032</span> <span class="token punctuation">(</span>it was originally <span class="token builtin class-name">set</span> to <span class="token number">1024</span><span class="token punctuation">)</span>.
+
+<span class="token comment"># &#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x4E3A; sentinel&#xFF0C; &#x7AEF;&#x53E3;&#x4E3A; 26379</span>
+<span class="token number">29330</span>:X <span class="token number">25</span> Sep <span class="token number">17</span>:15:33.450 * Running <span class="token assign-left variable">mode</span><span class="token operator">=</span>sentinel, <span class="token assign-left variable">port</span><span class="token operator">=</span><span class="token number">26379</span>.
+
+<span class="token comment"># &#x5B83;&#x7684; id &#x4E3A; 8f2969662f6bcd3553661608c213a3d637cd2331</span>
+<span class="token number">29330</span>:X <span class="token number">25</span> Sep <span class="token number">17</span>:15:33.451 <span class="token comment"># Sentinel ID is 8f2969662f6bcd3553661608c213a3d637cd2331</span>
+
+<span class="token comment"># redis &#x96C6;&#x7FA4;&#x4E3B;&#x8282;&#x70B9;&#x4E3A; &#x7AEF;&#x53E3;&#x53F7; 6379&#xFF0C;&#x5F53;&#x4E3B;&#x8282;&#x70B9;&#x53D1;&#x751F;&#x6545;&#x969C;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x81F3;&#x5C11;&#x4E24;&#x4E2A; quorum &#x6295;&#x7968;&#x786E;&#x5B9A;&#x65B0;&#x4E3B;&#x8282;&#x70B9;</span>
+<span class="token number">29330</span>:X <span class="token number">25</span> Sep <span class="token number">17</span>:15:33.451 <span class="token comment"># +monitor master mymaster 127.0.0.1 6379 quorum 2</span>
+
+<span class="token comment"># &#x53D1;&#x73B0;&#x4E86;&#x4E24;&#x4E2A;&#x65B0;&#x4ECE;&#x8282;&#x70B9;</span>
+<span class="token number">29330</span>:X <span class="token number">25</span> Sep <span class="token number">17</span>:15:33.455 * +slave slave <span class="token number">127.0</span>.0.1:6381 <span class="token number">127.0</span>.0.1 <span class="token number">6381</span> @ mymaster <span class="token number">127.0</span>.0.1 <span class="token number">6379</span>
+<span class="token number">29330</span>:X <span class="token number">25</span> Sep <span class="token number">17</span>:15:33.464 * +slave slave <span class="token number">127.0</span>.0.1:6382 <span class="token number">127.0</span>.0.1 <span class="token number">6382</span> @ mymaster <span class="token number">127.0</span>.0.1 <span class="token number">6379</span>
+
+<span class="token comment"># &#x53D1;&#x73B0;&#x4E86;&#x4E24;&#x4E2A;&#x65B0; sentinel</span>
+<span class="token number">29330</span>:X <span class="token number">25</span> Sep <span class="token number">17</span>:15:47.382 * +sentinel sentinel 8f2969662f6bcd3553661608c213a3d637ab9987 <span class="token number">127.0</span>.0.1 <span class="token number">26381</span> @ mymaster <span class="token number">127.0</span>.0.1 <span class="token number">6382</span>
+<span class="token number">29330</span>:X <span class="token number">25</span> Sep <span class="token number">17</span>:15:49.633 * +sentinel sentinel 8f2969662f6efg3553661608c213a3d637cd0000 <span class="token number">127.0</span>.0.1 <span class="token number">26382</span> @ mymaster <span class="token number">127.0</span>.0.1 <span class="token number">6382</span>
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x518D;&#x6253;&#x5F00; sentinel.conf &#x4F1A;&#x53D1;&#x73B0;&#x591A;&#x4E86;&#x51E0;&#x884C;&#xFF0C;&#x8868;&#x793A;&#x5DF2;&#x77E5;&#x7684;&#x4ECE;&#x8282;&#x70B9;&#x548C; sentinel&#x3002;</p>
+<pre class="language-"><code class="lang-shell">sentinel known-slave mymaster <span class="token number">127.0</span>.0.1 <span class="token number">6381</span>
+sentinel known-slave mymaster <span class="token number">127.0</span>.0.1 <span class="token number">6382</span>
+sentinel known-sentinel mymaster <span class="token number">127.0</span>.0.1 <span class="token number">26381</span> 8f2969662f6bcd3553661608c213a3d637ab9987
+sentinel known-sentinel mymaster <span class="token number">127.0</span>.0.1 <span class="token number">26382</span> 8f2969662f6efg3553661608c213a3d637cd0000
+sentinel current-epoch <span class="token number">0</span>
+</code></pre>
+<p>&#x5F53;&#x6740;&#x6B7B; master &#x65F6;&#xFF0C;sentinel &#x5C06;&#x4F1A;&#x4ECE;&#x65B0;&#x9009;&#x4E3E;&#x65B0;&#x7684; master
+<img src="https://img-blog.csdn.net/20151230162846197?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="&#x91CD;&#x65B0;&#x9009;&#x4E3E;"></p>
+<p>&#x6211;&#x4EEC;&#x8FDB;&#x5165; 6381 &#x67E5;&#x770B;&#x72B6;&#x6001;,6381 &#x5DF2;&#x7ECF;&#x662F; master&#x4E86; &#x5E76;&#x4E14;&#x62E5;&#x6709;&#x4E00;&#x4E2A; 6382 &#x7684;slave</p>
+<pre class="language-"><code class="lang-shell"><span class="token number">127.0</span>.0.1:638<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> info Replication
+<span class="token comment"># Replication</span>
+role:master
+connected_slaves:1
+slave0:ip<span class="token operator">=</span><span class="token number">127.0</span>.0.1,port<span class="token operator">=</span><span class="token number">6382</span>,state<span class="token operator">=</span>online,offset<span class="token operator">=</span><span class="token number">405135</span>,lag<span class="token operator">=</span><span class="token number">0</span>
+master_replid:2fb1ec7df33d87f7489d451e2a4b1ba379c16038
+master_replid2:f2291a4914b906e8ce6b88203d755ed9b539ab0a
+master_repl_offset:405135
+second_repl_offset:58660
+repl_backlog_active:1
+repl_backlog_size:1048576
+repl_backlog_first_byte_offset:4800
+repl_backlog_histlen:400336
+</code></pre>
+<p>&#x91CD;&#x65B0;&#x542F;&#x52A8; 6379 &#x540E;,&#x5E76;&#x4E14;&#x5C06; 6379 &#x8BBE;&#x7F6E;&#x4E3A; 6381 &#x7684; slave&#x3002;</p>
+<pre class="language-"><code class="lang-shell"><span class="token number">29330</span>:X <span class="token number">25</span> Sep <span class="token number">17</span>:32:11.190 * +slave slave <span class="token number">127.0</span>.0.1:6382 <span class="token number">127.0</span>.0.1 <span class="token number">6382</span> @ mymaster <span class="token number">127.0</span>.0.1 <span class="token number">6381</span>
+<span class="token number">29330</span>:X <span class="token number">25</span> Sep <span class="token number">17</span>:32:41.251 <span class="token comment"># +sdown slave 127.0.0.1:6382 127.0.0.1 6382 @ mymaster 127.0.0.1 6381</span>
+<span class="token number">29330</span>:X <span class="token number">25</span> Sep <span class="token number">17</span>:32:41.500 <span class="token comment"># -sdown slave 127.0.0.1:6382 127.0.0.1 6382 @ mymaster 127.0.0.1 6381</span>
+</code></pre>
+<h5 id="sentinel-&#x5728;-laravel-&#x4E2D;&#x4F7F;&#x7528;"><a name="sentinel-&#x5728;-laravel-&#x4E2D;&#x4F7F;&#x7528;" class="anchor-navigation-ex-anchor" href="#sentinel-&#x5728;-laravel-&#x4E2D;&#x4F7F;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>sentinel &#x5728; laravel &#x4E2D;&#x4F7F;&#x7528;</h5>
+<pre class="language-"><code class="lang-php"><span class="token delimiter important">&lt;?php</span>
+       <span class="token variable">$sentinels</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">&apos;tcp://127.0.0.1:26379&apos;</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">&apos;tcp://127.0.0.1:26381&apos;</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">&apos;tcp://127.0.0.1:26382&apos;</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token variable">$options</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token single-quoted-string string">&apos;replication&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">&apos;sentinel&apos;</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">&apos;service&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">&apos;mymaster&apos;</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$redis</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token punctuation">\</span>Predis<span class="token punctuation">\</span>Client</span><span class="token punctuation">(</span><span class="token variable">$sentinels</span><span class="token punctuation">,</span> <span class="token variable">$options</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$redis</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;name&apos;</span><span class="token punctuation">,</span><span class="token single-quoted-string string">&apos;jack&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">dd</span><span class="token punctuation">(</span><span class="token variable">$redis</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>sentinel &#x51E0;&#x4E2A;&#x5E38;&#x7528;&#x547D;&#x4EE4;</p>
+<pre class="language-"><code class="lang-shell">SENTINEL masters   <span class="token comment">#&#x67E5;&#x770B;&#x4E3B;&#x8282;&#x70B9;&#x4FE1;&#x606F;</span>
+SENTINEL sentinels <span class="token operator">&lt;</span>MASTER_NAME<span class="token operator">&gt;</span> <span class="token comment"># &#x67E5;&#x770B;&#x5176;&#x4ED6; sentinel &#x4FE1;&#x606F;</span>
+SENTINEL slaves <span class="token operator">&lt;</span>MASTER_NAME<span class="token operator">&gt;</span>  <span class="token comment">#&#x67E5;&#x770B;&#x5BF9;&#x5E94;&#x96C6;&#x7FA4;&#x7684;&#x4ECE;&#x8282;&#x70B9;&#x4FE1;&#x606F;</span>
+SENTINEL failover <span class="token operator">&lt;</span>MASTER_NAME<span class="token operator">&gt;</span>  <span class="token comment">#&#x8FDB;&#x884C;&#x6545;&#x969C;&#x8F6C;&#x79FB;</span>
+SENTINEL get-master-addr-by-name <span class="token operator">&lt;</span>MASTER_NAME<span class="token operator">&gt;</span> <span class="token comment">#&#x67E5;&#x770B;&#x5F53;&#x524D;&#x7684;&#x4E3B;&#x8282;&#x70B9;&#x5730;&#x5740;</span>
+</code></pre>
+<p>&#x53C2;&#x8003;&#xFF1A;
+<a href="https://learnku.com/articles/30506" target="_blank">Redis &#x54E8;&#x5175;&#x4F7F;&#x7528;&#x4EE5;&#x53CA;&#x5728; Laravel &#x4E2D;&#x7684;&#x914D;&#x7F6E; | Laravel China &#x793E;&#x533A;</a>
+<a href="https://blog.csdn.net/vtopqx/article/details/49247285" target="_blank">Redis Sentinel&#x670D;&#x52A1;&#x914D;&#x7F6E; - &#x6F2B;&#x5929;&#x96EA;_&#x6606;&#x4ED1;&#x5DC5; - CSDN&#x535A;&#x5BA2;</a> </p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; Kagami&#x4E36; 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-09-25 18:05:30
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="11.主从同步.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 11.主从同步">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"12.Redis 集群-sentinel","level":"1.4.12","depth":2,"previous":{"title":"11.主从同步","level":"1.4.11","depth":2,"path":"Redis/11.主从同步.md","ref":"Redis/11.主从同步.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","prism","-highlight","copy-code-button","search-pro","-search","-lunr","expandable-chapters","splitter","-sharing","github-buttons","tbfed-pagefooter","anchor-navigation-ex","disqus","github","hide-element","insert-logo","pageview-count","popup"],"ignores":["node_modules","docs"],"root":".","styles":{"website":"./styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy Kagami丶 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"shell":"bash"}},"disqus":{"useIdentifier":false,"shortName":"jk4905"},"github":{"url":"https://github.com/jk4905"},"splitter":{},"search-pro":{},"popup":{},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"},{"user":"jk4905","width":"160","type":"follow","count":true,"size":"small"}]},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 30px; min-height: 30px","url":"https://raw.githubusercontent.com/jk4905/PHP-Interview/master/docs/images/logo.png"},"expandable-chapters":{}},"theme":"default","author":"Kagami丶","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Kagami丶PHP-Interview","sortedBy":"num.","variables":{},"title":"PHP-Interview","language":"zh-hans","output.name":"docs","catalog":"all","gitbook":"3.2.3","unchanged":[],"description":"Kagami丶 的 PHP 复习笔记","outputfile":"SUMMARY.md"},"file":{"path":"Redis/12.Redis 集群-sentinel.md","mtime":"2019-09-25T10:05:30.642Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-25T10:06:08.379Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
