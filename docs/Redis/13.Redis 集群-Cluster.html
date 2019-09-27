@@ -1,0 +1,1066 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>13.Redis 集群-Cluster · PHP-Interview</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Kagami丶">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="12.Redis 集群-sentinel.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"},{"user":"jk4905","width":"160","type":"follow","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    My SQL
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../MySQL/01.初识 MySQL.html">
+            
+                <a href="../MySQL/01.初识 MySQL.html">
+            
+                    
+                    01.初识 MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../MySQL/02.字符集与比较规则.html">
+            
+                <a href="../MySQL/02.字符集与比较规则.html">
+            
+                    
+                    02.字符集与比较规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    PHP-基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../PHP-基础知识/01.类型.html">
+            
+                <a href="../PHP-基础知识/01.类型.html">
+            
+                    
+                    01.类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../PHP-基础知识/02.变量与常量.html">
+            
+                <a href="../PHP-基础知识/02.变量与常量.html">
+            
+                    
+                    02.变量与常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../PHP-基础知识/03.运算符.html">
+            
+                <a href="../PHP-基础知识/03.运算符.html">
+            
+                    
+                    03.运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../PHP-基础知识/04.流程控制.html">
+            
+                <a href="../PHP-基础知识/04.流程控制.html">
+            
+                    
+                    04.流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../PHP-基础知识/05.函数.html">
+            
+                <a href="../PHP-基础知识/05.函数.html">
+            
+                    
+                    05.函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../PHP-基础知识/06.类与对象1.html">
+            
+                <a href="../PHP-基础知识/06.类与对象1.html">
+            
+                    
+                    06.类与对象1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../PHP-基础知识/07.类与对象2.html">
+            
+                <a href="../PHP-基础知识/07.类与对象2.html">
+            
+                    
+                    07.类与对象2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../PHP-基础知识/08.类与对象3.html">
+            
+                <a href="../PHP-基础知识/08.类与对象3.html">
+            
+                    
+                    08.类与对象3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../PHP-基础知识/09.命名空间.html">
+            
+                <a href="../PHP-基础知识/09.命名空间.html">
+            
+                    
+                    09.命名空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../PHP-基础知识/10.PHP-FPM 与 Nginx.html">
+            
+                <a href="../PHP-基础知识/10.PHP-FPM 与 Nginx.html">
+            
+                    
+                    10.PHP-FPM 与 Nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    Redis
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="01.基础数据结构.html">
+            
+                <a href="01.基础数据结构.html">
+            
+                    
+                    01.基础数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="02.分布式锁.html">
+            
+                <a href="02.分布式锁.html">
+            
+                    
+                    02.分布式锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="03.延时队列.html">
+            
+                <a href="03.延时队列.html">
+            
+                    
+                    03.延时队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="04.位图.html">
+            
+                <a href="04.位图.html">
+            
+                    
+                    04.位图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="05.HyperLogLog 统计.html">
+            
+                <a href="05.HyperLogLog 统计.html">
+            
+                    
+                    05.HyperLogLog 统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="06.布隆过滤器.html">
+            
+                <a href="06.布隆过滤器.html">
+            
+                    
+                    06.布隆过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="07.限流.html">
+            
+                <a href="07.限流.html">
+            
+                    
+                    07.限流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="08.GeoHash 算法.html">
+            
+                <a href="08.GeoHash 算法.html">
+            
+                    
+                    08.GeoHash 算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="09.大海捞针-scan.html">
+            
+                <a href="09.大海捞针-scan.html">
+            
+                    
+                    09.大海捞针-scan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="10.内存回收机制.html">
+            
+                <a href="10.内存回收机制.html">
+            
+                    
+                    10.内存回收机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="11.主从同步.html">
+            
+                <a href="11.主从同步.html">
+            
+                    
+                    11.主从同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.12" data-path="12.Redis 集群-sentinel.html">
+            
+                <a href="12.Redis 集群-sentinel.html">
+            
+                    
+                    12.Redis 集群-sentinel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.13" data-path="13.Redis 集群-Cluster.html">
+            
+                <a href="13.Redis 集群-Cluster.html">
+            
+                    
+                    13.Redis 集群-Cluster
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >13.Redis 集群-Cluster</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#13redis-&#x96C6;&#x7FA4;-cluster"><b>1.1.1. </b>13.Redis &#x96C6;&#x7FA4;-Cluster</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="13redis-&#x96C6;&#x7FA4;-cluster"><a name="13redis-&#x96C6;&#x7FA4;-cluster" class="anchor-navigation-ex-anchor" href="#13redis-&#x96C6;&#x7FA4;-cluster"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1. 13.Redis &#x96C6;&#x7FA4;-Cluster</h3>
+<h4 id="&#x4ECB;&#x7ECD;"><a name="&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4ECB;&#x7ECD;</h4>
+<p>Cluster &#x662F;&#x5B98;&#x65B9;&#x51FA;&#x7684; Redis &#x96C6;&#x7FA4;&#x5316;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;</p>
+<p>&#x5B83;&#x76F8;&#x5BF9;&#x4E8E; Codis &#x4E0D;&#x540C;&#xFF0C;&#x5B83;&#x662F;&#x53BB;&#x4E2D;&#x5FC3;&#x5316;&#x7684;&#x3002;&#x5982;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x8BE5;&#x96C6;&#x7FA4;&#x5206;&#x4E3A;&#x4E09;&#x4E2A;&#x8282;&#x70B9;&#xFF0C;&#x4E09;&#x4E2A;&#x8282;&#x70B9;&#x8D1F;&#x8D23;&#x5B58;&#x50A8;&#x4E00;&#x90E8;&#x5206;&#x6570;&#x636E;&#xFF0C;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x6570;&#x636E;&#x53EF;&#x80FD;&#x5404;&#x4E0D;&#x76F8;&#x540C;&#xFF0C;&#x4E09;&#x4E2A;&#x8282;&#x70B9;&#x4E92;&#x76F8;&#x8FDE;&#x63A5;&#x6784;&#x6210;&#x4E00;&#x4E2A;&#x5BF9;&#x7B49;&#x7684;&#x96C6;&#x7FA4;&#x3002;&#x4ED6;&#x4EEC;&#x4E4B;&#x95F4;&#x901A;&#x8FC7;&#x7279;&#x6B8A;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x534F;&#x8BAE;&#x76F8;&#x4E92;&#x4EA4;&#x4E92;&#x96C6;&#x7FA4;&#x4FE1;&#x606F;&#x3002;</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/7/10/16481f3bd5ca1577?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="Cluster &#x793A;&#x610F;&#x56FE;"></p>
+<p>Redis Cluster &#x5C06;&#x6240;&#x6709;&#x6570;&#x636E;&#x5212;&#x5206;&#x4E3A; 16384 &#x7684; slots&#xFF08;&#x69FD;&#xFF09;&#xFF0C;&#x5B83;&#x6BD4; Codis &#x7684; 1024 &#x4E2A;&#x69FD;&#x5206;&#x7684;&#x66F4;&#x52A0;&#x7CBE;&#x7EC6;&#x3002;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x8D1F;&#x8D23;&#x5176;&#x4E2D;&#x4E00;&#x90E8;&#x5206;&#x69FD;&#x4F4D;&#x3002;&#x69FD;&#x4F4D;&#x4FE1;&#x606F;&#x5B58;&#x50A8;&#x5728;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x4E2D;&#xFF0C;&#x5B83;&#x4E0D;&#x50CF; Codis &#x9700;&#x8981;&#x53E6;&#x5916;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x6765;&#x5B58;&#x50A8;&#x8282;&#x70B9;&#x69FD;&#x4F4D;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x5F53; Redis Cluster &#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x96C6;&#x7FA4;&#x65F6;&#xFF0C;&#x5B83;&#x4F1A;&#x5F97;&#x5230;&#x4E00;&#x90E8;&#x5206;&#x96C6;&#x7FA4;&#x7684;&#x69FD;&#x4F4D;&#x914D;&#x7F6E;&#x4FE1;&#x606F;&#xFF0C;&#x8FD9;&#x6837;&#x5F53;&#x67E5;&#x8BE2;&#x67D0;&#x4E2A; key &#x65F6;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5B9A;&#x4F4D;&#x76EE;&#x6807;&#x8282;&#x70B9;&#x3002;</p>
+<p>Codis &#x9700;&#x8981;&#x901A;&#x8FC7; proxy &#x6765;&#x5B9A;&#x4F4D;&#x8282;&#x70B9;&#x3002;&#x800C; Redis Cluster &#x662F;&#x76F4;&#x63A5;&#x5B9A;&#x4F4D;&#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x4E3A;&#x4E86;&#x80FD;&#x76F4;&#x63A5;&#x5B9A;&#x4F4D;&#x67D0;&#x4E2A;&#x5177;&#x4F53; key &#x6240;&#x5728;&#x7684;&#x8282;&#x70B9;&#xFF0C;&#x5C31;&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x7F13;&#x5B58;&#x4E86;&#x69FD;&#x4F4D;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x3002;&#x540C;&#x65F6;&#x53C8;&#x56E0;&#x4E3A;&#x5BA2;&#x6237;&#x7AEF;&#x69FD;&#x4F4D;&#x4FE1;&#x606F;&#x53EF;&#x80FD;&#x548C;&#x670D;&#x52A1;&#x5668;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x6240;&#x4EE5;&#x8FD8;&#x6709;&#x7EA0;&#x6B63;&#x673A;&#x5236;&#x3002;</p>
+<p>Redis Cluster &#x7684;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x4F1A;&#x5C06;&#x96C6;&#x7FA4;&#x4FE1;&#x606F;&#x6301;&#x4E45;&#x5316;&#x5230;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x6240;&#x4EE5;&#x5FC5;&#x987B;&#x4FDD;&#x8BC1;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x53EF;&#x5199;&#xFF0C;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5C3D;&#x91CF;&#x4E0D;&#x4F9D;&#x9760;&#x4EBA;&#x4E3A;&#x4FEE;&#x6539;&#x3002;</p>
+<h5 id="&#x69FD;&#x4F4D;&#x7B97;&#x6CD5;"><a name="&#x69FD;&#x4F4D;&#x7B97;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x69FD;&#x4F4D;&#x7B97;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x69FD;&#x4F4D;&#x7B97;&#x6CD5;</h5>
+<p>Cluster &#x4F1A;&#x5C06; key &#x503C;&#x4F7F;&#x7528; crc16 &#x7B97;&#x6CD5;&#x8FDB;&#x884C; hash &#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x6574;&#x6570;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x8FD9;&#x4E2A;&#x503C;&#x8FDB;&#x884C; 16384 &#x53D6;&#x6A21;&#x6765;&#x5F97;&#x5230;&#x69FD;&#x4F4D;&#x3002;</p>
+<p>Cluster &#x8FD8;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x5F3A;&#x5236;&#x67D0;&#x4E2A; key &#x6302;&#x5728;&#x7279;&#x5B9A;&#x69FD;&#x4F4D;&#x4E0A;&#xFF0C;&#x901A;&#x8FC7;&#x5728; key &#x4E0A;&#x5D4C;&#x5165; tag &#x6807;&#x8BB0;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5F3A;&#x5236; key &#x6240;&#x6302;&#x7684;&#x69FD;&#x4F4D;&#x7B49;&#x4E8E; tag &#x6240;&#x5728;&#x7684;&#x69FD;&#x4F4D;&#x3002;</p>
+<h5 id="&#x8DF3;&#x8F6C;"><a name="&#x8DF3;&#x8F6C;" class="anchor-navigation-ex-anchor" href="#&#x8DF3;&#x8F6C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8DF3;&#x8F6C;</h5>
+<p>&#x5F53;&#x5BA2;&#x6237;&#x7AEF;&#x5411;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x7684;&#x8282;&#x70B9;&#x53D1;&#x51FA;&#x6307;&#x4EE4;&#xFF0C;&#x8BE5;&#x8282;&#x70B9;&#x53D1;&#x73B0;&#x6307;&#x4EE4;&#x7684; key &#x4E0D;&#x5C5E;&#x4E8E;&#x5B83;&#x7BA1;&#x7406;&#xFF0C;&#x8FD9;&#x65F6;&#x5B83;&#x4F1A;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x8DF3;&#x8F6C;&#x6307;&#x4EE4;&#xFF0C;&#x544A;&#x8BC9;&#x5BA2;&#x6237;&#x7AEF;&#x53BB;&#x8FDE;&#x63A5;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#x3002;</p>
+<pre class="language-"><code class="lang-shell">GET x
+-MOVED <span class="token number">3999</span> <span class="token number">127.0</span>.0.1:6381
+</code></pre>
+<p>MOVED &#x540E;&#x9762;&#x7684; 3999 &#x8868;&#x793A;&#x5BF9;&#x5E94;&#x7684; key &#x7684;&#x69FD;&#x4F4D;&#x7F16;&#x53F7;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x5730;&#x5740;&#x8868;&#x793A;&#x76EE;&#x6807;&#x8282;&#x70B9;&#x5730;&#x5740;&#x3002;MOVED &#x524D;&#x9762;&#x6709;&#x4E2A;&#x51CF;&#x53F7;&#xFF0C;&#x8868;&#x793A;&#x8FD9;&#x65F6;&#x4E00;&#x6761;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x5BA2;&#x6237;&#x7AEF;&#x6536;&#x5230; MOVED &#x6307;&#x4EE4;&#x540E;&#xFF0C;&#x4F1A;&#x7ACB;&#x5373;&#x7EA0;&#x6B63;&#x672C;&#x5730;&#x69FD;&#x4F4D;&#x6620;&#x5C04;&#x8868;&#xFF0C;&#x540E;&#x7EED; key &#x90FD;&#x5C06;&#x4F7F;&#x7528;&#x65B0;&#x6620;&#x5C04;&#x8868;&#x3002;</p>
+<h5 id="&#x8FC1;&#x79FB;"><a name="&#x8FC1;&#x79FB;" class="anchor-navigation-ex-anchor" href="#&#x8FC1;&#x79FB;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8FC1;&#x79FB;</h5>
+<p>Redis Cluster &#x63D0;&#x4F9B;&#x4E86;&#x5DE5;&#x5177; redis-trib &#x8BA9;&#x7EF4;&#x62A4;&#x4EBA;&#x5458;&#x53EF;&#x4EE5;&#x624B;&#x52A8;&#x8C03;&#x6574;&#x69FD;&#x4F4D;&#x7684;&#x5206;&#x914D;&#x60C5;&#x51B5;&#x3002;</p>
+<p><img src="https://user-gold-cdn.xitu.io/2018/7/31/164f0ac2cd2a1c9f?imageView2/0/w/1280/h/960/format/webp/ignore-error/1" alt="&#x8FC1;&#x79FB;&#x8FC7;&#x7A0B;"></p>
+<p>Redis &#x8FC1;&#x79FB;&#x7684;&#x5355;&#x4F4D;&#x662F;&#x69FD;&#xFF0C;Redis &#x4E00;&#x4E2A;&#x69FD;&#x4E00;&#x4E2A;&#x69FD;&#x7684;&#x8FC1;&#x79FB;&#x3002;&#x5F53;&#x4E00;&#x4E2A;&#x69FD;&#x6B63;&#x5728;&#x8FC1;&#x79FB;&#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x69FD;&#x5C31;&#x51FA;&#x4E8E;&#x4E2D;&#x95F4;&#x8FC7;&#x6E21;&#x72B6;&#x6001;&#x3002;&#x6B64;&#x65F6;&#x8FD9;&#x4E2A;&#x69FD;&#x5728;&#x539F;&#x8282;&#x70B9;&#x72B6;&#x6001;&#x4E3A; &#x300C;migrating&#x300D;&#xFF0C;&#x5728;&#x76EE;&#x6807;&#x8282;&#x70B9;&#x7684;&#x72B6;&#x6001;&#x662F; &#x300C;importing&#x300D;&#xFF0C;&#x8868;&#x793A;&#x6570;&#x636E;&#x6B63;&#x5728;&#x6D41;&#x5411;&#x76EE;&#x6807;&#x3002;</p>
+<p>&#x8FC1;&#x79FB;&#x5DE5;&#x5177; redis-trib &#x6B65;&#x9AA4;&#xFF1A;</p>
+<ol>
+<li>&#x9996;&#x5148;&#x4F1A;&#x5728;&#x539F;&#x8282;&#x70B9;&#x548C;&#x76EE;&#x6807;&#x8282;&#x70B9;&#x8BBE;&#x7F6E;&#x597D;&#x4E2D;&#x95F4;&#x72B6;&#x6001;</li>
+<li>&#x7136;&#x540E;&#x4E00;&#x6B21;&#x6027;&#x83B7;&#x53D6;&#x539F;&#x8282;&#x70B9;&#x69FD;&#x4F4D;&#x7684;&#x6240;&#x6709; key &#x5217;&#x8868;&#xFF08;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; keysinslot &#x90E8;&#x5206;&#x83B7;&#x53D6;&#xFF09;&#xFF0C;&#x518D;&#x6328;&#x4E2A;&#x8FDB;&#x884C;&#x8FC1;&#x79FB;&#x3002;</li>
+<li>&#x6BCF;&#x4E2A;&#x8FC1;&#x79FB;&#x8FC7;&#x7A0B;&#x662F;&#x539F;&#x8282;&#x70B9;&#x505A;&#x4E3A;&#x76EE;&#x6807;&#x8282;&#x70B9;&#x7684;&#x300C;&#x5BA2;&#x6237;&#x7AEF;&#x300D;&#xFF0C;&#x539F;&#x8282;&#x70B9;&#x5BF9; key &#x6267;&#x884C; dump &#x547D;&#x4EE4;&#x5F97;&#x5230;&#x5E8F;&#x5217;&#x5316;&#x5185;&#x5BB9;</li>
+<li>&#x7136;&#x540E;&#x539F;&#x8282;&#x70B9;&#x5411;&#x76EE;&#x6807;&#x8282;&#x70B9;&#x53D1;&#x9001; restore &#x643A;&#x5E26;&#x5E8F;&#x5217;&#x5316;&#x7684;&#x5185;&#x5BB9;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x76EE;&#x6807;&#x8282;&#x70B9;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x56DE;&#x590D;&#x5230;&#x76EE;&#x6807;&#x8282;&#x70B9;&#x4E2D;</li>
+<li>&#x6700;&#x540E;&#x6807;&#x8282;&#x70B9;&#x5BF9;&#x539F;&#x8282;&#x70B9;&#x300C;&#x5BA2;&#x6237;&#x7AEF;&#x300D;&#x8FD4;&#x56DE; OK&#xFF0C;&#x539F;&#x8282;&#x70B9;&#x518D;&#x5220;&#x9664; key&#x3002;</li>
+</ol>
+<p>&#x8FD9;&#x5C31;&#x662F;&#x6574;&#x4E2A;&#x8FC1;&#x79FB;&#x8FC7;&#x7A0B;&#x3002;</p>
+<p>&#x4ECE;&#x6E90;&#x8282;&#x70B9;&#x83B7;&#x53D6;&#x5185;&#x5BB9; =&gt; &#x5B58;&#x5230;&#x76EE;&#x6807;&#x8282;&#x70B9; =&gt; &#x4ECE;&#x6E90;&#x8282;&#x70B9;&#x5220;&#x9664;&#x5185;&#x5BB9;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;</p>
+<ol>
+<li>&#x8FC1;&#x79FB;&#x8FC7;&#x7A0B;&#x662F;&#x540C;&#x6B65;&#x7684;&#xFF0C;&#x77E5;&#x9053;&#x5220;&#x9664;&#x539F; key &#x4E4B;&#x524D;&#xFF0C;&#x539F;&#x8282;&#x70B9;&#x662F;&#x963B;&#x585E;&#x7684;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x8FC1;&#x79FB;&#x8FC7;&#x7A0B;&#x4E2D;&#x53D1;&#x751F;&#x7F51;&#x7EDC;&#x6545;&#x969C;&#xFF0C;&#x8FD9;&#x65F6;&#x4E24;&#x4E2A;&#x8282;&#x70B9;&#x4F9D;&#x65E7;&#x5904;&#x4E8E;&#x4E2D;&#x95F4;&#x72B6;&#x6001;&#xFF0C;&#x5F85;&#x4E0B;&#x6B21;&#x8FC1;&#x79FB;&#x5DE5;&#x5177;&#x91CD;&#x65B0;&#x8FDE;&#x63A5;&#x4E0A;&#x65F6;&#xFF0C;&#x4F1A;&#x63D0;&#x793A;&#x7528;&#x6237;&#x7EE7;&#x7EED;&#x8FDB;&#x884C;&#x8FC1;&#x79FB;&#x3002;</li>
+<li>&#x8FC1;&#x79FB;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;key &#x4E00;&#x822C;&#x5F88;&#x5C0F;&#xFF0C;&#x6240;&#x4EE5;&#x8FC1;&#x79FB;&#x5F88;&#x5FEB;&#xFF0C;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x6B63;&#x5E38;&#x8BBF;&#x95EE;&#x3002;&#x5F53; key &#x5F88;&#x5927;&#x65F6;&#xFF0C;&#x8FC1;&#x79FB;&#x6307;&#x4EE4;&#x4F1A;&#x963B;&#x585E;&#x539F;&#x8282;&#x70B9;&#x548C;&#x76EE;&#x6807;&#x8282;&#x70B9;&#xFF0C;&#x5F71;&#x54CD;&#x96C6;&#x7FA4;&#x7684;&#x7A33;&#x5B9A;&#x6027;&#x3002;&#x6240;&#x4EE5;&#x5728;&#x65E5;&#x5E38;&#x4E2D;&#x8981;&#x907F;&#x514D;&#x8F83;&#x5927; key &#x7684;&#x4EA7;&#x751F;&#x3002;</li>
+<li>&#x8FC1;&#x79FB;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x8BBF;&#x95EE;&#x6D41;&#x7A0B;&#x4F1A;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x5148;&#x5C1D;&#x8BD5;&#x8FDE;&#x63A5;&#x539F;&#x8282;&#x70B9;&#xFF0C;&#x5982;&#x679C;&#x539F;&#x8282;&#x70B9;&#x6709;&#x6570;&#x636E;&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x53D6;&#x51FA;&#x3002;&#x5982;&#x679C;&#x539F;&#x8282;&#x70B9;&#x7684;&#x6570;&#x636E;&#x5DF2;&#x7ECF;&#x6D88;&#x5931;&#xFF0C;&#x5219;&#x5B58;&#x5728;&#x4E24;&#x79CD;&#x53EF;&#x80FD;&#xFF0C;&#x8981;&#x4E48;&#x5728;&#x65B0;&#x8282;&#x70B9;&#xFF0C;&#x8981;&#x4E48;&#x6839;&#x672C;&#x4E0D;&#x5B58;&#x5728;&#x3002;&#x65E7;&#x8282;&#x70B9;&#x4E0D;&#x77E5;&#x9053;&#x662F;&#x54EA;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x6240;&#x4EE5;&#x5B83;&#x4F1A;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;-ASK targetNodeAddr&#x7684;&#x91CD;&#x5B9A;&#x5411;&#x6307;&#x4EE4;&#x3002;&#x5BA2;&#x6237;&#x7AEF;&#x6536;&#x5230;&#x8FD9;&#x4E2A;&#x91CD;&#x5B9A;&#x5411;&#x6307;&#x4EE4;&#x540E;&#xFF0C;&#x5148;&#x53BB;&#x76EE;&#x6807;&#x8282;&#x70B9;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x4E0D;&#x5E26;&#x4EFB;&#x4F55;&#x53C2;&#x6570;&#x7684;asking&#x6307;&#x4EE4;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x76EE;&#x6807;&#x8282;&#x70B9;&#x518D;&#x91CD;&#x65B0;&#x6267;&#x884C;&#x539F;&#x5148;&#x7684;&#x64CD;&#x4F5C;&#x6307;&#x4EE4;&#x3002;&#x56E0;&#x4E3A;&#x5728;&#x8FC1;&#x79FB;&#x6CA1;&#x6709;&#x5B8C;&#x6210;&#x4E4B;&#x524D;&#xFF0C;&#x6309;&#x7406;&#x8BF4;&#x8FD9;&#x4E2A;&#x69FD;&#x4F4D;&#x8FD8;&#x662F;&#x4E0D;&#x5F52;&#x65B0;&#x8282;&#x70B9;&#x7BA1;&#x7406;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5411;&#x76EE;&#x6807;&#x8282;&#x70B9;&#x53D1;&#x9001;&#x8BE5;&#x69FD;&#x4F4D;&#x7684;&#x6307;&#x4EE4;&#xFF0C;&#x8282;&#x70B9;&#x662F;&#x4E0D;&#x8BA4;&#x7684;&#xFF0C;&#x5B83;&#x4F1A;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;-MOVED&#x91CD;&#x5B9A;&#x5411;&#x6307;&#x4EE4;&#x544A;&#x8BC9;&#x5B83;&#x53BB;&#x6E90;&#x8282;&#x70B9;&#x53BB;&#x6267;&#x884C;&#x3002;&#x5982;&#x6B64;&#x5C31;&#x4F1A;&#x5F62;&#x6210; &#x91CD;&#x5B9A;&#x5411;&#x5FAA;&#x73AF;&#x3002;asking&#x6307;&#x4EE4;&#x7684;&#x76EE;&#x6807;&#x5C31;&#x662F;&#x6253;&#x5F00;&#x76EE;&#x6807;&#x8282;&#x70B9;&#x7684;&#x9009;&#x9879;&#xFF0C;&#x544A;&#x8BC9;&#x5B83;&#x4E0B;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#x4E0D;&#x80FD;&#x4E0D;&#x7406;&#xFF0C;&#x800C;&#x8981;&#x5F53;&#x6210;&#x81EA;&#x5DF1;&#x7684;&#x69FD;&#x4F4D;&#x6765;&#x5904;&#x7406;&#x3002;</li>
+</ol>
+<h5 id="&#x5BB9;&#x9519;"><a name="&#x5BB9;&#x9519;" class="anchor-navigation-ex-anchor" href="#&#x5BB9;&#x9519;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5BB9;&#x9519;</h5>
+<p>Redis Cluster &#x53EF;&#x4EE5;&#x4E3A;&#x6BCF;&#x4E2A;&#x4E3B;&#x8282;&#x70B9;&#x8BBE;&#x7F6E;&#x82E5;&#x5E72;&#x4E2A;&#x4ECE;&#x8282;&#x70B9;&#xFF0C;&#x5F53;&#x4E3B;&#x8282;&#x70B9;&#x51FA;&#x73B0;&#x6545;&#x969C;&#x65F6;&#xFF0C;&#x96C6;&#x7FA4;&#x4F1A;&#x81EA;&#x52A8;&#x7684;&#x5C06;&#x67D0;&#x4E2A;&#x4ECE;&#x8282;&#x70B9;&#x63D0;&#x5347;&#x4E3A;&#x4E3B;&#x8282;&#x70B9;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4E3B;&#x8282;&#x70B9;&#x6CA1;&#x6709;&#x4ECE;&#x8282;&#x70B9;&#xFF0C;&#x90A3;&#x4E48;&#x5F53;&#x53D1;&#x751F;&#x6545;&#x969C;&#x65F6;&#xFF0C;&#x96C6;&#x7FA4;&#x5C06;&#x4E0D;&#x53EF;&#x7528;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; cluster-require-full-coverage &#x53C2;&#x6570;&#x6765;&#x5141;&#x8BB8;&#x90E8;&#x5206;&#x8282;&#x70B9;&#x6545;&#x969C;&#xFF0C;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x6B63;&#x5E38;&#x8BBF;&#x95EE;&#x3002;</p>
+<h5 id="&#x7F51;&#x7EDC;&#x6296;&#x52A8;"><a name="&#x7F51;&#x7EDC;&#x6296;&#x52A8;" class="anchor-navigation-ex-anchor" href="#&#x7F51;&#x7EDC;&#x6296;&#x52A8;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F51;&#x7EDC;&#x6296;&#x52A8;</h5>
+<p>&#x7F51;&#x7EDC;&#x6296;&#x52A8;&#xFF0C;&#x5373;&#x7A81;&#x7136;&#x90E8;&#x5206;&#x8FDE;&#x63A5;&#x4E0D;&#x80FD;&#x6B63;&#x5E38;&#x8BBF;&#x95EE;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x5F88;&#x5FEB;&#x6709;&#x6062;&#x590D;&#x6B63;&#x5E38;&#x3002;
+&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;Redis Cluster &#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x53C2;&#x6570; cluster-node-timeout&#x3002;&#x8868;&#x793A;&#x67D0;&#x4E2A;&#x8282;&#x70B9;&#x6301;&#x7EED; timeout &#x7684;&#x65F6;&#x95F4;&#x540E;&#xFF0C;&#x624D;&#x53EF;&#x8BA4;&#x5B9A;&#x4E3A;&#x6545;&#x969C;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x4E3B;&#x4ECE;&#x5207;&#x6362;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x9009;&#x9879;&#xFF0C;&#x90A3;&#x4E48;&#x7531;&#x4E8E;&#x7F51;&#x7EDC;&#x6296;&#x52A8;&#xFF0C;&#x96C6;&#x7FA4;&#x4F1A;&#x9891;&#x7E41;&#x5207;&#x6362;&#x4E3B;&#x4ECE;&#x3002;</p>
+<h5 id="&#x53EF;&#x80FD;&#x4E0B;&#x7EBF;-pfail-possibly-fail-&#x4E0E;&#x786E;&#x5B9A;&#x4E0B;&#x7EBF;-fail"><a name="&#x53EF;&#x80FD;&#x4E0B;&#x7EBF;-pfail-possibly-fail-&#x4E0E;&#x786E;&#x5B9A;&#x4E0B;&#x7EBF;-fail" class="anchor-navigation-ex-anchor" href="#&#x53EF;&#x80FD;&#x4E0B;&#x7EBF;-pfail-possibly-fail-&#x4E0E;&#x786E;&#x5B9A;&#x4E0B;&#x7EBF;-fail"><i class="fa fa-link" aria-hidden="true"></i></a>&#x53EF;&#x80FD;&#x4E0B;&#x7EBF; (PFAIL-Possibly Fail) &#x4E0E;&#x786E;&#x5B9A;&#x4E0B;&#x7EBF; (Fail)</h5>
+<p>&#x7531;&#x4E8E; Cluster &#x662F;&#x53BB;&#x4E2D;&#x5FC3;&#x5316;&#x7684;&#xFF0C;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x8BA4;&#x4E3A;&#x67D0;&#x4E2A;&#x8282;&#x70B9;&#x5DF2;&#x7ECF;&#x5931;&#x8054;&#x4E86;&#x5E76;&#x4E0D;&#x4EE3;&#x8868;&#x6240;&#x6709;&#x7684;&#x8282;&#x70B9;&#x90FD;&#x8BA4;&#x4E3A;&#x5B83;&#x5931;&#x8054;&#x4E86;&#x3002;&#x6240;&#x4EE5;&#x96C6;&#x7FA4;&#x8FD8;&#x8981;&#x8FDB;&#x884C;&#x534F;&#x5546;&#xFF0C;&#x5F53;&#x5927;&#x591A;&#x6570;&#x8282;&#x70B9;&#x8BA4;&#x4E3A;&#x67D0;&#x4E2A;&#x8282;&#x70B9;&#x5931;&#x8054;&#xFF0C;&#x624D;&#x8BA4;&#x4E3A;&#x8BE5;&#x8282;&#x70B9;&#x9700;&#x8981;&#x4E3B;&#x4ECE;&#x5207;&#x6362;&#x6765;&#x5BB9;&#x9519;&#x3002;</p>
+<p>Redis &#x96C6;&#x7FA4;&#x901A;&#x8FC7; Gossip &#x534F;&#x8BAE;&#x6765;&#x5E7F;&#x64AD;&#x81EA;&#x5DF1;&#x7684;&#x72B6;&#x6001;&#x4EE5;&#x53CA;&#x81EA;&#x5DF1;&#x5BF9;&#x6574;&#x4E2A;&#x96C6;&#x7FA4;&#x8BA4;&#x77E5;&#x7684;&#x6539;&#x53D8;&#x3002;&#x6BD4;&#x5982;&#x5F53;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x8BA4;&#x4E3A;&#x67D0;&#x4E2A;&#x8282;&#x70B9;&#x5DF2;&#x7ECF;&#x5931;&#x8054;&#xFF08;PFail&#xFF09;&#xFF0C;&#x5B83;&#x5C31;&#x4F1A;&#x5411;&#x96C6;&#x7FA4;&#x5E7F;&#x64AD;&#xFF0C;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x4E5F;&#x6536;&#x5230;&#x4E86;&#x8FD9;&#x6761;&#x5931;&#x8054;&#x6D88;&#x606F;&#x3002;&#x5F53;&#x96C6;&#x7FA4;&#x4E2D;&#x8282;&#x70B9;&#x8BA4;&#x4E3A;&#x67D0;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x5931;&#x8054;&#x7684;&#x6570;&#x91CF;&#xFF08;PFail count&#xFF09;&#x8FBE;&#x5230;&#x4E00;&#x5B9A;&#x503C;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x6807;&#x8BB0;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#x5931;&#x8054;&#xFF08;Fail&#xFF09;&#xFF0C;&#x5F3A;&#x8FEB;&#x5176;&#x4ED6;&#x8282;&#x70B9;&#x63A5;&#x53D7;&#x8FD9;&#x4E2A;&#x4E8B;&#x5B9E;&#x3002;&#x5E76;&#x7ACB;&#x5373;&#x5BF9;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#x8FDB;&#x884C;&#x4E3B;&#x4ECE;&#x5207;&#x6362;</p>
+<h4 id="&#x5B89;&#x88C5;&#x53CA;&#x4F7F;&#x7528;"><a name="&#x5B89;&#x88C5;&#x53CA;&#x4F7F;&#x7528;" class="anchor-navigation-ex-anchor" href="#&#x5B89;&#x88C5;&#x53CA;&#x4F7F;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5;&#x53CA;&#x4F7F;&#x7528;</h4>
+<h6 id="&#x57FA;&#x672C;&#x914D;&#x7F6E;"><a name="&#x57FA;&#x672C;&#x914D;&#x7F6E;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x672C;&#x914D;&#x7F6E;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x57FA;&#x672C;&#x914D;&#x7F6E;</h6>
+<p>Redis Cluster &#x9700;&#x8981; Redis &#x7248;&#x672C;&#x5728; 3.0 &#x4EE5;&#x4E0A;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x914D;&#x7F6E;&#x5168;&#x65B0;&#x7684;&#xFF08;Redis&#xFF09;6 &#x53F0;&#x3002;(&#x6307; dir &quot;/var/lib/redis&quot; &#x8FD9;&#x4E2A;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x6CA1;&#x6709; dump.rdb &#x548C; conde-XXXX.conf)</p>
+<p>&#x4FEE;&#x6539;&#x5176;&#x4E2D;&#x4E00;&#x53F0; redis-cluster-6379.conf</p>
+<pre class="language-"><code class="lang-shell">port <span class="token number">6379</span>
+
+pidfile <span class="token string">&quot;/var/run/redis/redis-server-6379.pid&quot;</span>
+
+logfile <span class="token string">&quot;/var/log/redis/redis-server-6379.log&quot;</span>
+
+dbfilename <span class="token string">&quot;dump-6379.rdb&quot;</span>
+<span class="token comment"># &#x5F00;&#x542F;Cluster</span>
+cluster-enabled <span class="token function">yes</span>
+<span class="token comment"># &#x96C6;&#x7FA4;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</span>
+cluster-config-file nodes-6379.conf
+<span class="token comment"># &#x96C6;&#x7FA4;&#x8D85;&#x65F6;&#x65F6;&#x95F4;</span>
+cluster-node-timeout <span class="token number">15000</span>
+</code></pre>
+<p>&#x590D;&#x5236; 6 &#x4EFD;&#x3002;</p>
+<pre class="language-"><code class="lang-shell"><span class="token function">sudo</span> <span class="token function">cp</span> redis-cluster-6379.conf redis-cluster-6381.conf
+<span class="token function">sudo</span> <span class="token function">cp</span> redis-cluster-6379.conf redis-cluster-6382.conf
+<span class="token function">sudo</span> <span class="token function">cp</span> redis-cluster-6379.conf redis-cluster-6383.conf
+<span class="token function">sudo</span> <span class="token function">cp</span> redis-cluster-6379.conf redis-cluster-6384.conf
+<span class="token function">sudo</span> <span class="token function">cp</span> redis-cluster-6379.conf redis-cluster-6385.conf
+<span class="token function">sudo</span> <span class="token function">cp</span> redis-cluster-6379.conf redis-cluster-6386.conf
+</code></pre>
+<p>&#x5C06;&#x5176;&#x4E2D;&#x7684;&#x76F8;&#x5173;&#x7AEF;&#x53E3;&#x4FEE;&#x6539;&#xFF0C;&#x7136;&#x540E;&#x542F;&#x52A8;&#x3002;</p>
+<pre class="language-"><code class="lang-shell"><span class="token function">sudo</span> redis-server redis-cluster-6381.conf
+<span class="token function">sudo</span> redis-server redis-cluster-6382.conf
+<span class="token function">sudo</span> redis-server redis-cluster-6383.conf
+<span class="token function">sudo</span> redis-server redis-cluster-6384.conf
+<span class="token function">sudo</span> redis-server redis-cluster-6385.conf
+<span class="token function">sudo</span> redis-server redis-cluster-6386.conf
+</code></pre>
+<p>&#x7136;&#x540E;&#x542F;&#x52A8;&#x96C6;&#x7FA4;&#xFF0C;&#x8FD9;&#x91CC;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x3002;</p>
+<h6 id="redis-cli-&#x542F;&#x52A8;"><a name="redis-cli-&#x542F;&#x52A8;" class="anchor-navigation-ex-anchor" href="#redis-cli-&#x542F;&#x52A8;"><i class="fa fa-link" aria-hidden="true"></i></a>redis-cli &#x542F;&#x52A8;</h6>
+<p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x9700;&#x8981; redis-server 5.0 &#x4EE5;&#x4E0A;&#x7248;&#x672C;&#xFF0C;&#x4E0D;&#x7528;&#x5B89;&#x88C5;&#x5176;&#x4ED6;&#x63D2;&#x4EF6;&#x3002;</p>
+<p>replicas &#x540E;&#x9762;&#x7684;&#x53C2;&#x6570; 1 &#xFF0C;&#x4EE3;&#x8868; redis &#x96C6;&#x7FA4;&#x4E3B;&#x8282;&#x70B9;&#x548C;&#x4ECE;&#x8282;&#x70B9;&#x7684;&#x6BD4;&#x503C;&#xFF0C;&#x5982;&#x4E3B;&#x8282;&#x70B9; 3 &#x4E2A;&#xFF0C;&#x4ECE;&#x8282;&#x70B9; 3 &#x4E2A;&#xFF0C;&#x6BD4;&#x503C;&#x5C31;&#x662F; 1&#xFF1B;&#x5982;&#x4E3B;&#x8282;&#x70B9; 3 &#x4E2A;&#xFF0C;&#x4ECE;&#x8282;&#x70B9; 6 &#x4E2A;&#xFF0C;&#x5C31;&#x662F; 0.5&#x3002;</p>
+<pre class="language-"><code class="lang-shell">vagrant@homestead:/etc/redis$ redis-cli --cluster create <span class="token number">127.0</span>.0.1:6381 <span class="token number">127.0</span>.0.1:6382 <span class="token number">127.0</span>.0.1:6383 <span class="token number">127.0</span>.0.1:6384 <span class="token number">127.0</span>.0.1:6385 <span class="token number">127.0</span>.0.1:6386 --cluster-replicas <span class="token number">1</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Performing <span class="token builtin class-name">hash</span> slots allocation on <span class="token number">6</span> nodes<span class="token punctuation">..</span>.
+Master<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> -<span class="token operator">&gt;</span> Slots <span class="token number">0</span> - <span class="token number">5460</span>
+Master<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> -<span class="token operator">&gt;</span> Slots <span class="token number">5461</span> - <span class="token number">10922</span>
+Master<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> -<span class="token operator">&gt;</span> Slots <span class="token number">10923</span> - <span class="token number">16383</span>
+Adding replica <span class="token number">127.0</span>.0.1:6385 to <span class="token number">127.0</span>.0.1:6381
+Adding replica <span class="token number">127.0</span>.0.1:6386 to <span class="token number">127.0</span>.0.1:6382
+Adding replica <span class="token number">127.0</span>.0.1:6384 to <span class="token number">127.0</span>.0.1:6383
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Trying to optimize slaves allocation <span class="token keyword">for</span> anti-affinity
+<span class="token punctuation">[</span>WARNING<span class="token punctuation">]</span> Some slaves are <span class="token keyword">in</span> the same <span class="token function">host</span> as their master
+M: 4f3f01eb51c84b5ef3e81c0fbf55e46c2aa4125d <span class="token number">127.0</span>.0.1:6381
+   slots:<span class="token punctuation">[</span><span class="token number">0</span>-5460<span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">5461</span> slots<span class="token punctuation">)</span> master
+M: 6dce3bd147bab5fdf7cebe5cf65420b695da8e4a <span class="token number">127.0</span>.0.1:6382
+   slots:<span class="token punctuation">[</span><span class="token number">5461</span>-10922<span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">5462</span> slots<span class="token punctuation">)</span> master
+M: 5c473eba795c085d5298482adbfc09ad55dfaa38 <span class="token number">127.0</span>.0.1:6383
+   slots:<span class="token punctuation">[</span><span class="token number">10923</span>-16383<span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">5461</span> slots<span class="token punctuation">)</span> master
+S: 7d8b215baa6d7d073381acaa2d69a43644206fed <span class="token number">127.0</span>.0.1:6384
+   replicates 6dce3bd147bab5fdf7cebe5cf65420b695da8e4a
+S: 77c51a1c66af1f19f1c439c833e8fcafa80afc8a <span class="token number">127.0</span>.0.1:6385
+   replicates 5c473eba795c085d5298482adbfc09ad55dfaa38
+S: 411c963a3537c6efdb302f91184ed16f34418c4e <span class="token number">127.0</span>.0.1:6386
+   replicates 4f3f01eb51c84b5ef3e81c0fbf55e46c2aa4125d
+Can I <span class="token builtin class-name">set</span> the above configuration? <span class="token punctuation">(</span>type <span class="token string">&apos;yes&apos;</span> to accept<span class="token punctuation">)</span>: <span class="token function">yes</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Nodes configuration updated
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Assign a different config epoch to each node
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Sending CLUSTER MEET messages to <span class="token function">join</span> the cluster
+Waiting <span class="token keyword">for</span> the cluster to <span class="token function">join</span>
+<span class="token punctuation">..</span><span class="token punctuation">..</span><span class="token punctuation">..</span>
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Performing Cluster Check <span class="token punctuation">(</span>using node <span class="token number">127.0</span>.0.1:6381<span class="token punctuation">)</span>
+M: 4f3f01eb51c84b5ef3e81c0fbf55e46c2aa4125d <span class="token number">127.0</span>.0.1:6381
+   slots:<span class="token punctuation">[</span><span class="token number">0</span>-5460<span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">5461</span> slots<span class="token punctuation">)</span> master
+   <span class="token number">1</span> additional replica<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+S: 7d8b215baa6d7d073381acaa2d69a43644206fed <span class="token number">127.0</span>.0.1:6384
+   slots: <span class="token punctuation">(</span><span class="token number">0</span> slots<span class="token punctuation">)</span> slave
+   replicates 6dce3bd147bab5fdf7cebe5cf65420b695da8e4a
+S: 411c963a3537c6efdb302f91184ed16f34418c4e <span class="token number">127.0</span>.0.1:6386
+   slots: <span class="token punctuation">(</span><span class="token number">0</span> slots<span class="token punctuation">)</span> slave
+   replicates 4f3f01eb51c84b5ef3e81c0fbf55e46c2aa4125d
+M: 6dce3bd147bab5fdf7cebe5cf65420b695da8e4a <span class="token number">127.0</span>.0.1:6382
+   slots:<span class="token punctuation">[</span><span class="token number">5461</span>-10922<span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">5462</span> slots<span class="token punctuation">)</span> master
+   <span class="token number">1</span> additional replica<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+S: 77c51a1c66af1f19f1c439c833e8fcafa80afc8a <span class="token number">127.0</span>.0.1:6385
+   slots: <span class="token punctuation">(</span><span class="token number">0</span> slots<span class="token punctuation">)</span> slave
+   replicates 5c473eba795c085d5298482adbfc09ad55dfaa38
+M: 5c473eba795c085d5298482adbfc09ad55dfaa38 <span class="token number">127.0</span>.0.1:6383
+   slots:<span class="token punctuation">[</span><span class="token number">10923</span>-16383<span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">5461</span> slots<span class="token punctuation">)</span> master
+   <span class="token number">1</span> additional replica<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>OK<span class="token punctuation">]</span> All nodes agree about slots configuration.
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Check <span class="token keyword">for</span> <span class="token function">open</span> slots<span class="token punctuation">..</span>.
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Check slots coverage<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>OK<span class="token punctuation">]</span> All <span class="token number">16384</span> slots covered.
+</code></pre>
+<h6 id="redis-trib-&#x542F;&#x52A8;"><a name="redis-trib-&#x542F;&#x52A8;" class="anchor-navigation-ex-anchor" href="#redis-trib-&#x542F;&#x52A8;"><i class="fa fa-link" aria-hidden="true"></i></a>redis-trib &#x542F;&#x52A8;</h6>
+<p>&#x9700;&#x8981;&#x5B89;&#x88C5; ruby &#x73AF;&#x5883;</p>
+<pre class="language-"><code class="lang-shell"><span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> ruby
+
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> gems
+
+<span class="token function">sudo</span> gem <span class="token function">install</span> redis
+</code></pre>
+<p>redis-trib.rb &#x76EE;&#x5F55;&#x5728; /usr/local/redis/src/redis-trib.rb&#x3002;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x540E;&#x53D1;&#x73B0;&#xFF0C;&#x63A8;&#x8350;&#x6211;&#x4EEC;&#x4F7F;&#x7528; redis-cli &#x6765;&#x542F;&#x52A8;&#xFF0C;&#x53EF;&#x80FD;&#x662F;&#x7531;&#x4E8E;&#x6211;&#x66F4;&#x65B0;&#x4E86; redis5.0 &#x7684;&#x7F18;&#x6545;&#x3002;</p>
+<pre class="language-"><code class="lang-shell">vagrant@homestead:/etc/redis$ /usr/local/redis/src/redis-trib.rb create --replicas <span class="token number">1</span> <span class="token number">127.0</span>.0.1:6381 <span class="token number">127.0</span>.0.1:6382 <span class="token number">127.0</span>.0.1:6383 <span class="token number">127.0</span>.0.1:6384 <span class="token number">127.0</span>.0.1:6385 <span class="token number">127.0</span>.0.1:6386
+WARNING: redis-trib.rb is not longer available<span class="token operator">!</span>
+You should use redis-cli instead.
+
+All commands and features belonging to redis-trib.rb have been moved
+to redis-cli.
+In order to use them you should call redis-cli with the --cluster
+option followed by the subcommand name, arguments and options.
+
+Use the following syntax:
+redis-cli --cluster SUBCOMMAND <span class="token punctuation">[</span>ARGUMENTS<span class="token punctuation">]</span> <span class="token punctuation">[</span>OPTIONS<span class="token punctuation">]</span>
+
+Example:
+redis-cli --cluster create <span class="token number">127.0</span>.0.1:6381 <span class="token number">127.0</span>.0.1:6382 <span class="token number">127.0</span>.0.1:6383 <span class="token number">127.0</span>.0.1:6384 <span class="token number">127.0</span>.0.1:6385 <span class="token number">127.0</span>.0.1:6386 --cluster-replicas <span class="token number">1</span>
+
+To get <span class="token builtin class-name">help</span> about all subcommands, type:
+redis-cli --cluster <span class="token builtin class-name">help</span>
+</code></pre>
+<h6 id="&#x6D4B;&#x8BD5;"><a name="&#x6D4B;&#x8BD5;" class="anchor-navigation-ex-anchor" href="#&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6D4B;&#x8BD5;</h6>
+<p>&#x4F7F;&#x7528; redis-cli &#x8FDE;&#x63A5; 6385&#xFF0C;-c &#x8868;&#x793A;&#x4F7F;&#x7528;&#x96C6;&#x7FA4;&#x6A21;&#x5F0F;&#x3002;</p>
+<pre class="language-"><code class="lang-shell">vagrant@homestead:/etc/redis$ redis-cli -c -p <span class="token number">6382</span>
+<span class="token number">127.0</span>.0.1:638<span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span> <span class="token builtin class-name">set</span> demo hello-world
+-<span class="token operator">&gt;</span> Redirected to slot <span class="token punctuation">[</span><span class="token number">903</span><span class="token punctuation">]</span> located at <span class="token number">127.0</span>.0.1:6381
+OK
+<span class="token number">127.0</span>.0.1:638<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> get demo
+<span class="token string">&quot;hello-world&quot;</span>
+</code></pre>
+<p>&#x901A;&#x8FC7; cluster info &#x6307;&#x4EE4;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6709; 6 &#x4E2A;&#x8282;&#x70B9;&#xFF0C;16384 &#x4E2A;&#x69FD;&#x4F4D;&#x3002;</p>
+<pre class="language-"><code class="lang-shell"><span class="token number">127.0</span>.0.1:638<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> CLUSTER INFO
+cluster_state:ok
+cluster_slots_assigned:16384
+cluster_slots_ok:16384
+cluster_slots_pfail:0
+cluster_slots_fail:0
+cluster_known_nodes:6
+cluster_size:3
+cluster_current_epoch:6
+cluster_my_epoch:1
+cluster_stats_messages_ping_sent:978
+cluster_stats_messages_pong_sent:959
+cluster_stats_messages_sent:1937
+cluster_stats_messages_ping_received:954
+cluster_stats_messages_pong_received:978
+cluster_stats_messages_meet_received:5
+cluster_stats_messages_received:1937
+</code></pre>
+<p>&#x901A;&#x8FC7; cluster nodes &#x67E5;&#x770B;&#x8282;&#x70B9;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230; 6381 6382 6383 &#x4E09;&#x4E2A;&#x662F;&#x4E3B;&#x8282;&#x70B9;&#xFF0C;&#x5176;&#x4ED6;&#x4E3A;&#x4ECE;&#x8282;&#x70B9;&#x3002;</p>
+<pre class="language-"><code class="lang-shell"><span class="token number">127.0</span>.0.1:638<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> CLUSTER NODES
+5096a076abd4b99d5c07e489109c83be929a4228 <span class="token number">127.0</span>.0.1:6382@16382 master - <span class="token number">0</span> <span class="token number">1569570388000</span> <span class="token number">2</span> connected <span class="token number">5461</span>-10922
+a2d9574fba2437b416aecf1d80bc9b422a8cb678 <span class="token number">127.0</span>.0.1:6385@16385 slave 5096a076abd4b99d5c07e489109c83be929a4228 <span class="token number">0</span> <span class="token number">1569570390638</span> <span class="token number">5</span> connected
+c2ddacc6944d9ffd05ba7286a06e01ec46d76b04 <span class="token number">127.0</span>.0.1:6384@16384 slave b17e98228b179ea3b572f6106d2fed6ab75b07f0 <span class="token number">0</span> <span class="token number">1569570389000</span> <span class="token number">4</span> connected
+b0a9bce8cb1225dbb7d3a0bef210c3deae55ffc2 <span class="token number">127.0</span>.0.1:6383@16383 master - <span class="token number">0</span> <span class="token number">1569570389626</span> <span class="token number">3</span> connected <span class="token number">10923</span>-16383
+b17e98228b179ea3b572f6106d2fed6ab75b07f0 <span class="token number">127.0</span>.0.1:6381@16381 myself,master - <span class="token number">0</span> <span class="token number">1569570385000</span> <span class="token number">1</span> connected <span class="token number">0</span>-5460
+147622225bd356f70331e6c67f30e9454de77d5a <span class="token number">127.0</span>.0.1:6386@16386 slave b0a9bce8cb1225dbb7d3a0bef210c3deae55ffc2 <span class="token number">0</span> <span class="token number">1569570390000</span> <span class="token number">6</span> connected
+</code></pre>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x4F7F; 6381 &#x5931;&#x6548;&#x3002;</p>
+<pre class="language-"><code class="lang-shell">vagrant@homestead:/etc/redis$ redis-cli -p <span class="token number">6381</span> debug segfault
+Error: Server closed the connection
+</code></pre>
+<p>&#x7A0D;&#x7B49;&#x7247;&#x523B;&#xFF0C;&#x91CD;&#x65B0;&#x8FDE;&#x63A5; 6381&#xFF0C;&#x5E76;&#x4E14;&#x518D;&#x6B21;&#x67E5;&#x770B;&#x96C6;&#x7FA4;&#x8282;&#x70B9;&#x3002;</p>
+<pre class="language-"><code class="lang-shell">vagrant@homestead:/etc/redis$ <span class="token function">sudo</span> redis-server redis-cluster-6381.conf
+vagrant@homestead:/etc/redis$ redis-cli -c -p <span class="token number">6382</span>
+<span class="token number">127.0</span>.0.1:638<span class="token operator"><span class="token file-descriptor important">2</span>&gt;</span> cluster nodes
+147622225bd356f70331e6c67f30e9454de77d5a <span class="token number">127.0</span>.0.1:6386@16386 slave b0a9bce8cb1225dbb7d3a0bef210c3deae55ffc2 <span class="token number">0</span> <span class="token number">1569570753000</span> <span class="token number">6</span> connected
+5096a076abd4b99d5c07e489109c83be929a4228 <span class="token number">127.0</span>.0.1:6382@16382 myself,master - <span class="token number">0</span> <span class="token number">1569570754000</span> <span class="token number">2</span> connected <span class="token number">5461</span>-10922
+b17e98228b179ea3b572f6106d2fed6ab75b07f0 <span class="token number">127.0</span>.0.1:6381@16381 slave c2ddacc6944d9ffd05ba7286a06e01ec46d76b04 <span class="token number">0</span> <span class="token number">1569570755984</span> <span class="token number">7</span> connected
+c2ddacc6944d9ffd05ba7286a06e01ec46d76b04 <span class="token number">127.0</span>.0.1:6384@16384 master - <span class="token number">0</span> <span class="token number">1569570754941</span> <span class="token number">7</span> connected <span class="token number">0</span>-5460
+b0a9bce8cb1225dbb7d3a0bef210c3deae55ffc2 <span class="token number">127.0</span>.0.1:6383@16383 master - <span class="token number">0</span> <span class="token number">1569570753850</span> <span class="token number">3</span> connected <span class="token number">10923</span>-16383
+a2d9574fba2437b416aecf1d80bc9b422a8cb678 <span class="token number">127.0</span>.0.1:6385@16385 slave 5096a076abd4b99d5c07e489109c83be929a4228 <span class="token number">0</span> <span class="token number">1569570753000</span> <span class="token number">5</span> connected
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;6381 &#x53D8;&#x6210;&#x4E86;&#x4ECE;&#x8282;&#x70B9;&#xFF0C;6384 &#x53D8;&#x6210;&#x4E86;&#x4E3B;&#x8282;&#x70B9;&#x3002;</p>
+<h6 id="&#x6269;&#x5BB9;"><a name="&#x6269;&#x5BB9;" class="anchor-navigation-ex-anchor" href="#&#x6269;&#x5BB9;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6269;&#x5BB9;</h6>
+<p>&#x65B0;&#x590D;&#x5236;&#x4E24;&#x4EFD;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4FEE;&#x6539;&#x76F8;&#x5173;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x542F;&#x52A8;</p>
+<pre class="language-"><code class="lang-shell"><span class="token function">sudo</span> <span class="token function">cp</span> redis-cluster-6379.conf redis-cluster-6387.conf
+<span class="token function">sudo</span> <span class="token function">cp</span> redis-cluster-6379.conf redis-cluster-6388.conf
+
+<span class="token function">sudo</span> redis-server redis-cluster-6387.conf
+<span class="token function">sudo</span> redis-server redis-cluster-6388.conf
+</code></pre>
+<p>&#x6DFB;&#x52A0;&#x5230;&#x96C6;&#x7FA4;&#x4E2D;</p>
+<pre class="language-"><code class="lang-shell">redis-cli --cluster add-node <span class="token number">127.0</span>.0.1:6387 <span class="token number">127.0</span>.0.1:6381
+
+redis-cli --cluster add-node <span class="token number">127.0</span>.0.1:6388 <span class="token number">127.0</span>.0.1:6381&#x3001;
+</code></pre>
+<pre class="language-"><code class="lang-shell">vagrant@homestead:/etc/redis$ redis-cli --cluster add-node <span class="token number">127.0</span>.0.1:6387 <span class="token number">127.0</span>.0.1:6381
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Adding node <span class="token number">127.0</span>.0.1:6387 to cluster <span class="token number">127.0</span>.0.1:6381
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Performing Cluster Check <span class="token punctuation">(</span>using node <span class="token number">127.0</span>.0.1:6381<span class="token punctuation">)</span>
+M: b1710ed597bbc38e66105b429aced4fbfc04281a <span class="token number">127.0</span>.0.1:6381
+   slots:<span class="token punctuation">[</span><span class="token number">0</span>-5460<span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">5461</span> slots<span class="token punctuation">)</span> master
+   <span class="token number">1</span> additional replica<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+M: 0a68b1d915956c322119843b1ed848bc95096b0f <span class="token number">127.0</span>.0.1:6383
+   slots:<span class="token punctuation">[</span><span class="token number">10923</span>-16383<span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">5461</span> slots<span class="token punctuation">)</span> master
+   <span class="token number">1</span> additional replica<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+S: 09265af88d3d715803c2d018e97fbe7e0b56c847 <span class="token number">127.0</span>.0.1:6386
+   slots: <span class="token punctuation">(</span><span class="token number">0</span> slots<span class="token punctuation">)</span> slave
+   replicates 45cc61a214983f387e1159a9b6a918be6fe36b90
+M: 45cc61a214983f387e1159a9b6a918be6fe36b90 <span class="token number">127.0</span>.0.1:6382
+   slots:<span class="token punctuation">[</span><span class="token number">5461</span>-10922<span class="token punctuation">]</span> <span class="token punctuation">(</span><span class="token number">5462</span> slots<span class="token punctuation">)</span> master
+   <span class="token number">1</span> additional replica<span class="token punctuation">(</span>s<span class="token punctuation">)</span>
+S: 61a48d614c0216765a89b8f7ce2ec999255be333 <span class="token number">127.0</span>.0.1:6385
+   slots: <span class="token punctuation">(</span><span class="token number">0</span> slots<span class="token punctuation">)</span> slave
+   replicates b1710ed597bbc38e66105b429aced4fbfc04281a
+S: 10d6657b18b4ae6c01ce1fc87b5735e9725dccba <span class="token number">127.0</span>.0.1:6384
+   slots: <span class="token punctuation">(</span><span class="token number">0</span> slots<span class="token punctuation">)</span> slave
+   replicates 0a68b1d915956c322119843b1ed848bc95096b0f
+<span class="token punctuation">[</span>OK<span class="token punctuation">]</span> All nodes agree about slots configuration.
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Check <span class="token keyword">for</span> <span class="token function">open</span> slots<span class="token punctuation">..</span>.
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Check slots coverage<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>OK<span class="token punctuation">]</span> All <span class="token number">16384</span> slots covered.
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Send CLUSTER MEET to node <span class="token number">127.0</span>.0.1:6387 to <span class="token function">make</span> it <span class="token function">join</span> the cluster.
+<span class="token punctuation">[</span>OK<span class="token punctuation">]</span> New node added correctly.
+</code></pre>
+<p>&#x6B64;&#x65F6;&#x6DFB;&#x52A0;&#x8FDB;&#x7684;&#x4E24;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x662F; master &#x8282;&#x70B9;&#x3002;</p>
+<pre class="language-"><code class="lang-shell">vagrant@homestead:/etc/redis$ redis-cli -c -p <span class="token number">6381</span>
+<span class="token number">127.0</span>.0.1:638<span class="token operator"><span class="token file-descriptor important">1</span>&gt;</span> cluster nodes
+0a68b1d915956c322119843b1ed848bc95096b0f <span class="token number">127.0</span>.0.1:6383@16383 master - <span class="token number">0</span> <span class="token number">1569576631297</span> <span class="token number">3</span> connected <span class="token number">10923</span>-16383
+c04144606c0b6c12aaa92f8022e4a6dbe2109ffd <span class="token number">127.0</span>.0.1:6387@16387 master - <span class="token number">0</span> <span class="token number">1569576627000</span> <span class="token number">7</span> connected
+09265af88d3d715803c2d018e97fbe7e0b56c847 <span class="token number">127.0</span>.0.1:6386@16386 slave 45cc61a214983f387e1159a9b6a918be6fe36b90 <span class="token number">0</span> <span class="token number">1569576630287</span> <span class="token number">6</span> connected
+b1710ed597bbc38e66105b429aced4fbfc04281a <span class="token number">127.0</span>.0.1:6381@16381 myself,master - <span class="token number">0</span> <span class="token number">1569576629000</span> <span class="token number">1</span> connected <span class="token number">0</span>-5460
+e72718e00fb36c63cd7e04a6e266897c698dddea <span class="token number">127.0</span>.0.1:6388@16388 master - <span class="token number">0</span> <span class="token number">1569576628000</span> <span class="token number">0</span> connected
+45cc61a214983f387e1159a9b6a918be6fe36b90 <span class="token number">127.0</span>.0.1:6382@16382 master - <span class="token number">0</span> <span class="token number">1569576627000</span> <span class="token number">2</span> connected <span class="token number">5461</span>-10922
+61a48d614c0216765a89b8f7ce2ec999255be333 <span class="token number">127.0</span>.0.1:6385@16385 slave b1710ed597bbc38e66105b429aced4fbfc04281a <span class="token number">0</span> <span class="token number">1569576628092</span> <span class="token number">5</span> connected
+10d6657b18b4ae6c01ce1fc87b5735e9725dccba <span class="token number">127.0</span>.0.1:6384@16384 slave 0a68b1d915956c322119843b1ed848bc95096b0f <span class="token number">0</span> <span class="token number">1569576629176</span> <span class="token number">4</span> connected
+</code></pre>
+<p>&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5C06; 6388 &#x4F5C;&#x4E3A; 6387 &#x7684;&#x4ECE;&#x8282;&#x70B9;&#x3002;&#x9996;&#x5148;&#x8FDE;&#x63A5;&#x5230; 6388 &#x8282;&#x70B9;&#xFF0C;&#x6307;&#x5B9A; 6387 &#x4E3A;&#x4ECE;&#x8282;&#x70B9;&#x3002;&#x901A;&#x8FC7; cluster replicate [id] &#x8FD9;&#x4E2A;&#x6307;&#x4EE4;&#x5B8C;&#x6210;&#x3002;</p>
+<pre class="language-"><code class="lang-shall">vagrant@homestead:/etc/redis$ redis-cli -c -p 6388
+127.0.0.1:6388&gt; cluster replicate c04144606c0b6c12aaa92f8022e4a6dbe2109ffd
+OK
+127.0.0.1:6388&gt; cluster nodes
+61a48d614c0216765a89b8f7ce2ec999255be333 127.0.0.1:6385@16385 slave b1710ed597bbc38e66105b429aced4fbfc04281a 0 1569576756973 1 connected
+e72718e00fb36c63cd7e04a6e266897c698dddea 127.0.0.1:6388@16388 myself,slave c04144606c0b6c12aaa92f8022e4a6dbe2109ffd 0 1569576754000 0 connected
+10d6657b18b4ae6c01ce1fc87b5735e9725dccba 127.0.0.1:6384@16384 slave 0a68b1d915956c322119843b1ed848bc95096b0f 0 1569576757984 3 connected
+45cc61a214983f387e1159a9b6a918be6fe36b90 127.0.0.1:6382@16382 master - 0 1569576758000 2 connected 5461-10922
+c04144606c0b6c12aaa92f8022e4a6dbe2109ffd 127.0.0.1:6387@16387 master - 0 1569576757000 7 connected
+0a68b1d915956c322119843b1ed848bc95096b0f 127.0.0.1:6383@16383 master - 0 1569576753000 3 connected 10923-16383
+b1710ed597bbc38e66105b429aced4fbfc04281a 127.0.0.1:6381@16381 master - 0 1569576757000 1 connected 0-5460
+09265af88d3d715803c2d018e97fbe7e0b56c847 127.0.0.1:6386@16386 slave 45cc61a214983f387e1159a9b6a918be6fe36b90 0 1569576758992 2 connected
+</code></pre>
+<p>&#x7136;&#x540E;&#x8FDB;&#x884C;&#x81EA;&#x52A8;&#x69FD;&#x4F4D;&#x8FC1;&#x79FB;</p>
+<pre class="language-"><code class="lang-shell">vagrant@homestead:/etc/redis$ redis-cli --cluster reshard <span class="token number">127.0</span>.0.1:6381
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Performing Cluster Check <span class="token punctuation">(</span>using node <span class="token number">127.0</span>.0.1:6381<span class="token punctuation">)</span>
+<span class="token punctuation">..</span>.
+<span class="token punctuation">..</span>. <span class="token comment"># &#x7701;&#x7565; &#x8282;&#x70B9; id &#x53CA;&#x69FD;&#x4F4D;&#x4FE1;&#x606F;</span>
+<span class="token comment"># &#x9700;&#x8981;&#x8F6C;&#x79FB;&#x591A;&#x5C11;&#x4E2A;&#x69FD;&#x4F4D;</span>
+How many slots <span class="token keyword">do</span> you want to move <span class="token punctuation">(</span>from <span class="token number">1</span> to <span class="token number">16384</span><span class="token punctuation">)</span>? <span class="token number">4096</span>
+<span class="token comment"># &#x9700;&#x8981;&#x8F6C;&#x79FB;&#x5230;&#x54EA;&#x4E2A;&#x8282;&#x70B9;</span>
+What is the receiving node ID? c04144606c0b6c12aaa92f8022e4a6dbe2109ffd
+<span class="token comment"># &#x4ECE;&#x54EA;&#x51E0;&#x4E2A;&#x8282;&#x70B9;&#x8FDB;&#x884C;&#x8F6C;&#x79FB;</span>
+Please enter all the <span class="token builtin class-name">source</span> node IDs.
+  Type <span class="token string">&apos;all&apos;</span> to use all the nodes as <span class="token builtin class-name">source</span> nodes <span class="token keyword">for</span> the <span class="token builtin class-name">hash</span> slots.
+  Type <span class="token string">&apos;done&apos;</span> once you entered all the <span class="token builtin class-name">source</span> nodes IDs.
+Source node <span class="token comment">#1: b1710ed597bbc38e66105b429aced4fbfc04281a</span>
+Source node <span class="token comment">#2: 45cc61a214983f387e1159a9b6a918be6fe36b90</span>
+Source node <span class="token comment">#3: 0a68b1d915956c322119843b1ed848bc95096b0f</span>
+Source node <span class="token comment">#4: done</span>
+<span class="token comment"># &#x6700;&#x540E;&#x4F1A;&#x6709;&#x4E00;&#x4E2A;&#x8FC1;&#x79FB;&#x65B9;&#x6848;&#xFF0C;&#x8F93;&#x5165;yes&#x8868;&#x793A;&#x540C;&#x610F;&#xFF0C;&#x8FC1;&#x79FB;&#x5F00;&#x59CB;&#x3002;&#x8F93;&#x5165;no&#x8868;&#x793A;&#x4E0D;&#x540C;&#x610F;&#xFF0C;&#x91CD;&#x65B0;&#x8BBE;&#x7F6E;&#x8FC1;&#x79FB;&#x65B9;&#x6848;&#x3002;</span>
+</code></pre>
+<p>&#x901A;&#x8FC7; redis-cli --cluster rebalance &#x68C0;&#x6D4B;&#x8282;&#x70B9;&#x95F4;&#x69FD;&#x7684;&#x5747;&#x8861;&#x6027;</p>
+<pre class="language-"><code class="lang-shell">vagrant@homestead:/etc/redis$ redis-cli --cluster rebalance <span class="token number">127.0</span>.0.1:6381
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Performing Cluster Check <span class="token punctuation">(</span>using node <span class="token number">127.0</span>.0.1:6381<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>OK<span class="token punctuation">]</span> All nodes agree about slots configuration.
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Check <span class="token keyword">for</span> <span class="token function">open</span> slots<span class="token punctuation">..</span>.
+<span class="token operator">&gt;&gt;</span><span class="token operator">&gt;</span> Check slots coverage<span class="token punctuation">..</span>.
+<span class="token punctuation">[</span>OK<span class="token punctuation">]</span> All <span class="token number">16384</span> slots covered.
+*** No rebalancing needed<span class="token operator">!</span> All nodes are within the <span class="token number">2.00</span>% threshold.
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x8282;&#x70B9;&#x8D1F;&#x8D23;&#x7684;&#x69FD;&#x6570;&#x636E;&#x5DEE;&#x5F02;&#x5728;2%&#x4EE5;&#x5185;&#xFF0C;&#x56E0;&#x6B64;&#x69FD;&#x5206;&#x914D;&#x5747;&#x8861;&#x3002;</p>
+<h6 id="&#x5728;-laravel-&#x4E0A;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;"><a name="&#x5728;-laravel-&#x4E0A;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;" class="anchor-navigation-ex-anchor" href="#&#x5728;-laravel-&#x4E0A;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5728; laravel &#x4E0A;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</h6>
+<p>&#x9996;&#x5148;&#x4FEE;&#x6539; database.php &#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x6539;&#x4E3A; cluster &#x6A21;&#x5F0F;&#x3002;</p>
+<pre class="language-"><code class="lang-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">return</span> <span class="token punctuation">[</span>
+<span class="token punctuation">.</span>
+<span class="token punctuation">.</span>
+<span class="token punctuation">.</span>
+ <span class="token single-quoted-string string">&apos;redis&apos;</span>         <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+        <span class="token single-quoted-string string">&apos;client&apos;</span>   <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">&apos;predis&apos;</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">&apos;cluster&apos;</span>  <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token boolean constant">true</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">&apos;options&apos;</span>  <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">&apos;cluster&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">&apos;redis&apos;</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">&apos;default&apos;</span>  <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">&apos;host&apos;</span>         <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;REDIS_HOST_FIRST&apos;</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">&apos;127.0.0.1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">&apos;password&apos;</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;REDIS_PASSWORD&apos;</span><span class="token punctuation">,</span> <span class="token constant">null</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">&apos;port&apos;</span>         <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;REDIS_PORT&apos;</span><span class="token punctuation">,</span> <span class="token number">6379</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">&apos;database&apos;</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token single-quoted-string string">&apos;read_timeout&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">env</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;REDIS_TIMEOUT&apos;</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token single-quoted-string string">&apos;clusters&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+            <span class="token single-quoted-string string">&apos;mycluster1&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">[</span>
+                <span class="token punctuation">[</span>
+                    <span class="token single-quoted-string string">&apos;host&apos;</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">&apos;127.0.0.1&apos;</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;password&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token constant">null</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;port&apos;</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">6381</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;database&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token punctuation">[</span>
+                    <span class="token single-quoted-string string">&apos;host&apos;</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">&apos;127.0.0.1&apos;</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;password&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token constant">null</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;port&apos;</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">6382</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;database&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token punctuation">[</span>
+                    <span class="token single-quoted-string string">&apos;host&apos;</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">&apos;127.0.0.1&apos;</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;password&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token constant">null</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;port&apos;</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">6383</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;database&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token punctuation">[</span>
+                    <span class="token single-quoted-string string">&apos;host&apos;</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">&apos;127.0.0.1&apos;</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;password&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token constant">null</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;port&apos;</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">6384</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;database&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token punctuation">[</span>
+                    <span class="token single-quoted-string string">&apos;host&apos;</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">&apos;127.0.0.1&apos;</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;password&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token constant">null</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;port&apos;</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">6385</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;database&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token punctuation">[</span>
+                    <span class="token single-quoted-string string">&apos;host&apos;</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token single-quoted-string string">&apos;127.0.0.1&apos;</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;password&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token constant">null</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;port&apos;</span>     <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">6386</span><span class="token punctuation">,</span>
+                    <span class="token single-quoted-string string">&apos;database&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+</code></pre>
+<p>&#x4F7F;&#x7528; </p>
+<pre class="language-"><code class="lang-php"><span class="token delimiter important">&lt;?php</span> 
+        <span class="token variable">$redis</span> <span class="token operator">=</span> \<span class="token package">Redis</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">connection</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;mycluster1&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$redis</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;name&apos;</span><span class="token punctuation">,</span><span class="token single-quoted-string string">&apos;jack&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$redis</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;sex&apos;</span><span class="token punctuation">,</span><span class="token single-quoted-string string">&apos;&#x5973;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$redis</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;age&apos;</span><span class="token punctuation">,</span><span class="token single-quoted-string string">&apos;18&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$redis</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;class&apos;</span><span class="token punctuation">,</span><span class="token single-quoted-string string">&apos;&#x4E00;&#x73ED;&apos;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">dump</span><span class="token punctuation">(</span><span class="token variable">$redis</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;sex&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">dump</span><span class="token punctuation">(</span><span class="token variable">$redis</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;age&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">dump</span><span class="token punctuation">(</span><span class="token variable">$redis</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;class&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">dd</span><span class="token punctuation">(</span><span class="token variable">$redis</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;name&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; Kagami&#x4E36; 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-09-27 17:45:50
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="12.Redis 集群-sentinel.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 12.Redis 集群-sentinel">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"13.Redis 集群-Cluster","level":"1.4.13","depth":2,"previous":{"title":"12.Redis 集群-sentinel","level":"1.4.12","depth":2,"path":"Redis/12.Redis 集群-sentinel.md","ref":"Redis/12.Redis 集群-sentinel.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","prism","-highlight","copy-code-button","search-pro","-search","-lunr","expandable-chapters","splitter","-sharing","github-buttons","tbfed-pagefooter","anchor-navigation-ex","disqus","github","hide-element","insert-logo","pageview-count","popup"],"ignores":["node_modules","docs"],"root":".","styles":{"website":"./styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy Kagami丶 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"shell":"bash"}},"disqus":{"useIdentifier":false,"shortName":"jk4905"},"github":{"url":"https://github.com/jk4905"},"splitter":{},"search-pro":{},"popup":{},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"},{"user":"jk4905","width":"160","type":"follow","count":true,"size":"small"}]},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 30px; min-height: 30px","url":"https://raw.githubusercontent.com/jk4905/PHP-Interview/master/docs/images/logo.png"},"expandable-chapters":{}},"theme":"default","author":"Kagami丶","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Kagami丶PHP-Interview","sortedBy":"num.","variables":{},"title":"PHP-Interview","language":"zh-hans","output.name":"docs","catalog":"all","gitbook":"3.2.3","unchanged":[],"description":"Kagami丶 的 PHP 复习笔记","outputfile":"SUMMARY.md"},"file":{"path":"Redis/13.Redis 集群-Cluster.md","mtime":"2019-09-27T09:45:50.176Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-27T09:47:42.746Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -27,3 +27,4 @@
   * [10.内存回收机制](Redis/10.内存回收机制.md)
   * [11.主从同步](Redis/11.主从同步.md)
   * [12.Redis 集群-sentinel](Redis/12.Redis 集群-sentinel.md)
+  * [13.Redis 集群-Cluster](Redis/13.Redis 集群-Cluster.md)
