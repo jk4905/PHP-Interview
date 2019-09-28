@@ -28,3 +28,4 @@
   * [11.主从同步](Redis/11.主从同步.md)
   * [12.Redis 集群-sentinel](Redis/12.Redis 集群-sentinel.md)
   * [13.Redis 集群-Cluster](Redis/13.Redis 集群-Cluster.md)
+  * [14.集群-Codis](Redis/14.集群-Codis.md)
