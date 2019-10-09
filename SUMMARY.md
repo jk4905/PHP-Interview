@@ -33,3 +33,7 @@
   * [16.Info](Redis/16.Info.md)
   * [17.再谈分布式锁](Redis/17.再谈分布式锁.md)
   * [18.过期策略](Redis/18.过期策略.md)
+  * [19.LRU-淘汰算法](Redis/19.LRU-淘汰算法.md)
+  * [20.懒惰删除](Redis/20.懒惰删除.md)
+  * [21.Redis 的安全](Redis/21.Redis 的安全.md)
+  * [22.spiped 原理](Redis/22.spiped 原理.md)
