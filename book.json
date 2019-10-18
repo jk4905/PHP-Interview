@@ -11,7 +11,8 @@
   "catalog": "all",
   "ignores": [
     "node_modules",
-    "docs"
+    "docs",
+    "_DelSyncFiles"
   ],
   "sortedBy": "num.",
   "unchanged": [],
