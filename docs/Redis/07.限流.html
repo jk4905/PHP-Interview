@@ -1,0 +1,1242 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>07.限流 · PHP-Interview</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Kagami丶">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="08.GeoHash 算法.html" />
+    
+    
+    <link rel="prev" href="06.布隆过滤器.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"},{"user":"jk4905","width":"160","type":"follow","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    网路协议
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../网路协议/TCP-IP.html">
+            
+                <a href="../网路协议/TCP-IP.html">
+            
+                    
+                    TCP IP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    My SQL
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../MySQL/01.初识 MySQL.html">
+            
+                <a href="../MySQL/01.初识 MySQL.html">
+            
+                    
+                    01.初识 MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../MySQL/02.字符集与比较规则.html">
+            
+                <a href="../MySQL/02.字符集与比较规则.html">
+            
+                    
+                    02.字符集与比较规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../MySQL/03.InnoDB 页的简介.html">
+            
+                <a href="../MySQL/03.InnoDB 页的简介.html">
+            
+                    
+                    03.InnoDB 页的简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../MySQL/04.InnoDB 数据页结构.html">
+            
+                <a href="../MySQL/04.InnoDB 数据页结构.html">
+            
+                    
+                    04.InnoDB 数据页结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../MySQL/连接的原理.html">
+            
+                <a href="../MySQL/连接的原理.html">
+            
+                    
+                    连接的原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../MySQL/使用索引.html">
+            
+                <a href="../MySQL/使用索引.html">
+            
+                    
+                    使用索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../MySQL/事务的隔离级别.html">
+            
+                <a href="../MySQL/事务的隔离级别.html">
+            
+                    
+                    事务的隔离级别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../MySQL/索引描述.html">
+            
+                <a href="../MySQL/索引描述.html">
+            
+                    
+                    索引描述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../MySQL/锁.html">
+            
+                <a href="../MySQL/锁.html">
+            
+                    
+                    锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../MySQL/redo 和 undo.html">
+            
+                <a href="../MySQL/redo 和 undo.html">
+            
+                    
+                    redo 和 undo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    PHP-基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../PHP-基础知识/01.类型.html">
+            
+                <a href="../PHP-基础知识/01.类型.html">
+            
+                    
+                    01.类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../PHP-基础知识/02.变量与常量.html">
+            
+                <a href="../PHP-基础知识/02.变量与常量.html">
+            
+                    
+                    02.变量与常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../PHP-基础知识/03.运算符.html">
+            
+                <a href="../PHP-基础知识/03.运算符.html">
+            
+                    
+                    03.运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../PHP-基础知识/04.流程控制.html">
+            
+                <a href="../PHP-基础知识/04.流程控制.html">
+            
+                    
+                    04.流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../PHP-基础知识/05.函数.html">
+            
+                <a href="../PHP-基础知识/05.函数.html">
+            
+                    
+                    05.函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../PHP-基础知识/06.类与对象1.html">
+            
+                <a href="../PHP-基础知识/06.类与对象1.html">
+            
+                    
+                    06.类与对象1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../PHP-基础知识/07.类与对象2.html">
+            
+                <a href="../PHP-基础知识/07.类与对象2.html">
+            
+                    
+                    07.类与对象2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../PHP-基础知识/08.类与对象3.html">
+            
+                <a href="../PHP-基础知识/08.类与对象3.html">
+            
+                    
+                    08.类与对象3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../PHP-基础知识/09.命名空间.html">
+            
+                <a href="../PHP-基础知识/09.命名空间.html">
+            
+                    
+                    09.命名空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../PHP-基础知识/10.PHP-FPM 与 Nginx.html">
+            
+                <a href="../PHP-基础知识/10.PHP-FPM 与 Nginx.html">
+            
+                    
+                    10.PHP-FPM 与 Nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    Redis
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="01.基础数据结构.html">
+            
+                <a href="01.基础数据结构.html">
+            
+                    
+                    01.基础数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="02.分布式锁.html">
+            
+                <a href="02.分布式锁.html">
+            
+                    
+                    02.分布式锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="03.延时队列.html">
+            
+                <a href="03.延时队列.html">
+            
+                    
+                    03.延时队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="04.位图.html">
+            
+                <a href="04.位图.html">
+            
+                    
+                    04.位图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="05.HyperLogLog 统计.html">
+            
+                <a href="05.HyperLogLog 统计.html">
+            
+                    
+                    05.HyperLogLog 统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="06.布隆过滤器.html">
+            
+                <a href="06.布隆过滤器.html">
+            
+                    
+                    06.布隆过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.7" data-path="07.限流.html">
+            
+                <a href="07.限流.html">
+            
+                    
+                    07.限流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="08.GeoHash 算法.html">
+            
+                <a href="08.GeoHash 算法.html">
+            
+                    
+                    08.GeoHash 算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="09.大海捞针-scan.html">
+            
+                <a href="09.大海捞针-scan.html">
+            
+                    
+                    09.大海捞针-scan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="10.内存回收机制.html">
+            
+                <a href="10.内存回收机制.html">
+            
+                    
+                    10.内存回收机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="11.主从同步.html">
+            
+                <a href="11.主从同步.html">
+            
+                    
+                    11.主从同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="12.Redis 集群-sentinel.html">
+            
+                <a href="12.Redis 集群-sentinel.html">
+            
+                    
+                    12.Redis 集群-sentinel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="13.Redis 集群-Cluster.html">
+            
+                <a href="13.Redis 集群-Cluster.html">
+            
+                    
+                    13.Redis 集群-Cluster
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="14.集群-Codis.html">
+            
+                <a href="14.集群-Codis.html">
+            
+                    
+                    14.集群-Codis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="15.Stream.html">
+            
+                <a href="15.Stream.html">
+            
+                    
+                    15.Stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="16.Info.html">
+            
+                <a href="16.Info.html">
+            
+                    
+                    16.Info
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.17" data-path="17.再谈分布式锁.html">
+            
+                <a href="17.再谈分布式锁.html">
+            
+                    
+                    17.再谈分布式锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.18" data-path="18.过期策略.html">
+            
+                <a href="18.过期策略.html">
+            
+                    
+                    18.过期策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.19" data-path="19.LRU-淘汰算法.html">
+            
+                <a href="19.LRU-淘汰算法.html">
+            
+                    
+                    19.LRU-淘汰算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.20" data-path="20.懒惰删除.html">
+            
+                <a href="20.懒惰删除.html">
+            
+                    
+                    20.懒惰删除
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.21" data-path="21.Redis 的安全.html">
+            
+                <a href="21.Redis 的安全.html">
+            
+                    
+                    21.Redis 的安全
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.22" data-path="22.spiped 原理.html">
+            
+                <a href="22.spiped 原理.html">
+            
+                    
+                    22.spiped 原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.23" data-path="23.LUA 脚本执行原理.html">
+            
+                <a href="23.LUA 脚本执行原理.html">
+            
+                    
+                    23.LUA 脚本执行原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.24" data-path="24.命令行工具.html">
+            
+                <a href="24.命令行工具.html">
+            
+                    
+                    24.命令行工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >07.限流</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#07&#x9650;&#x6D41;"><b>1.1.1. </b>07.&#x9650;&#x6D41;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="07&#x9650;&#x6D41;"><a name="07&#x9650;&#x6D41;" class="anchor-navigation-ex-anchor" href="#07&#x9650;&#x6D41;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1. 07.&#x9650;&#x6D41;</h3>
+<hr>
+<p>&#x5728;&#x9AD8;&#x5E76;&#x53D1;&#x573A;&#x666F;&#x4E0B;&#x6709;&#x4E09;&#x628A;&#x5229;&#x5668;&#x4FDD;&#x62A4;&#x7CFB;&#x7EDF;&#xFF1A;&#x7F13;&#x5B58;&#x3001;&#x964D;&#x7EA7;&#x3001;&#x548C;&#x9650;&#x6D41;&#x3002;</p>
+<ul>
+<li>&#x7F13;&#x5B58;&#x7684;&#x76EE;&#x7684;&#x662F;&#x63D0;&#x5347;&#x7CFB;&#x7EDF;&#x7684;&#x8BBF;&#x95EE;&#x4F60;&#x901F;&#x5EA6;&#x548C;&#x589E;&#x5927;&#x7CFB;&#x7EDF;&#x80FD;&#x5904;&#x7406;&#x7684;&#x5BB9;&#x91CF;&#x3002;</li>
+<li>&#x964D;&#x7EA7;&#x662F;&#x5F53;&#x670D;&#x52A1;&#x51FA;&#x95EE;&#x9898;&#x6216;&#x5F71;&#x54CD;&#x5230;&#x6838;&#x5FC3;&#x6D41;&#x7A0B;&#x7684;&#x6027;&#x80FD;&#x5219;&#x9700;&#x8981;&#x6682;&#x65F6;&#x5C4F;&#x853D;&#x6389;&#x3002;</li>
+<li>&#x9650;&#x6D41;&#x4E00;&#x822C;&#x4F5C;&#x7528;&#x4E8E;&#x9AD8;&#x5E76;&#x53D1;&#x4E0B;&#xFF0C;&#x9664;&#x4E86;&#x63A7;&#x5236;&#x6D41;&#x91CF;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x76EE;&#x7684;&#x662F;&#x63A7;&#x5236;&#x7528;&#x6237;&#x884C;&#x4E3A;&#xFF0C;&#x907F;&#x514D;&#x5783;&#x573E;&#x8BF7;&#x6C42;&#x3002;&#x5982;&#x8BBA;&#x575B;&#x91CC;&#xFF0C;&#x63A7;&#x5236;&#x7528;&#x6237;&#x7684;&#x53D1;&#x5E16;&#xFF0C;&#x56DE;&#x590D;&#x548C;&#x70B9;&#x8D5E;&#x7B49;&#x529F;&#x80FD;&#x3002;&#x8FD8;&#x6709;&#x5546;&#x57CE;&#x91CC;&#x5982;&#x79D2;&#x6740;&#x3001;&#x62A2;&#x8D2D;&#x3001;&#x8BC4;&#x8BBA;&#x3001;&#x6076;&#x610F;&#x722C;&#x866B;&#x7B49;&#x3002;</li>
+</ul>
+<h4 id="&#x4F7F;&#x7528;-reids-&#x6765;&#x5B9E;&#x73B0;&#x7B80;&#x5355;&#x7684;&#x9650;&#x6D41;&#x7B56;&#x7565;"><a name="&#x4F7F;&#x7528;-reids-&#x6765;&#x5B9E;&#x73B0;&#x7B80;&#x5355;&#x7684;&#x9650;&#x6D41;&#x7B56;&#x7565;" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;-reids-&#x6765;&#x5B9E;&#x73B0;&#x7B80;&#x5355;&#x7684;&#x9650;&#x6D41;&#x7B56;&#x7565;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4F7F;&#x7528; reids &#x6765;&#x5B9E;&#x73B0;&#x7B80;&#x5355;&#x7684;&#x9650;&#x6D41;&#x7B56;&#x7565;</h4>
+<p>&#x9650;&#x6D41;&#x7B97;&#x6CD5;
+&#x5E38;&#x89C1;&#x7684;&#x9650;&#x6D41;&#x7B97;&#x6CD5;&#x6709;&#xFF1A;&#x8BA1;&#x6570;&#x5668;&#xFF0C;&#x6F0F;&#x6876;&#x3001;&#x4EE4;&#x724C;&#x6876;&#x3002;</p>
+<h4 id="&#x8BA1;&#x6570;&#x5668;"><a name="&#x8BA1;&#x6570;&#x5668;" class="anchor-navigation-ex-anchor" href="#&#x8BA1;&#x6570;&#x5668;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x8BA1;&#x6570;&#x5668;</h4>
+<p>&#x8BA1;&#x6570;&#x5668;&#xFF1A;&#x8BB0;&#x5F55;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x7A97;&#x53E3;&#x5185;&#xFF0C;&#x7528;&#x6237;&#x884C;&#x4E3A;&#x603B;&#x6570;&#xFF0C;&#x5224;&#x65AD;&#x662F;&#x5426;&#x8D85;&#x8FC7;&#x9650;&#x5236;&#x3002;
+&#x4E0B;&#x9762;&#x662F; PHP &#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</p>
+<pre class="language-"><code class="lang-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Http<span class="token punctuation">\</span>Controllers</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">PagesController</span> <span class="token keyword">extends</span> <span class="token class-name">Controller</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$redis</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token punctuation">\</span>Predis<span class="token punctuation">\</span>Client</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;</span> <span class="token number">20</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">dump</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">isActionAllowed</span><span class="token punctuation">(</span><span class="token variable">$redis</span><span class="token punctuation">,</span> <span class="token double-quoted-string string">&quot;110&quot;</span><span class="token punctuation">,</span> <span class="token double-quoted-string string">&quot;reply&quot;</span><span class="token punctuation">,</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x6267;&#x884C;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x53EA;&#x6709;&#x524D;5&#x6B21;&#x662F;&#x901A;&#x8FC7;&#x7684;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * @param \Predis\Client $redis
+     * @param String $userId (&#x7528;&#x6237; id)
+     * @param String $actionName (&#x64CD;&#x4F5C;&#x540D;)
+     * @param Int $period &#x65F6;&#x95F4;&#x7A97;&#x53E3;(&#x6BEB;&#x79D2;)
+     * @param Int $maxCount (&#x6700;&#x5927;&#x9650;&#x5236;&#x4E2A;&#x6570;)
+     * @return bool
+     * @throws \Exception
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">isActionAllowed</span><span class="token punctuation">(</span>\<span class="token package">Predis<span class="token punctuation">\</span>Client</span> <span class="token variable">$redis</span><span class="token punctuation">,</span> String <span class="token variable">$userId</span><span class="token punctuation">,</span> String <span class="token variable">$actionName</span><span class="token punctuation">,</span> Int <span class="token variable">$period</span><span class="token punctuation">,</span> Int <span class="token variable">$maxCount</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+<span class="token comment">//        &#x8BBE;&#x7F6E;&#x952E;&#x540D;</span>
+        <span class="token variable">$actionKey</span> <span class="token operator">=</span> <span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;current-limiting.%s.%s&apos;</span><span class="token punctuation">,</span> <span class="token variable">$actionName</span><span class="token punctuation">,</span> <span class="token variable">$userId</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">list</span><span class="token punctuation">(</span><span class="token variable">$msec</span><span class="token punctuation">,</span> <span class="token variable">$sec</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token function">explode</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos; &apos;</span><span class="token punctuation">,</span> <span class="token function">microtime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//        &#x6BEB;&#x79D2;&#x65F6;&#x95F4;&#x6233;</span>
+        <span class="token variable">$now</span> <span class="token operator">=</span> <span class="token function">intval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token variable">$sec</span> <span class="token operator">+</span> <span class="token variable">$msec</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//        &#x7BA1;&#x9053;</span>
+        <span class="token variable">$replies</span> <span class="token operator">=</span> <span class="token variable">$redis</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">pipeline</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">//        value &#x548C; score &#x90FD;&#x7528;&#x6BEB;&#x79D2;&#x65F6;&#x95F4;&#x6233;</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">zadd</span><span class="token punctuation">(</span><span class="token variable">$actionKey</span><span class="token punctuation">,</span> <span class="token variable">$now</span><span class="token punctuation">,</span> <span class="token variable">$now</span><span class="token punctuation">)</span>
+<span class="token comment">//        &#x79FB;&#x9664;&#x65F6;&#x95F4;&#x7A97;&#x53E3;&#x4E4B;&#x524D;&#x7684;&#x884C;&#x4E3A;&#x8BB0;&#x5F55;&#xFF0C;&#x5269;&#x4E0B;&#x7684;&#x90FD;&#x662F;&#x65F6;&#x95F4;&#x7A97;&#x53E3;&#x5185;&#x7684;</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">zremrangebyscore</span><span class="token punctuation">(</span><span class="token variable">$actionKey</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token variable">$now</span> <span class="token operator">-</span> <span class="token variable">$period</span><span class="token punctuation">)</span>
+<span class="token comment">//        &#x7EDF;&#x8BA1;&#x73B0;&#x5728;&#x4E2A;&#x6570;</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">zcard</span><span class="token punctuation">(</span><span class="token variable">$actionKey</span><span class="token punctuation">)</span>
+<span class="token comment">//        &#x591A;&#x52A0;&#x4E00;&#x79D2;&#x8FC7;&#x671F;&#x65F6;&#x95F4;</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">expire</span><span class="token punctuation">(</span><span class="token variable">$actionKey</span><span class="token punctuation">,</span> <span class="token variable">$period</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment">//        &#x6267;&#x884C;</span>
+            <span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">execute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token variable">$replies</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&lt;=</span> <span class="token variable">$maxCount</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x8FD9;&#x51E0;&#x4E2A; redis &#x64CD;&#x4F5C;&#x90FD;&#x662F;&#x9488;&#x5BF9;&#x540C;&#x4E00;&#x4E2A; key&#xFF0C;&#x6240;&#x4EE5;&#x4F7F;&#x7528;&#x7BA1;&#x9053; pipeline &#x4F1A;&#x663E;&#x8457;&#x63D0;&#x5347;&#x6548;&#x7387;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x65B9;&#x6848;&#x4E5F;&#x6709;&#x4E00;&#x4E2A;&#x7F3A;&#x9677;&#xFF0C;&#x5C31;&#x662F;&#x5F53;&#x91CF;&#x5F88;&#x5927;&#x65F6;&#xFF0C;&#x4F1A;&#x5360;&#x7528;&#x5F88;&#x5927;&#x7A7A;&#x95F4;&#xFF0C;&#x5C31;&#x4E0D;&#x9002;&#x5408;&#x505A;&#x9650;&#x6D41;&#x4E86;&#xFF08;&#x5982;&#x9650;&#x5B9A; 60 &#x79D2;&#xFF0C;&#x64CD;&#x4F5C;&#x4E0D;&#x8D85;&#x8FC7; 100 &#x4E07;&#x6B21;&#xFF09;&#x3002; </p>
+<h4 id="&#x6F0F;&#x6597;&#x9650;&#x6D41;"><a name="&#x6F0F;&#x6597;&#x9650;&#x6D41;" class="anchor-navigation-ex-anchor" href="#&#x6F0F;&#x6597;&#x9650;&#x6D41;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6F0F;&#x6597;&#x9650;&#x6D41;</h4>
+<p>&#x987E;&#x540D;&#x601D;&#x4E49;&#xFF0C;&#x7B97;&#x6CD5;&#x7075;&#x611F;&#x6765;&#x81EA;&#x4E8E;&#x6F0F;&#x6597;&#x3002;
+&#x6F0F;&#x6597;&#x5BB9;&#x91CF;&#x6709;&#x9650;&#xFF0C;&#x4E0A;&#x9762;&#x6709;&#x6C34;&#x9F99;&#x5934;&#x704C;&#x6C34;&#xFF0C;&#x6F0F;&#x6597;&#x4E0B;&#x9762;&#x6F0F;&#x6C34;&#x3002;&#x5F53;&#x704C;&#x6C34;&#x901F;&#x7387;&#x5927;&#x4E8E;&#x6F0F;&#x6C34;&#xFF0C;&#x5219;&#x6F0F;&#x6597;&#x4F1A;&#x6EE1;&#xFF0C;&#x65E0;&#x6CD5;&#x518D;&#x5982;&#x65B0;&#x6C34;&#x3002;&#x53CD;&#x4E4B;&#x5219;&#x6F0F;&#x6597;&#x6C38;&#x8FDC;&#x88C5;&#x4E0D;&#x6EE1;&#x6C34;&#x3002;</p>
+<p><img src="https://i.loli.net/2019/10/18/cQSlZ1AEDv6FytM.jpg" alt="&#x6F0F;&#x6597;&#x9650;&#x6D41;"></p>
+<p>PHP &#x5B9E;&#x73B0;&#x6F0F;&#x6597;&#x6CD5;</p>
+<pre class="language-"><code class="lang-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Services</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">FunnelService</span>
+<span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token variable">$capacity</span><span class="token punctuation">;</span> <span class="token comment">// &#x5BB9;&#x91CF;</span>
+    <span class="token keyword">private</span> <span class="token variable">$leakingRate</span><span class="token punctuation">;</span> <span class="token comment">// &#x6CC4;&#x9732;&#x901F;&#x7387;</span>
+    <span class="token keyword">private</span> <span class="token variable">$leftCapacity</span><span class="token punctuation">;</span> <span class="token comment">// &#x5269;&#x4F59;&#x5BB9;&#x91CF;</span>
+    <span class="token keyword">private</span> <span class="token variable">$lastLeakedTime</span><span class="token punctuation">;</span> <span class="token comment">// &#x4E0A;&#x4E00;&#x6B21;&#x6F0F;&#x6C34;&#x65F6;&#x95F4;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span>float <span class="token variable">$capacity</span><span class="token punctuation">,</span> float <span class="token variable">$leakingRate</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">capacity</span> <span class="token operator">=</span> <span class="token variable">$capacity</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">leakingRate</span> <span class="token operator">=</span> <span class="token variable">$leakingRate</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">leftCapacity</span> <span class="token operator">=</span> <span class="token variable">$capacity</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">lastLeakedTime</span> <span class="token operator">=</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">makeSpace</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$now</span> <span class="token operator">=</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//        &#x8DDD;&#x79BB;&#x4E0A;&#x4E00;&#x6B21;&#x6F0F;&#x6C34;&#x8FC7;&#x53BB;&#x4E86;&#x591A;&#x4E45;</span>
+        <span class="token variable">$deltaTime</span> <span class="token operator">=</span> <span class="token variable">$now</span> <span class="token operator">-</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">lastLeakedTime</span><span class="token punctuation">;</span>
+<span class="token comment">//        &#x8BA1;&#x7B97;&#x5DF2;&#x7ECF;&#x817E;&#x51FA;&#x4E86;&#x591A;&#x5C11;&#x7A7A;&#x95F4;</span>
+        <span class="token variable">$deltaSpace</span> <span class="token operator">=</span> <span class="token variable">$deltaTime</span> <span class="token operator">*</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">leakingRate</span><span class="token punctuation">;</span>
+
+<span class="token comment">//        &#x817E;&#x51FA;&#x7A7A;&#x95F4;&#x6700;&#x5C0F;&#x5355;&#x4F4D;&#x662F; 1,&#x592A;&#x5C0F;&#x5C31;&#x5FFD;&#x7565;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$deltaSpace</span> <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+<span class="token comment">//        &#x589E;&#x52A0;&#x5269;&#x4F59;&#x7A7A;&#x95F4;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">leftCapacity</span> <span class="token operator">+</span><span class="token operator">=</span> <span class="token variable">$deltaSpace</span><span class="token punctuation">;</span>
+<span class="token comment">//        &#x8BB0;&#x5F55;&#x6F0F;&#x6C34;&#x65F6;&#x95F4;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">lastLeakedTime</span> <span class="token operator">=</span> <span class="token function">time</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//        &#x5982;&#x679C;&#x5269;&#x4F59;&#x5BB9;&#x91CF;&#x5927;&#x4E8E;&#x4E86;&#x5BB9;&#x5668;&#x5BB9;&#x91CF;,&#x5219;&#x5269;&#x4F59;&#x5BB9;&#x91CF;&#x4E3A;&#x5BB9;&#x5668;&#x5BB9;&#x91CF;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">leftCapacity</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">leftCapacity</span> <span class="token operator">&gt;</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">capacity</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">capacity</span> <span class="token punctuation">:</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">leftCapacity</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">watering</span><span class="token punctuation">(</span>float <span class="token variable">$quota</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">//&#x6F0F;&#x6C34;&#x64CD;&#x4F5C;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">makeSpace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//        &#x5F53;&#x8FD8;&#x6709;&#x7A7A;&#x95F4;&#x65F6;,&#x5219;&#x51CF;&#x5C11;&#x5BB9;&#x5668;&#x5269;&#x4F59;&#x7A7A;&#x95F4;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">leftCapacity</span> <span class="token operator">&gt;=</span> <span class="token variable">$quota</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">leftCapacity</span> <span class="token operator">-</span><span class="token operator">=</span> <span class="token variable">$quota</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean constant">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token boolean constant">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x8C03;&#x7528;&#x8FC7;&#x7A0B;</p>
+<pre class="language-"><code class="lang-php"><span class="token delimiter important">&lt;?php</span>
+<span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">isActionAllowed</span><span class="token punctuation">(</span><span class="token variable">$userId</span><span class="token punctuation">,</span> <span class="token variable">$action</span><span class="token punctuation">,</span> <span class="token variable">$capacity</span><span class="token punctuation">,</span> <span class="token variable">$leakingRate</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$key</span> <span class="token operator">=</span> <span class="token function">sprintf</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;Funnel-%s:%s&quot;</span><span class="token punctuation">,</span> <span class="token variable">$userId</span><span class="token punctuation">,</span> <span class="token variable">$action</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$funnel</span> <span class="token operator">=</span> <span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token single-quoted-string string">&apos;funnel&apos;</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$key</span><span class="token punctuation">]</span> <span class="token operator">?</span><span class="token operator">?</span> <span class="token single-quoted-string string">&apos;&apos;</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token variable">$funnel</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token variable">$funnel</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FunnelService</span><span class="token punctuation">(</span><span class="token variable">$capacity</span><span class="token punctuation">,</span> <span class="token variable">$leakingRate</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token variable">$GLOBALS</span><span class="token punctuation">[</span><span class="token single-quoted-string string">&apos;funnel&apos;</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$key</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token variable">$funnel</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token variable">$funnel</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">watering</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">demo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span><span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">&lt;</span><span class="token number">20</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token function">dump</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">isActionAllowed</span><span class="token punctuation">(</span><span class="token double-quoted-string string">&quot;110&quot;</span><span class="token punctuation">,</span> <span class="token double-quoted-string string">&quot;reply&quot;</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//&#x6267;&#x884C;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x53EA;&#x6709;&#x524D;15&#x6B21;&#x662F;&#x901A;&#x8FC7;&#x7684;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>&#x89E3;&#x6790;&#x4EE3;&#x7801;&#x7684;&#x5173;&#x952E;&#x662F; makeSpace() &#x65B9;&#x6CD5;&#xFF0C;&#x6BCF;&#x6B21;&#x8C03;&#x7528;&#x524D;&#x90FD;&#x4F1A;&#x89E6;&#x53D1;&#x6F0F;&#x6C34;&#xFF0C;&#x817E;&#x51FA;&#x591A;&#x5C11;&#x7A7A;&#x95F4;&#x3002;&#x80FD;&#x817E;&#x51FA;&#x591A;&#x5C11;&#x7A7A;&#x95F4;&#x53D6;&#x51B3;&#x4E8E; &#x6F0F;&#x6C34;&#x65F6;&#x95F4;*&#x6F0F;&#x6C34;&#x901F;&#x7387;&#x3002;</p>
+<h4 id="&#x5206;&#x5E03;&#x5F0F;&#x7684;&#x6F0F;&#x6597;&#x7B97;&#x6CD5;"><a name="&#x5206;&#x5E03;&#x5F0F;&#x7684;&#x6F0F;&#x6597;&#x7B97;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x5206;&#x5E03;&#x5F0F;&#x7684;&#x6F0F;&#x6597;&#x7B97;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5206;&#x5E03;&#x5F0F;&#x7684;&#x6F0F;&#x6597;&#x7B97;&#x6CD5;</h4>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A; Funnel &#x5BF9;&#x8C61;&#x5B58;&#x653E;&#x5230; Redis &#x7684; hash &#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E2D;&#x3002;&#x704C;&#x6C34;&#x7684;&#x65F6;&#x5019;&#x53D6;&#x51FA;&#x8FDB;&#x884C;&#x903B;&#x8F91;&#x8BA1;&#x7B97;&#xFF0C;&#x518D;&#x5C06;&#x65B0;&#x503C;&#x5B58;&#x56DE;&#x5230; hash &#x4E2D;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x65E0;&#x6CD5;&#x4FDD;&#x8BC1;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x7684;&#x539F;&#x5B50;&#x6027;&#x3002;&#x4ECE; hash &#x4E2D;&#x53D6;&#x51FA;&#xFF0C;&#x903B;&#x8F91;&#x8BA1;&#x7B97;&#x540E;&#x518D;&#x5B58;&#x56DE;&#xFF0C;&#x8FD9;&#x51E0;&#x4E2A;&#x8FC7;&#x7A0B;&#x90FD;&#x65E0;&#x6CD5;&#x539F;&#x5B50;&#x5316;&#x3002;&#x610F;&#x5473;&#x7740;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x9002;&#x5F53;&#x7684;&#x52A0;&#x9501;&#xFF0C;&#x800C;&#x4E00;&#x65E6;&#x52A0;&#x9501;&#xFF0C;&#x5C31;&#x6709;&#x5931;&#x8D25;&#x7684;&#x53EF;&#x80FD;&#xFF0C;&#x52A0;&#x9501;&#x5931;&#x8D25;&#x5C31;&#x9700;&#x8981;&#x9009;&#x62E9;&#x91CD;&#x8BD5;&#x6216;&#x8005;&#x653E;&#x5F03;&#x3002;&#x91CD;&#x8BD5;&#x5BFC;&#x81F4;&#x6027;&#x80FD;&#x4E0B;&#x964D;&#xFF0C;&#x653E;&#x5F03;&#x5C31;&#x964D;&#x4F4E;&#x7528;&#x6237;&#x4F53;&#x9A8C;&#x3002;</p>
+<p>&#x4E8E;&#x662F;&#xFF0C;Redis-Cell &#x6765;&#x4E86;&#x3002;</p>
+<p>Redis &#x5728; 4.0 &#x4E4B;&#x540E;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A; Redis-Cell &#x6A21;&#x5757;&#xFF0C;&#x8BE5;&#x6A21;&#x5757;&#x57FA;&#x4E8E;&#x6F0F;&#x6597;&#x7B97;&#x6CD5;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E86;&#x539F;&#x5B50;&#x7684;&#x9650;&#x6D41;&#x6307;&#x4EE4;&#x3002;</p>
+<h5 id="&#x5B89;&#x88C5;-redis-cell"><a name="&#x5B89;&#x88C5;-redis-cell" class="anchor-navigation-ex-anchor" href="#&#x5B89;&#x88C5;-redis-cell"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B89;&#x88C5; Redis-Cell</h5>
+<p>&#x5B98;&#x7F51;&#xFF1A;<a href="https://github.com/brandur/redis-cell" target="_blank">GitHub - brandur/redis-cell: A Redis module that provides rate limiting in Redis as a single command.</a></p>
+<p>&#x5728;&#x8FD9;&#x91CC;&#x4E0B;&#x8F7D;&#x5BF9;&#x5E94;&#x7684;&#x7248;&#x672C;&#x3002;<a href="https://github.com/brandur/redis-cell/releases" target="_blank">Releases &#xB7; brandur/redis-cell &#xB7; GitHub</a></p>
+<p>&#x6211;&#x7535;&#x8111;&#x662F; mac&#xFF0C;&#x4E0B;&#x8F7D;&#x597D;&#x540E;&#xFF0C;&#x89E3;&#x538B;&#x5F97;&#x5230; .dylib &#x6587;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x662F; linux &#x4F1A;&#x5F97;&#x5230; .so &#x6587;&#x4EF6;&#x3002;&#x7136;&#x540E;,&#x627E;&#x5230; redis &#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6; /usr/local/etc/redis.conf&#xFF0C;&#x6DFB;&#x52A0;&#x4E0B;&#x9762;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x3002;</p>
+<pre class="language-"><code class="lang-text"> loadmodule /usr/local/etc/libredis_cell.dylib
+</code></pre>
+<p>&#x91CD;&#x542F; redis,&#x5B89;&#x88C5;&#x5C31;&#x5B8C;&#x6210;&#x4E86;</p>
+<pre class="language-"><code class="lang-shell">    brew services restart redis
+</code></pre>
+<h5 id="redis-cell-&#x6307;&#x4EE4;"><a name="redis-cell-&#x6307;&#x4EE4;" class="anchor-navigation-ex-anchor" href="#redis-cell-&#x6307;&#x4EE4;"><i class="fa fa-link" aria-hidden="true"></i></a>Redis-Cell &#x6307;&#x4EE4;</h5>
+<p>&#x8BE5;&#x6A21;&#x5757;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6307;&#x4EE4; <code>cl.throttle</code>&#x3002;&#x5176;&#x610F;&#x601D;&#x662F;&#x5141;&#x8BB8;&quot;&#x67D0;&#x4E2A;&#x884C;&#x4E3A;&quot;&#x7684;&#x9891;&#x7387;&#x662F;&#x6BCF; 60 &#x79D2;&#x6700;&#x591A; 30 &#x6B21;&#xFF08;&#x6F0F;&#x6C34;&#x901F;&#x7387;&#xFF09;&#x3002;&#x6F0F;&#x6597;&#x7684;&#x6700;&#x5927;&#x5BB9;&#x91CF;&#x4E3A; 15&#x3002;</p>
+<pre class="language-"><code class="lang-shell">CL.THROTTLE user123 <span class="token number">15</span> <span class="token number">30</span> <span class="token number">60</span> <span class="token number">1</span>
+               &#x25B2;     &#x25B2;  &#x25B2;  &#x25B2; &#x25B2;
+               <span class="token operator">|</span>     <span class="token operator">|</span>  <span class="token operator">|</span>  <span class="token operator">|</span> &#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500; apply <span class="token number">1</span> token <span class="token punctuation">(</span>default <span class="token keyword">if</span> omitted<span class="token punctuation">)</span> &#x53EF;&#x9009;&#x53C2;&#x6570;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A; <span class="token number">1</span>
+               <span class="token operator">|</span>     <span class="token operator">|</span>  &#x2514;&#x2500;&#x2500;&#x2534;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500; <span class="token number">30</span> tokens / <span class="token number">60</span> seconds &#x901F;&#x7387;
+               <span class="token operator">|</span>     &#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500; <span class="token number">15</span> &#x6700;&#x5927;&#x5BB9;&#x91CF;
+               &#x2514;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500; key <span class="token string">&quot;user123&quot;</span>
+</code></pre>
+<p>&#x5176;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;&#xFF1A;</p>
+<pre class="language-"><code class="lang-lua"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> CL<span class="token punctuation">.</span>THROTTLE user123 <span class="token number">15</span> <span class="token number">30</span> <span class="token number">60</span>
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">0</span> <span class="token operator">#</span> <span class="token number">0</span> &#x8868;&#x793A;&#x5141;&#x8BB8;&#xFF0C;<span class="token number">1</span> &#x8868;&#x793A;&#x62D2;&#x7EDD;
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">15</span> <span class="token operator">#</span> &#x6F0F;&#x6597;&#x5BB9;&#x91CF; capacity
+<span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">14</span> <span class="token operator">#</span> &#x5F53;&#x524D;&#x5BB9;&#x91CF; leftCapacity
+<span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token operator">#</span> &#x5982;&#x679C;&#x88AB;&#x62D2;&#x7EDD;&#x4E86;&#xFF0C;&#x9700;&#x8981;&#x591A;&#x5C11;&#x65F6;&#x95F4;&#x540E;&#x518D;&#x8BD5;&#xFF08;&#x6F0F;&#x6597;&#x6709;&#x7A7A;&#x95F4;&#x4E86;&#xFF0C;&#x5355;&#x4F4D;&#x79D2;&#xFF09;
+<span class="token number">5</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">2</span> <span class="token operator">#</span> &#x591A;&#x957F;&#x65F6;&#x95F4;&#x540E;&#xFF0C;&#x6F0F;&#x6597;&#x5B8C;&#x5168;&#x7A7A;&#x51FA;&#x6765;&#xFF08;leftCapacity<span class="token operator">=</span>capacity&#xFF0C;&#x5355;&#x4F4D;&#x79D2;&#xFF09;
+</code></pre>
+<p>&#x5728;&#x6267;&#x884C;&#x6307;&#x4EE4;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x88AB;&#x62D2;&#x7EDD;&#x4E86;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x4E22;&#x5F03;&#x6216;&#x91CD;&#x8BD5;&#x3002;&#x91CD;&#x8BD5;&#x7684;&#x8BDD;&#xFF0C;&#x6307;&#x4EE4;&#x5DF2;&#x7ECF;&#x7B97;&#x597D;&#x4E86;&#x65F6;&#x95F4;&#xFF0C;&#x76F4;&#x63A5; sleep &#x5C31;&#x884C;&#xFF0C;&#x4E0D;&#x8FC7;&#x4F1A;&#x963B;&#x585E;&#x7EBF;&#x7A0B;&#xFF0C;&#x5426;&#x5219;&#x5F02;&#x6B65;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x6765;&#x6267;&#x884C;&#x3002;</p>
+<h5 id="&#x6F0F;&#x6597;&#x7B97;&#x6CD5;&#x7684;&#x5F0A;&#x7AEF;"><a name="&#x6F0F;&#x6597;&#x7B97;&#x6CD5;&#x7684;&#x5F0A;&#x7AEF;" class="anchor-navigation-ex-anchor" href="#&#x6F0F;&#x6597;&#x7B97;&#x6CD5;&#x7684;&#x5F0A;&#x7AEF;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6F0F;&#x6597;&#x7B97;&#x6CD5;&#x7684;&#x5F0A;&#x7AEF;</h5>
+<p>&#x65E0;&#x6CD5;&#x5E94;&#x5BF9;&#x77ED;&#x65F6;&#x95F4;&#x7684;&#x7A81;&#x53D1;&#x6D41;&#x91CF;&#x3002;</p>
+<h4 id="&#x4EE4;&#x724C;&#x6876;&#x7B97;&#x6CD5;"><a name="&#x4EE4;&#x724C;&#x6876;&#x7B97;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x4EE4;&#x724C;&#x6876;&#x7B97;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x4EE4;&#x724C;&#x6876;&#x7B97;&#x6CD5;</h4>
+<p>&#x4EE4;&#x724C;&#x6876;&#x7B97;&#x6CD5;&#x7B97;&#x662F;&#x6F0F;&#x6597;&#x7B97;&#x6CD5;&#x7684;&#x6539;&#x8FDB;&#xFF0C;&#x6F0F;&#x6597;&#x7B97;&#x6CD5;&#x80FD;&#x591F;&#x9650;&#x5236;&#x6D41;&#x51FA;&#x901F;&#x7387;&#xFF0C;&#x800C;&#x4EE4;&#x724C;&#x6876;&#x7B97;&#x6CD5;&#x80FD; <strong><em>&#x5728;&#x9650;&#x5236;&#x8C03;&#x7528;&#x5E73;&#x5747;&#x901F;&#x7387;&#x7684;&#x540C;&#x65F6;&#x8FD8;&#x5141;&#x8BB8;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x7684;&#x7A81;&#x53D1;&#x8C03;&#x7528;</em></strong>
+<img src="." alt="&#x4EE4;&#x724C;&#x6876;&#x7B97;&#x6CD5;">
+&#x7B97;&#x6CD5;&#x63CF;&#x8FF0;&#xFF1A;</p>
+<ul>
+<li>&#x6709;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x5BB9;&#x91CF;&#x7684;&#x6876;&#xFF0C;&#x6309;&#x7167;&#x56FA;&#x5B9A;&#x7684;&#x901F;&#x7387;&#x5F80;&#x91CC;&#x9762;&#x6DFB;&#x52A0;&#x4EE4;&#x724C;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x6876;&#x6EE1;&#x4E86;&#xFF0C;&#x65B0;&#x6DFB;&#x52A0;&#x7684;&#x4EE4;&#x724C;&#x5C06;&#x4E22;&#x5F03;&#x3002;</li>
+<li>&#x5F53;&#x8BF7;&#x6C42;&#x6765;&#x65F6;&#xFF0C;&#x5FC5;&#x987B;&#x4ECE;&#x6876;&#x4E2D;&#x62FF;&#x51FA;&#x4E00;&#x4E2A;&#x4EE4;&#x724C;&#x624D;&#x80FD;&#x7EE7;&#x7EED;&#x5904;&#x7406;&#xFF0C;&#x5426;&#x5219;&#x62D2;&#x7EDD;&#x8BF7;&#x6C42;&#xFF0C;&#x6216;&#x8005;&#x6682;&#x5B58;&#x5230;&#x67D0;&#x4E2A;&#x7F13;&#x51B2;&#x533A;&#x7B49;&#x5F85;&#x5148;&#x4ECE;&#x6876;&#x4E2D;&#x83B7;&#x53D6;&#x4EE4;&#x724C;&#x518D;&#x6267;&#x884C;&#x8BF7;&#x6C42;&#x3002;</li>
+</ul>
+<p>php &#x5B9E;&#x73B0;&#x4EE4;&#x724C;&#x6876;&#x7B97;&#x6CD5;</p>
+<pre class="language-"><code class="lang-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Services</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Auth</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Models<span class="token punctuation">\</span>CartItem</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">TrafficShaperService</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token variable">$_redis</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$_key</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token variable">$_maxCount</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span>\<span class="token package">Predis<span class="token punctuation">\</span>Client</span> <span class="token variable">$redis</span><span class="token punctuation">,</span> String <span class="token variable">$key</span><span class="token punctuation">,</span> Int <span class="token variable">$maxCount</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">_redis</span> <span class="token operator">=</span> <span class="token variable">$redis</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">_key</span> <span class="token operator">=</span> <span class="token variable">$key</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">_maxCount</span> <span class="token operator">=</span> <span class="token variable">$maxCount</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * &#x6DFB;&#x52A0;&#x4EE4;&#x724C;
+     * @param Int $num
+     * @return Int
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">add</span><span class="token punctuation">(</span>Int <span class="token variable">$num</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+<span class="token comment">//        &#x5F53;&#x524D;&#x5269;&#x4F59;&#x4EE4;&#x724C;&#x6570;</span>
+        <span class="token variable">$leftTokenCount</span> <span class="token operator">=</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">_redis</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">llen</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">_key</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">//        &#x8BA1;&#x7B97;&#x6700;&#x5927;&#x53EF;&#x52A0;&#x5165;&#x7684;&#x4EE4;&#x724C;&#x6570;&#x91CF;&#xFF0C;&#x4E0D;&#x80FD;&#x8D85;&#x8FC7;&#x6700;&#x5927;&#x4EE4;&#x724C;&#x6570;</span>
+        <span class="token variable">$num</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token variable">$leftTokenCount</span> <span class="token operator">+</span> <span class="token variable">$num</span> <span class="token operator">&gt;</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">_maxCount</span><span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token number">0</span> <span class="token punctuation">:</span> <span class="token variable">$num</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$num</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// &#x586B;&#x5145; token&#xFF0C;&#x4E3A;&#x4E86;&#x7B80;&#x5316;&#x6B65;&#x9AA4;&#xFF0C;&#x8FD9;&#x91CC;&#x7684; token &#x503C;&#x4E3A; 1&#x3002;</span>
+            <span class="token variable">$token</span> <span class="token operator">=</span> <span class="token function">array_fill</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token variable">$num</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">_redis</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">lpush</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">_key</span><span class="token punctuation">,</span> <span class="token variable">$token</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token variable">$num</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * &#x91CD;&#x7F6E;&#x4EE4;&#x724C;&#x6876;
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">_redis</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">del</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">_key</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">_maxCount</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/**
+     * &#x83B7;&#x53D6;&#x4EE4;&#x724C;
+     * @return string
+     */</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">getToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">_redis</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">rpop</span><span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">_key</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x6267;&#x884C;&#x4EE3;&#x7801;</p>
+<pre class="language-"><code class="lang-php"><span class="token delimiter important">&lt;?php</span>
+        <span class="token variable">$redis</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name"><span class="token punctuation">\</span>Predis<span class="token punctuation">\</span>Client</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token variable">$service</span> <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">TrafficShaperService</span><span class="token punctuation">(</span><span class="token variable">$redis</span><span class="token punctuation">,</span> <span class="token single-quoted-string string">&apos;TrafficShaper&apos;</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token variable">$service</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;</span> <span class="token number">8</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">dump</span><span class="token punctuation">(</span><span class="token variable">$service</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token function">dump</span><span class="token punctuation">(</span><span class="token variable">$service</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token variable">$i</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> <span class="token variable">$i</span> <span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">;</span> <span class="token variable">$i</span><span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">dump</span><span class="token punctuation">(</span><span class="token variable">$service</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">getToken</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+</code></pre>
+<p>&#x7ED3;&#x679C;</p>
+<pre class="language-"><code class="lang-text">&quot;1&quot;
+&quot;1&quot;
+&quot;1&quot;
+&quot;1&quot;
+&quot;1&quot;
+null
+null
+null
+3
+&quot;1&quot;
+&quot;1&quot;
+&quot;1&quot;
+null
+null
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; Kagami&#x4E36; 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-10-18 01:25:32
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="06.布隆过滤器.html" class="navigation navigation-prev " aria-label="Previous page: 06.布隆过滤器">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="08.GeoHash 算法.html" class="navigation navigation-next " aria-label="Next page: 08.GeoHash 算法">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"07.限流","level":"1.5.7","depth":2,"next":{"title":"08.GeoHash 算法","level":"1.5.8","depth":2,"path":"Redis/08.GeoHash 算法.md","ref":"Redis/08.GeoHash 算法.md","articles":[]},"previous":{"title":"06.布隆过滤器","level":"1.5.6","depth":2,"path":"Redis/06.布隆过滤器.md","ref":"Redis/06.布隆过滤器.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","prism","-highlight","copy-code-button","search-pro","-search","-lunr","expandable-chapters","splitter","-sharing","github-buttons","tbfed-pagefooter","anchor-navigation-ex","disqus","github","hide-element","insert-logo","pageview-count","popup"],"ignores":["node_modules","docs"],"root":".","styles":{"website":"./styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy Kagami丶 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"shell":"bash"}},"disqus":{"useIdentifier":false,"shortName":"jk4905"},"github":{"url":"https://github.com/jk4905"},"splitter":{},"search-pro":{},"popup":{},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"},{"user":"jk4905","width":"160","type":"follow","count":true,"size":"small"}]},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 30px; min-height: 30px","url":"https://raw.githubusercontent.com/jk4905/PHP-Interview/master/docs/images/logo.png"},"expandable-chapters":{}},"theme":"default","author":"Kagami丶","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Kagami丶PHP-Interview","sortedBy":"num.","variables":{},"title":"PHP-Interview","language":"zh-hans","output.name":"docs","catalog":"all","gitbook":"3.2.3","unchanged":[],"description":"Kagami丶 的 PHP 复习笔记","outputfile":"SUMMARY.md"},"file":{"path":"Redis/07.限流.md","mtime":"2019-10-17T17:25:32.693Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-18T07:48:21.014Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

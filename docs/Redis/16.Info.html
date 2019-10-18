@@ -1,0 +1,1034 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>16.Info · PHP-Interview</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Kagami丶">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="17.再谈分布式锁.html" />
+    
+    
+    <link rel="prev" href="15.Stream.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"},{"user":"jk4905","width":"160","type":"follow","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    网路协议
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../网路协议/TCP-IP.html">
+            
+                <a href="../网路协议/TCP-IP.html">
+            
+                    
+                    TCP IP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    My SQL
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../MySQL/01.初识 MySQL.html">
+            
+                <a href="../MySQL/01.初识 MySQL.html">
+            
+                    
+                    01.初识 MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../MySQL/02.字符集与比较规则.html">
+            
+                <a href="../MySQL/02.字符集与比较规则.html">
+            
+                    
+                    02.字符集与比较规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../MySQL/03.InnoDB 页的简介.html">
+            
+                <a href="../MySQL/03.InnoDB 页的简介.html">
+            
+                    
+                    03.InnoDB 页的简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../MySQL/04.InnoDB 数据页结构.html">
+            
+                <a href="../MySQL/04.InnoDB 数据页结构.html">
+            
+                    
+                    04.InnoDB 数据页结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../MySQL/连接的原理.html">
+            
+                <a href="../MySQL/连接的原理.html">
+            
+                    
+                    连接的原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../MySQL/使用索引.html">
+            
+                <a href="../MySQL/使用索引.html">
+            
+                    
+                    使用索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../MySQL/事务的隔离级别.html">
+            
+                <a href="../MySQL/事务的隔离级别.html">
+            
+                    
+                    事务的隔离级别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../MySQL/索引描述.html">
+            
+                <a href="../MySQL/索引描述.html">
+            
+                    
+                    索引描述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../MySQL/锁.html">
+            
+                <a href="../MySQL/锁.html">
+            
+                    
+                    锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../MySQL/redo 和 undo.html">
+            
+                <a href="../MySQL/redo 和 undo.html">
+            
+                    
+                    redo 和 undo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    PHP-基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../PHP-基础知识/01.类型.html">
+            
+                <a href="../PHP-基础知识/01.类型.html">
+            
+                    
+                    01.类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../PHP-基础知识/02.变量与常量.html">
+            
+                <a href="../PHP-基础知识/02.变量与常量.html">
+            
+                    
+                    02.变量与常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../PHP-基础知识/03.运算符.html">
+            
+                <a href="../PHP-基础知识/03.运算符.html">
+            
+                    
+                    03.运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../PHP-基础知识/04.流程控制.html">
+            
+                <a href="../PHP-基础知识/04.流程控制.html">
+            
+                    
+                    04.流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../PHP-基础知识/05.函数.html">
+            
+                <a href="../PHP-基础知识/05.函数.html">
+            
+                    
+                    05.函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../PHP-基础知识/06.类与对象1.html">
+            
+                <a href="../PHP-基础知识/06.类与对象1.html">
+            
+                    
+                    06.类与对象1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../PHP-基础知识/07.类与对象2.html">
+            
+                <a href="../PHP-基础知识/07.类与对象2.html">
+            
+                    
+                    07.类与对象2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../PHP-基础知识/08.类与对象3.html">
+            
+                <a href="../PHP-基础知识/08.类与对象3.html">
+            
+                    
+                    08.类与对象3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../PHP-基础知识/09.命名空间.html">
+            
+                <a href="../PHP-基础知识/09.命名空间.html">
+            
+                    
+                    09.命名空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../PHP-基础知识/10.PHP-FPM 与 Nginx.html">
+            
+                <a href="../PHP-基础知识/10.PHP-FPM 与 Nginx.html">
+            
+                    
+                    10.PHP-FPM 与 Nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    Redis
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="01.基础数据结构.html">
+            
+                <a href="01.基础数据结构.html">
+            
+                    
+                    01.基础数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="02.分布式锁.html">
+            
+                <a href="02.分布式锁.html">
+            
+                    
+                    02.分布式锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="03.延时队列.html">
+            
+                <a href="03.延时队列.html">
+            
+                    
+                    03.延时队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="04.位图.html">
+            
+                <a href="04.位图.html">
+            
+                    
+                    04.位图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="05.HyperLogLog 统计.html">
+            
+                <a href="05.HyperLogLog 统计.html">
+            
+                    
+                    05.HyperLogLog 统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="06.布隆过滤器.html">
+            
+                <a href="06.布隆过滤器.html">
+            
+                    
+                    06.布隆过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="07.限流.html">
+            
+                <a href="07.限流.html">
+            
+                    
+                    07.限流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="08.GeoHash 算法.html">
+            
+                <a href="08.GeoHash 算法.html">
+            
+                    
+                    08.GeoHash 算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="09.大海捞针-scan.html">
+            
+                <a href="09.大海捞针-scan.html">
+            
+                    
+                    09.大海捞针-scan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="10.内存回收机制.html">
+            
+                <a href="10.内存回收机制.html">
+            
+                    
+                    10.内存回收机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="11.主从同步.html">
+            
+                <a href="11.主从同步.html">
+            
+                    
+                    11.主从同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="12.Redis 集群-sentinel.html">
+            
+                <a href="12.Redis 集群-sentinel.html">
+            
+                    
+                    12.Redis 集群-sentinel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="13.Redis 集群-Cluster.html">
+            
+                <a href="13.Redis 集群-Cluster.html">
+            
+                    
+                    13.Redis 集群-Cluster
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="14.集群-Codis.html">
+            
+                <a href="14.集群-Codis.html">
+            
+                    
+                    14.集群-Codis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="15.Stream.html">
+            
+                <a href="15.Stream.html">
+            
+                    
+                    15.Stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.16" data-path="16.Info.html">
+            
+                <a href="16.Info.html">
+            
+                    
+                    16.Info
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.17" data-path="17.再谈分布式锁.html">
+            
+                <a href="17.再谈分布式锁.html">
+            
+                    
+                    17.再谈分布式锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.18" data-path="18.过期策略.html">
+            
+                <a href="18.过期策略.html">
+            
+                    
+                    18.过期策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.19" data-path="19.LRU-淘汰算法.html">
+            
+                <a href="19.LRU-淘汰算法.html">
+            
+                    
+                    19.LRU-淘汰算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.20" data-path="20.懒惰删除.html">
+            
+                <a href="20.懒惰删除.html">
+            
+                    
+                    20.懒惰删除
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.21" data-path="21.Redis 的安全.html">
+            
+                <a href="21.Redis 的安全.html">
+            
+                    
+                    21.Redis 的安全
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.22" data-path="22.spiped 原理.html">
+            
+                <a href="22.spiped 原理.html">
+            
+                    
+                    22.spiped 原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.23" data-path="23.LUA 脚本执行原理.html">
+            
+                <a href="23.LUA 脚本执行原理.html">
+            
+                    
+                    23.LUA 脚本执行原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.24" data-path="24.命令行工具.html">
+            
+                <a href="24.命令行工具.html">
+            
+                    
+                    24.命令行工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >16.Info</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#16info"><b>1.1.1. </b>16.Info</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="16info"><a name="16info" class="anchor-navigation-ex-anchor" href="#16info"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1. 16.Info</h3>
+<h4 id="&#x7B80;&#x4ECB;"><a name="&#x7B80;&#x4ECB;" class="anchor-navigation-ex-anchor" href="#&#x7B80;&#x4ECB;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7B80;&#x4ECB;</h4>
+<p>Info &#x6307;&#x4EE4;&#x53EF;&#x4EE5;&#x83B7;&#x53D6; Redis &#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5206;&#x522B;&#x662F;&#xFF1A;</p>
+<ol>
+<li>Server - &#x670D;&#x52A1;&#x5668;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x53C2;&#x6570;</li>
+<li>Clients - &#x5BA2;&#x6237;&#x7AEF;&#x76F8;&#x5173;&#x4FE1;&#x606F;</li>
+<li>Memory - &#x670D;&#x52A1;&#x5668;&#x8FD0;&#x884C;&#x5185;&#x5B58;&#x7EDF;&#x8BA1;&#x6570;&#x636E;</li>
+<li>Persistence - &#x6301;&#x4E45;&#x5316;&#x4FE1;&#x606F;</li>
+<li>Stats - &#x901A;&#x7528;&#x7EDF;&#x8BA1;&#x6570;&#x636E;</li>
+<li>Replication - &#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x76F8;&#x5173;&#x4FE1;&#x606F;</li>
+<li>CPU - CPU &#x4FE1;&#x606F;</li>
+<li>Cluster - &#x96C6;&#x7FA4;&#x4FE1;&#x606F;</li>
+<li>KeySpace - &#x952E;&#x503C;&#x5BF9;&#x7EDF;&#x8BA1;&#x6570;&#x91CF;&#x4FE1;&#x606F;</li>
+</ol>
+<pre class="language-"><code class="lang-shell"><span class="token comment"># &#x83B7;&#x53D6;&#x6240;&#x6709;&#x4FE1;&#x606F;</span>
+<span class="token operator">&gt;</span> info
+<span class="token comment"># &#x83B7;&#x53D6;&#x5185;&#x5B58;&#x76F8;&#x5173;&#x4FE1;&#x606F;</span>
+<span class="token operator">&gt;</span> info memory
+<span class="token comment"># &#x83B7;&#x53D6;&#x590D;&#x5236;&#x76F8;&#x5173;&#x4FE1;&#x606F;</span>
+<span class="token operator">&gt;</span> info replication
+</code></pre>
+<h4 id="&#x6BCF;&#x79D2;&#x6267;&#x884C;&#x591A;&#x5C11;&#x6B21;&#x6307;&#x4EE4;"><a name="&#x6BCF;&#x79D2;&#x6267;&#x884C;&#x591A;&#x5C11;&#x6B21;&#x6307;&#x4EE4;" class="anchor-navigation-ex-anchor" href="#&#x6BCF;&#x79D2;&#x6267;&#x884C;&#x591A;&#x5C11;&#x6B21;&#x6307;&#x4EE4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6BCF;&#x79D2;&#x6267;&#x884C;&#x591A;&#x5C11;&#x6B21;&#x6307;&#x4EE4;</h4>
+<pre class="language-"><code class="lang-shell"><span class="token comment"># ops_per_sec: operations per second&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x6BCF;&#x79D2;&#x64CD;&#x4F5C;&#x6570;</span>
+<span class="token operator">&gt;</span> redis-cli info stats <span class="token operator">|</span><span class="token function">grep</span> ops
+instantaneous_ops_per_sec:789
+</code></pre>
+<p>&#x6781;&#x9650;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Redis &#x6BCF;&#x79D2;&#x80FD;&#x5904;&#x7406; 10W &#x6761;&#x6307;&#x4EE4;&#xFF0C;CPU &#x88AB;&#x5B8C;&#x5168;&#x69A8;&#x5E72;&#x3002;</p>
+<p>&#x5982;&#x679C; qps &#x8FC7;&#x9AD8;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; monitor &#x6765;&#x67E5;&#x770B;&#x54EA;&#x4E9B; key &#x88AB;&#x8BBF;&#x95EE;&#x7684;&#x6BD4;&#x8F83;&#x9891;&#x7E41;&#xFF0C;&#x4E1A;&#x52A1;&#x4E0A;&#x8FDB;&#x884C;&#x4F18;&#x5316;&#x3002;</p>
+<pre class="language-"><code class="lang-shell"><span class="token operator">&gt;</span> redis-cli monitor
+</code></pre>
+<h4 id="redis-&#x8FDE;&#x63A5;&#x4E86;&#x591A;&#x5C11;&#x5BA2;&#x6237;&#x7AEF;"><a name="redis-&#x8FDE;&#x63A5;&#x4E86;&#x591A;&#x5C11;&#x5BA2;&#x6237;&#x7AEF;" class="anchor-navigation-ex-anchor" href="#redis-&#x8FDE;&#x63A5;&#x4E86;&#x591A;&#x5C11;&#x5BA2;&#x6237;&#x7AEF;"><i class="fa fa-link" aria-hidden="true"></i></a>Redis &#x8FDE;&#x63A5;&#x4E86;&#x591A;&#x5C11;&#x5BA2;&#x6237;&#x7AEF;</h4>
+<pre class="language-"><code class="lang-shell"><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> info clients
+<span class="token comment"># Clients</span>
+connected_clients:3 <span class="token comment"># &#x8FDE;&#x63A5;&#x4E86; 3 &#x4E2A;&#x5BA2;&#x6237;&#x7AEF;</span>
+client_recent_max_input_buffer:2
+client_recent_max_output_buffer:0
+blocked_clients:0
+</code></pre>
+<p>&#x7136;&#x540E;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; client list &#x6765;&#x67E5;&#x770B;&#x6709;&#x54EA;&#x4E9B;&#x5BA2;&#x6237;&#x7AEF;</p>
+<pre class="language-"><code class="lang-shell"><span class="token number">127.0</span>.0.1:637<span class="token operator"><span class="token file-descriptor important">9</span>&gt;</span> client list
+<span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token number">8</span> <span class="token assign-left variable">addr</span><span class="token operator">=</span><span class="token number">127.0</span>.0.1:47512 <span class="token assign-left variable">fd</span><span class="token operator">=</span><span class="token number">8</span> <span class="token assign-left variable">name</span><span class="token operator">=</span> <span class="token assign-left variable">age</span><span class="token operator">=</span><span class="token number">958</span> <span class="token assign-left variable">idle</span><span class="token operator">=</span><span class="token number">39</span> <span class="token assign-left variable">flags</span><span class="token operator">=</span>O <span class="token assign-left variable">db</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">sub</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">psub</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">multi</span><span class="token operator">=</span>-1 <span class="token assign-left variable">qbuf</span><span class="token operator">=</span><span class="token number">0</span> qbuf-free<span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">obl</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">oll</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">omem</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">events</span><span class="token operator">=</span>r <span class="token assign-left variable">cmd</span><span class="token operator">=</span>monitor
+<span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token number">10</span> <span class="token assign-left variable">addr</span><span class="token operator">=</span><span class="token number">127.0</span>.0.1:47516 <span class="token assign-left variable">fd</span><span class="token operator">=</span><span class="token number">9</span> <span class="token assign-left variable">name</span><span class="token operator">=</span> <span class="token assign-left variable">age</span><span class="token operator">=</span><span class="token number">822</span> <span class="token assign-left variable">idle</span><span class="token operator">=</span><span class="token number">39</span> <span class="token assign-left variable">flags</span><span class="token operator">=</span>O <span class="token assign-left variable">db</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">sub</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">psub</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">multi</span><span class="token operator">=</span>-1 <span class="token assign-left variable">qbuf</span><span class="token operator">=</span><span class="token number">0</span> qbuf-free<span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">obl</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">oll</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">omem</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">events</span><span class="token operator">=</span>r <span class="token assign-left variable">cmd</span><span class="token operator">=</span>monitor
+<span class="token assign-left variable">id</span><span class="token operator">=</span><span class="token number">13</span> <span class="token assign-left variable">addr</span><span class="token operator">=</span><span class="token number">127.0</span>.0.1:47522 <span class="token assign-left variable">fd</span><span class="token operator">=</span><span class="token number">10</span> <span class="token assign-left variable">name</span><span class="token operator">=</span> <span class="token assign-left variable">age</span><span class="token operator">=</span><span class="token number">553</span> <span class="token assign-left variable">idle</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">flags</span><span class="token operator">=</span>N <span class="token assign-left variable">db</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">sub</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">psub</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">multi</span><span class="token operator">=</span>-1 <span class="token assign-left variable">qbuf</span><span class="token operator">=</span><span class="token number">26</span> qbuf-free<span class="token operator">=</span><span class="token number">32742</span> <span class="token assign-left variable">obl</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">oll</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">omem</span><span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">events</span><span class="token operator">=</span>r <span class="token assign-left variable">cmd</span><span class="token operator">=</span>client
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x8FD8;&#x6709;&#x4E2A;&#x53C2;&#x6570; rejected_connections &#xFF0C;&#x5B83;&#x8868;&#x793A;&#x56E0;&#x4E3A;&#x8D85;&#x51FA;&#x6700;&#x5927;&#x8FDE;&#x63A5;&#x6570;&#x800C;&#x88AB;&#x62D2;&#x7EDD;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x8FDE;&#x63A5;&#x6B21;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x6570;&#x5B57;&#x8FC7;&#x5927;&#xFF0C;&#x5C31;&#x8981;&#x8C03;&#x6574;&#x914D;&#x7F6E;&#x6587;&#x4EF6; maxclients &#x53C2;&#x6570;&#x3002;</p>
+<pre class="language-"><code class="lang-shell">vagrant@homestead:~$ redis-cli info stats <span class="token operator">|</span><span class="token function">grep</span> reject
+rejected_connections:0
+</code></pre>
+<h4 id="redis-&#x5185;&#x5B58;&#x591A;&#x5927;"><a name="redis-&#x5185;&#x5B58;&#x591A;&#x5927;" class="anchor-navigation-ex-anchor" href="#redis-&#x5185;&#x5B58;&#x591A;&#x5927;"><i class="fa fa-link" aria-hidden="true"></i></a>Redis &#x5185;&#x5B58;&#x591A;&#x5927;</h4>
+<pre class="language-"><code class="lang-shell">vagrant@homestead:~$ redis-cli info memory <span class="token operator">|</span><span class="token function">grep</span> used <span class="token operator">|</span><span class="token function">grep</span> human
+used_memory_human:875.09K  <span class="token comment"># &#x5185;&#x5B58;&#x5206;&#x914D;&#x5668; (jemalloc) &#x4ECE;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x603B;&#x91CF;</span>
+used_memory_rss_human:5.24M <span class="token comment"># &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x770B;&#x5230;&#x7684;&#x5185;&#x5B58;&#x5360;&#x7528; ,top &#x547D;&#x4EE4;&#x770B;&#x5230;&#x7684;&#x5185;&#x5B58;</span>
+used_memory_peak_human:875.99K <span class="token comment"># Redis &#x5185;&#x5B58;&#x6D88;&#x8017;&#x7684;&#x5CF0;&#x503C;</span>
+used_memory_lua_human:37.00K <span class="token comment"># lua &#x811A;&#x672C;&#x5F15;&#x64CE;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#x5927;&#x5C0F;</span>
+</code></pre>
+<p>&#x5982;&#x679C;&#x5355;&#x4E2A; Redis &#x5360;&#x7528;&#x7A7A;&#x95F4;&#x8FC7;&#x5927;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x96C6;&#x7FA4;&#x3002;</p>
+<h4 id="&#x590D;&#x5236;&#x79EF;&#x538B;&#x7F13;&#x51B2;&#x533A;&#x591A;&#x5927;"><a name="&#x590D;&#x5236;&#x79EF;&#x538B;&#x7F13;&#x51B2;&#x533A;&#x591A;&#x5927;" class="anchor-navigation-ex-anchor" href="#&#x590D;&#x5236;&#x79EF;&#x538B;&#x7F13;&#x51B2;&#x533A;&#x591A;&#x5927;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x590D;&#x5236;&#x79EF;&#x538B;&#x7F13;&#x51B2;&#x533A;&#x591A;&#x5927;</h4>
+<pre class="language-"><code class="lang-shell">vagrant@homestead:~$ redis-cli info replication <span class="token operator">|</span><span class="token function">grep</span> backlog
+repl_backlog_active:0
+repl_backlog_size:1048576  <span class="token comment"># &#x8FD9;&#x4E2A;&#x5C31;&#x662F;&#x79EF;&#x538B;&#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;</span>
+repl_backlog_first_byte_offset:0
+repl_backlog_histlen:0
+</code></pre>
+<p>&#x590D;&#x5236;&#x79EF;&#x538B;&#x7F13;&#x51B2;&#x533A;&#x5C31;&#x662F;&#x524D;&#x9762;&#x6240;&#x8BF4;&#x7684;&#x590D;&#x5236; buffer&#x3002;&#x5B83;&#x7684;&#x5927;&#x5C0F;&#x975E;&#x5E38;&#x91CD;&#x8981;&#xFF0C;&#x5F71;&#x54CD;&#x4E3B;&#x4ECE;&#x590D;&#x5236;&#x7684;&#x6548;&#x7387;&#xFF0C;&#x8BBE;&#x7F6E;&#x4E0D;&#x6070;&#x5F53;&#x4F1A;&#x5BFC;&#x81F4;&#x300C;&#x589E;&#x91CF;&#x540C;&#x6B65;-&#x5FEB;&#x7167;&#x540C;&#x6B65;&#x300D;&#x65E0;&#x9650;&#x5FAA;&#x73AF;&#x3002;</p>
+<ol>
+<li>&#x9996;&#x5148;&#xFF0C;&#x590D;&#x5236;&#x79EF;&#x538B;&#x7F13;&#x51B2;&#x533A;&#x662F;&#x4E2A;&#x73AF;&#x5F62;&#x7684;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x6307;&#x4EE4;&#x4F1A;&#x8986;&#x76D6;&#x524D;&#x9762;&#x7684;&#x6307;&#x4EE4;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x4ECE;&#x5E93;&#x65AD;&#x5F00;&#x65F6;&#x95F4;&#x8FC7;&#x957F;&#xFF0C;&#x6216;&#x8005;&#x7F13;&#x51B2;&#x533A;&#x8BBE;&#x7F6E;&#x592A;&#x5C0F;&#xFF0C;&#x5BFC;&#x81F4;&#x4ECE;&#x5E93;&#x65E0;&#x6CD5;&#x5FEB;&#x901F;&#x6062;&#x590D;&#x4E3B;&#x4ECE;&#x540C;&#x6B65;&#x8FC7;&#x7A0B;&#xFF0C;&#x5BFC;&#x81F4;&#x4E3B;&#x4ECE;&#x5168;&#x91CF;&#x540C;&#x6B65;&#xFF0C;&#x975E;&#x5E38;&#x8017;&#x8D44;&#x6E90;&#x548C;&#x65F6;&#x95F4;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;&#x4ECE;&#x5E93;&#x590D;&#x5236;&#xFF0C;&#x590D;&#x5236;&#x79EF;&#x538B;&#x7F13;&#x51B2;&#x533A;&#x662F;&#x5171;&#x4EAB;&#x7684;&#xFF0C;&#x4E0D;&#x4F1A;&#x56E0;&#x4E3A;&#x589E;&#x52A0;&#x4ECE;&#x5E93;&#x800C;&#x7EBF;&#x6027;&#x589E;&#x957F;&#x5927;&#x5C0F;&#x3002;&#x4E00;&#x822C;&#x51E0;&#x5341; M &#x5C31;&#x591F;&#x7528;&#x4E86;&#x3002;</li>
+</ol>
+<pre class="language-"><code class="lang-shell">vagrant@homestead:~$ redis-cli info stats<span class="token operator">|</span><span class="token function">grep</span> <span class="token function">sync</span>
+sync_full:0
+sync_partial_ok:0
+sync_partial_err:0 <span class="token comment"># &#x534A;&#x540C;&#x6B65;&#x5931;&#x8D25;&#x6B21;&#x6570;</span>
+</code></pre>
+<p>sync_partial_err &#x8868;&#x793A;&#x4E3B;&#x4ECE;&#x540C;&#x6B65;&#x590D;&#x5236;&#x5931;&#x8D25;&#x6B21;&#x6570;&#x3002;&#x5982;&#x679C; sync_partial_err &#x8FC7;&#x5927;&#xFF0C;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x6269;&#x5927;&#x79EF;&#x538B;&#x7F13;&#x51B2;&#x533A;&#x3002; </p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; Kagami&#x4E36; 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-10-17 19:28:44
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="15.Stream.html" class="navigation navigation-prev " aria-label="Previous page: 15.Stream">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="17.再谈分布式锁.html" class="navigation navigation-next " aria-label="Next page: 17.再谈分布式锁">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"16.Info","level":"1.5.16","depth":2,"next":{"title":"17.再谈分布式锁","level":"1.5.17","depth":2,"path":"Redis/17.再谈分布式锁.md","ref":"Redis/17.再谈分布式锁.md","articles":[]},"previous":{"title":"15.Stream","level":"1.5.15","depth":2,"path":"Redis/15.Stream.md","ref":"Redis/15.Stream.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","prism","-highlight","copy-code-button","search-pro","-search","-lunr","expandable-chapters","splitter","-sharing","github-buttons","tbfed-pagefooter","anchor-navigation-ex","disqus","github","hide-element","insert-logo","pageview-count","popup"],"ignores":["node_modules","docs"],"root":".","styles":{"website":"./styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy Kagami丶 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"shell":"bash"}},"disqus":{"useIdentifier":false,"shortName":"jk4905"},"github":{"url":"https://github.com/jk4905"},"splitter":{},"search-pro":{},"popup":{},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"},{"user":"jk4905","width":"160","type":"follow","count":true,"size":"small"}]},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 30px; min-height: 30px","url":"https://raw.githubusercontent.com/jk4905/PHP-Interview/master/docs/images/logo.png"},"expandable-chapters":{}},"theme":"default","author":"Kagami丶","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Kagami丶PHP-Interview","sortedBy":"num.","variables":{},"title":"PHP-Interview","language":"zh-hans","output.name":"docs","catalog":"all","gitbook":"3.2.3","unchanged":[],"description":"Kagami丶 的 PHP 复习笔记","outputfile":"SUMMARY.md"},"file":{"path":"Redis/16.Info.md","mtime":"2019-10-17T11:28:44.731Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-18T07:48:21.014Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
