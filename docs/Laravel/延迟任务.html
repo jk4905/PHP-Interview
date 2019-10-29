@@ -1,0 +1,1426 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>延迟任务 · PHP-Interview</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Kagami丶">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-solarizedlight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-insert-logo/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-pageview-count/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="语义化版本.html" />
+    
+    
+    <link rel="prev" href="事件与监听.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"},{"user":"jk4905","width":"160","type":"follow","count":true,"size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    操作系统
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../操作系统/简单知识.html">
+            
+                <a href="../操作系统/简单知识.html">
+            
+                    
+                    简单知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../操作系统/Nginx.html">
+            
+                <a href="../操作系统/Nginx.html">
+            
+                    
+                    Nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    面试
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../面试/分布式.html">
+            
+                <a href="../面试/分布式.html">
+            
+                    
+                    分布式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../面试/高并发下，先操作数据库还是先操作缓存.html">
+            
+                <a href="../面试/高并发下，先操作数据库还是先操作缓存.html">
+            
+                    
+                    高并发下，先操作数据库还是先操作缓存
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../面试/git pull --rebase.html">
+            
+                <a href="../面试/git pull --rebase.html">
+            
+                    
+                    Git Pull Rebase
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../面试/php 面试题.html">
+            
+                <a href="../面试/php 面试题.html">
+            
+                    
+                    php 面试题
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    数据结构
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../数据结构/红黑树.html">
+            
+                <a href="../数据结构/红黑树.html">
+            
+                    
+                    红黑树
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    网路协议
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../网路协议/网络安全.html">
+            
+                <a href="../网路协议/网络安全.html">
+            
+                    
+                    网络安全
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../网路协议/HTTP协议.html">
+            
+                <a href="../网路协议/HTTP协议.html">
+            
+                    
+                    HTTP协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../网路协议/TCP-IP.html">
+            
+                <a href="../网路协议/TCP-IP.html">
+            
+                    
+                    TCP IP
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    Laravel
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="定义辅助函数.html">
+            
+                <a href="定义辅助函数.html">
+            
+                    
+                    定义辅助函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="基础知识.html">
+            
+                <a href="基础知识.html">
+            
+                    
+                    基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="请求周期.html">
+            
+                <a href="请求周期.html">
+            
+                    
+                    请求周期
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="实现方式.html">
+            
+                <a href="实现方式.html">
+            
+                    
+                    实现方式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="事件与监听.html">
+            
+                <a href="事件与监听.html">
+            
+                    
+                    事件与监听
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.6" data-path="延迟任务.html">
+            
+                <a href="延迟任务.html">
+            
+                    
+                    延迟任务
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="语义化版本.html">
+            
+                <a href="语义化版本.html">
+            
+                    
+                    语义化版本
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="中间件.html">
+            
+                <a href="中间件.html">
+            
+                    
+                    中间件
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="Deployer-自动部署.html">
+            
+                <a href="Deployer-自动部署.html">
+            
+                    
+                    Deployer-自动部署
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="Laravel 的请求周期.html">
+            
+                <a href="Laravel 的请求周期.html">
+            
+                    
+                    Laravel 的请求周期
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    My SQL
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../MySQL/01.初识 MySQL.html">
+            
+                <a href="../MySQL/01.初识 MySQL.html">
+            
+                    
+                    01.初识 MySQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../MySQL/02.字符集与比较规则.html">
+            
+                <a href="../MySQL/02.字符集与比较规则.html">
+            
+                    
+                    02.字符集与比较规则
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="../MySQL/03.InnoDB 页的简介.html">
+            
+                <a href="../MySQL/03.InnoDB 页的简介.html">
+            
+                    
+                    03.InnoDB 页的简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../MySQL/04.InnoDB 数据页结构.html">
+            
+                <a href="../MySQL/04.InnoDB 数据页结构.html">
+            
+                    
+                    04.InnoDB 数据页结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../MySQL/连接的原理.html">
+            
+                <a href="../MySQL/连接的原理.html">
+            
+                    
+                    连接的原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../MySQL/使用索引.html">
+            
+                <a href="../MySQL/使用索引.html">
+            
+                    
+                    使用索引
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.7" data-path="../MySQL/事务的隔离级别.html">
+            
+                <a href="../MySQL/事务的隔离级别.html">
+            
+                    
+                    事务的隔离级别
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.8" data-path="../MySQL/索引描述.html">
+            
+                <a href="../MySQL/索引描述.html">
+            
+                    
+                    索引描述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.9" data-path="../MySQL/锁.html">
+            
+                <a href="../MySQL/锁.html">
+            
+                    
+                    锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.10" data-path="../MySQL/主从复制.html">
+            
+                <a href="../MySQL/主从复制.html">
+            
+                    
+                    主从复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.11" data-path="../MySQL/redo 和 undo.html">
+            
+                <a href="../MySQL/redo 和 undo.html">
+            
+                    
+                    redo 和 undo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" >
+            
+                <span>
+            
+                    
+                    PHP-基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../PHP-基础知识/01.类型.html">
+            
+                <a href="../PHP-基础知识/01.类型.html">
+            
+                    
+                    01.类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../PHP-基础知识/02.变量与常量.html">
+            
+                <a href="../PHP-基础知识/02.变量与常量.html">
+            
+                    
+                    02.变量与常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../PHP-基础知识/03.运算符.html">
+            
+                <a href="../PHP-基础知识/03.运算符.html">
+            
+                    
+                    03.运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../PHP-基础知识/04.流程控制.html">
+            
+                <a href="../PHP-基础知识/04.流程控制.html">
+            
+                    
+                    04.流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../PHP-基础知识/05.函数.html">
+            
+                <a href="../PHP-基础知识/05.函数.html">
+            
+                    
+                    05.函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../PHP-基础知识/06.类与对象1.html">
+            
+                <a href="../PHP-基础知识/06.类与对象1.html">
+            
+                    
+                    06.类与对象1
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../PHP-基础知识/07.类与对象2.html">
+            
+                <a href="../PHP-基础知识/07.类与对象2.html">
+            
+                    
+                    07.类与对象2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.8" data-path="../PHP-基础知识/08.类与对象3.html">
+            
+                <a href="../PHP-基础知识/08.类与对象3.html">
+            
+                    
+                    08.类与对象3
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.9" data-path="../PHP-基础知识/09.命名空间.html">
+            
+                <a href="../PHP-基础知识/09.命名空间.html">
+            
+                    
+                    09.命名空间
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.10" data-path="../PHP-基础知识/10.PHP-FPM 与 Nginx.html">
+            
+                <a href="../PHP-基础知识/10.PHP-FPM 与 Nginx.html">
+            
+                    
+                    10.PHP-FPM 与 Nginx
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.11" data-path="../PHP-基础知识/垃圾回收机制.html">
+            
+                <a href="../PHP-基础知识/垃圾回收机制.html">
+            
+                    
+                    垃圾回收机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.12" data-path="../PHP-基础知识/写时复制.html">
+            
+                <a href="../PHP-基础知识/写时复制.html">
+            
+                    
+                    写时复制
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" >
+            
+                <span>
+            
+                    
+                    Redis
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../Redis/01.基础数据结构.html">
+            
+                <a href="../Redis/01.基础数据结构.html">
+            
+                    
+                    01.基础数据结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../Redis/02.分布式锁.html">
+            
+                <a href="../Redis/02.分布式锁.html">
+            
+                    
+                    02.分布式锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../Redis/03.延时队列.html">
+            
+                <a href="../Redis/03.延时队列.html">
+            
+                    
+                    03.延时队列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../Redis/04.位图.html">
+            
+                <a href="../Redis/04.位图.html">
+            
+                    
+                    04.位图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../Redis/05.HyperLogLog 统计.html">
+            
+                <a href="../Redis/05.HyperLogLog 统计.html">
+            
+                    
+                    05.HyperLogLog 统计
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../Redis/06.布隆过滤器.html">
+            
+                <a href="../Redis/06.布隆过滤器.html">
+            
+                    
+                    06.布隆过滤器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../Redis/07.限流.html">
+            
+                <a href="../Redis/07.限流.html">
+            
+                    
+                    07.限流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../Redis/08.GeoHash 算法.html">
+            
+                <a href="../Redis/08.GeoHash 算法.html">
+            
+                    
+                    08.GeoHash 算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../Redis/09.大海捞针-scan.html">
+            
+                <a href="../Redis/09.大海捞针-scan.html">
+            
+                    
+                    09.大海捞针-scan
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../Redis/10.内存回收机制.html">
+            
+                <a href="../Redis/10.内存回收机制.html">
+            
+                    
+                    10.内存回收机制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../Redis/11.主从同步.html">
+            
+                <a href="../Redis/11.主从同步.html">
+            
+                    
+                    11.主从同步
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../Redis/12.Redis 集群-sentinel.html">
+            
+                <a href="../Redis/12.Redis 集群-sentinel.html">
+            
+                    
+                    12.Redis 集群-sentinel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.13" data-path="../Redis/13.Redis 集群-Cluster.html">
+            
+                <a href="../Redis/13.Redis 集群-Cluster.html">
+            
+                    
+                    13.Redis 集群-Cluster
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.14" data-path="../Redis/14.集群-Codis.html">
+            
+                <a href="../Redis/14.集群-Codis.html">
+            
+                    
+                    14.集群-Codis
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.15" data-path="../Redis/15.Stream.html">
+            
+                <a href="../Redis/15.Stream.html">
+            
+                    
+                    15.Stream
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.16" data-path="../Redis/16.Info.html">
+            
+                <a href="../Redis/16.Info.html">
+            
+                    
+                    16.Info
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.17" data-path="../Redis/17.再谈分布式锁.html">
+            
+                <a href="../Redis/17.再谈分布式锁.html">
+            
+                    
+                    17.再谈分布式锁
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.18" data-path="../Redis/18.过期策略.html">
+            
+                <a href="../Redis/18.过期策略.html">
+            
+                    
+                    18.过期策略
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.19" data-path="../Redis/19.LRU-淘汰算法.html">
+            
+                <a href="../Redis/19.LRU-淘汰算法.html">
+            
+                    
+                    19.LRU-淘汰算法
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.20" data-path="../Redis/20.懒惰删除.html">
+            
+                <a href="../Redis/20.懒惰删除.html">
+            
+                    
+                    20.懒惰删除
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.21" data-path="../Redis/21.Redis 的安全.html">
+            
+                <a href="../Redis/21.Redis 的安全.html">
+            
+                    
+                    21.Redis 的安全
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.22" data-path="../Redis/22.spiped 原理.html">
+            
+                <a href="../Redis/22.spiped 原理.html">
+            
+                    
+                    22.spiped 原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.23" data-path="../Redis/23.LUA 脚本执行原理.html">
+            
+                <a href="../Redis/23.LUA 脚本执行原理.html">
+            
+                    
+                    23.LUA 脚本执行原理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.24" data-path="../Redis/24.命令行工具.html">
+            
+                <a href="../Redis/24.命令行工具.html">
+            
+                    
+                    24.命令行工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.25" data-path="../Redis/缓存穿透-缓存击穿-缓存雪崩.html">
+            
+                <a href="../Redis/缓存穿透-缓存击穿-缓存雪崩.html">
+            
+                    
+                    缓存穿透-缓存击穿-缓存雪崩
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.26" data-path="../Redis/扣库存.html">
+            
+                <a href="../Redis/扣库存.html">
+            
+                    
+                    扣库存
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >延迟任务</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><ul><li><span class="title-icon "></span><a href="#&#x5EF6;&#x8FDF;&#x4EFB;&#x52A1;"><b>1.1.1. </b>&#x5EF6;&#x8FDF;&#x4EFB;&#x52A1;</a></li></ul></ul></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h3 id="&#x5EF6;&#x8FDF;&#x4EFB;&#x52A1;"><a name="&#x5EF6;&#x8FDF;&#x4EFB;&#x52A1;" class="anchor-navigation-ex-anchor" href="#&#x5EF6;&#x8FDF;&#x4EFB;&#x52A1;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1.1. &#x5EF6;&#x8FDF;&#x4EFB;&#x52A1;</h3>
+<p>&#x5F53;&#x89E6;&#x53D1;&#x4E00;&#x4E2A;&#x5EF6;&#x8FDF;&#x4EFB;&#x52A1;&#x65F6;&#xFF0C;laravel &#x4F1A;&#x81EA;&#x52A8;&#x6362;&#x7B97;&#x6307;&#x5B9A;&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x5C06;&#x65F6;&#x95F4;&#x6233;&#x548C;&#x4EFB;&#x52A1;&#x5E8F;&#x5217;&#x5316;&#x5230;&#x961F;&#x5217;&#x4E2D;&#xFF0C;laravel &#x961F;&#x5217;&#x4E0D;&#x65AD;&#x67E5;&#x8BE2;&#x961F;&#x5217;&#x4E2D;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x7684;&#x4EFB;&#x52A1;&#x3002;</p>
+<p>&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#xFF1A;</p>
+<pre class="language-"><code class="lang-shell">php artisan make:job <span class="token operator">&lt;</span>job_name<span class="token operator">&gt;</span>
+</code></pre>
+<p>&#x7F16;&#x8F91; app/Jobs/<job_name>.php</job_name></p>
+<pre class="language-"><code class="lang-php"><span class="token delimiter important">&lt;?php</span>
+
+<span class="token keyword">namespace</span> <span class="token package">App<span class="token punctuation">\</span>Jobs</span><span class="token punctuation">;</span>
+
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Bus<span class="token punctuation">\</span>Queueable</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span class="token punctuation">\</span>SerializesModels</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Queue<span class="token punctuation">\</span>InteractsWithQueue</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Contracts<span class="token punctuation">\</span>Queue<span class="token punctuation">\</span>ShouldQueue</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">Illuminate<span class="token punctuation">\</span>Foundation<span class="token punctuation">\</span>Bus<span class="token punctuation">\</span>Dispatchable</span><span class="token punctuation">;</span>
+<span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Models<span class="token punctuation">\</span>Order</span><span class="token punctuation">;</span>
+
+<span class="token comment">// &#x4EE3;&#x8868;&#x8FD9;&#x4E2A;&#x7C7B;&#x9700;&#x8981;&#x88AB;&#x653E;&#x5230;&#x961F;&#x5217;&#x4E2D;&#x6267;&#x884C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x89E6;&#x53D1;&#x65F6;&#x7ACB;&#x5373;&#x6267;&#x884C;</span>
+<span class="token keyword">class</span> <span class="token class-name">CloseOrder</span> <span class="token keyword">implements</span> <span class="token class-name">ShouldQueue</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">use</span> <span class="token package">Dispatchable</span><span class="token punctuation">,</span> InteractsWithQueue<span class="token punctuation">,</span> Queueable<span class="token punctuation">,</span> SerializesModels<span class="token punctuation">;</span>
+
+    <span class="token keyword">protected</span> <span class="token variable">$order</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">__construct</span><span class="token punctuation">(</span>Order <span class="token variable">$order</span><span class="token punctuation">,</span> <span class="token variable">$delay</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">order</span> <span class="token operator">=</span> <span class="token variable">$order</span><span class="token punctuation">;</span>
+        <span class="token comment">// &#x8BBE;&#x7F6E;&#x5EF6;&#x8FDF;&#x7684;&#x65F6;&#x95F4;&#xFF0C;delay() &#x65B9;&#x6CD5;&#x7684;&#x53C2;&#x6570;&#x4EE3;&#x8868;&#x591A;&#x5C11;&#x79D2;&#x4E4B;&#x540E;&#x6267;&#x884C;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">delay</span><span class="token punctuation">(</span><span class="token variable">$delay</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// &#x5B9A;&#x4E49;&#x8FD9;&#x4E2A;&#x4EFB;&#x52A1;&#x7C7B;&#x5177;&#x4F53;&#x7684;&#x6267;&#x884C;&#x903B;&#x8F91;</span>
+    <span class="token comment">// &#x5F53;&#x961F;&#x5217;&#x5904;&#x7406;&#x5668;&#x4ECE;&#x961F;&#x5217;&#x4E2D;&#x53D6;&#x51FA;&#x4EFB;&#x52A1;&#x65F6;&#xFF0C;&#x4F1A;&#x8C03;&#x7528; handle() &#x65B9;&#x6CD5;</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">handle</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">// &#x5224;&#x65AD;&#x5BF9;&#x5E94;&#x7684;&#x8BA2;&#x5355;&#x662F;&#x5426;&#x5DF2;&#x7ECF;&#x88AB;&#x652F;&#x4ED8;</span>
+        <span class="token comment">// &#x5982;&#x679C;&#x5DF2;&#x7ECF;&#x652F;&#x4ED8;&#x5219;&#x4E0D;&#x9700;&#x8981;&#x5173;&#x95ED;&#x8BA2;&#x5355;&#xFF0C;&#x76F4;&#x63A5;&#x9000;&#x51FA;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">order</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">paid_at</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// &#x901A;&#x8FC7;&#x4E8B;&#x52A1;&#x6267;&#x884C; sql</span>
+        \<span class="token package">DB</span><span class="token punctuation">:</span><span class="token punctuation">:</span><span class="token function">transaction</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// &#x5C06;&#x8BA2;&#x5355;&#x7684; closed &#x5B57;&#x6BB5;&#x6807;&#x8BB0;&#x4E3A; true&#xFF0C;&#x5373;&#x5173;&#x95ED;&#x8BA2;&#x5355;</span>
+            <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">order</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token single-quoted-string string">&apos;closed&apos;</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token boolean constant">true</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// &#x5FAA;&#x73AF;&#x904D;&#x5386;&#x8BA2;&#x5355;&#x4E2D;&#x7684;&#x5546;&#x54C1; SKU&#xFF0C;&#x5C06;&#x8BA2;&#x5355;&#x4E2D;&#x7684;&#x6570;&#x91CF;&#x52A0;&#x56DE;&#x5230; SKU &#x7684;&#x5E93;&#x5B58;&#x4E2D;&#x53BB;</span>
+            <span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">order</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">items</span> <span class="token keyword">as</span> <span class="token variable">$item</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token variable">$item</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">productSku</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">addStock</span><span class="token punctuation">(</span><span class="token variable">$item</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token property">amount</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x6700;&#x7EC8;&#x5728;&#x63A7;&#x5236;&#x5668;&#x89E6;&#x53D1;&#x4EFB;&#x52A1;&#x5373;&#x53EF;&#xFF1A;</p>
+<pre class="language-"><code class="lang-php"><span class="token keyword">use</span> <span class="token package">App<span class="token punctuation">\</span>Jobs<span class="token punctuation">\</span>CloseOrder</span><span class="token punctuation">;</span>
+    <span class="token punctuation">.</span>
+    <span class="token punctuation">.</span>
+    <span class="token punctuation">.</span>
+    <span class="token keyword">public</span> <span class="token keyword">function</span> <span class="token function">store</span><span class="token punctuation">(</span>OrderRequest <span class="token variable">$request</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token punctuation">.</span>
+        <span class="token punctuation">.</span>
+        <span class="token punctuation">.</span>
+        <span class="token comment">// &#x89E6;&#x53D1;&#x4EFB;&#x52A1;</span>
+        <span class="token variable">$this</span><span class="token operator">-</span><span class="token operator">&gt;</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">CloseOrder</span><span class="token punctuation">(</span><span class="token variable">$order</span><span class="token punctuation">,</span> <span class="token function">config</span><span class="token punctuation">(</span><span class="token single-quoted-string string">&apos;app.order_ttl&apos;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">return</span> <span class="token variable">$order</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<h4 id="&#x6267;&#x884C;&#x539F;&#x7406;"><a name="&#x6267;&#x884C;&#x539F;&#x7406;" class="anchor-navigation-ex-anchor" href="#&#x6267;&#x884C;&#x539F;&#x7406;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6267;&#x884C;&#x539F;&#x7406;</h4>
+<ol>
+<li>&#x5F53;&#x89E6;&#x53D1;&#x4EFB;&#x52A1;&#x65F6;&#xFF0C;laravel &#x4F1A;&#x5C06;&#x4EFB;&#x52A1; zadd &#x5230;&#x4E00;&#x4E2A;&#x540D;&#x53EB; queues:default:delayed &#x7684; zset &#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E2D;&#x3002;</li>
+<li>&#x7136;&#x540E;&#x901A;&#x8FC7; zrangebyscore &#x548C; zrangebyrank &#x53D6;&#x51FA; -inf &#x5230; now &#x7684;&#x4EFB;&#x52A1;&#x3002;&#x7528; rpush &#x5B58;&#x5165; list &#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E2D;&#x3002;</li>
+<li>&#x7136;&#x540E;&#x628A; list &#x961F;&#x5217;&#x4E2D;&#x7684;&#x4EFB;&#x52A1; lpop &#x51FA;&#x6765;&#xFF0C;&#x5C1D;&#x8BD5;&#x6B21;&#x6570;+1</li>
+<li>&#x7136;&#x540E; zadd &#x5230; queues:default:reserved &#xFF0C;&#x7A0B;&#x5E8F;&#x5904;&#x7406;&#x8FD9;&#x91CC;&#x9762;&#x7684;&#x4EFB;&#x52A1;&#x3002;</li>
+<li>&#x5904;&#x7406;&#x5B8C;&#x6210;&#x540E;&#x5220;&#x9664; queues:default:reserved &#x7684;&#x4EFB;&#x52A1;&#x3002;</li>
+</ol>
+<p>&#x53C2;&#x8003;&#xFF1A;
+<a href="https://learnku.com/articles/4169/analysis-of-laravel-message-queue" target="_blank">Laravel &#x7684;&#x6D88;&#x606F;&#x961F;&#x5217;&#x5256;&#x6790;</a>
+<a href="https://segmentfault.com/a/1190000019135599" target="_blank">Laravel &#x57FA;&#x4E8E;redis&#x961F;&#x5217;&#x7684;&#x89E3;&#x6790;</a></p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; Kagami&#x4E36; 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-10-21 16:00:14
+</span></footer>
+<script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="事件与监听.html" class="navigation navigation-prev " aria-label="Previous page: 事件与监听">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="语义化版本.html" class="navigation navigation-next " aria-label="Next page: 语义化版本">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"延迟任务","level":"1.6.6","depth":2,"next":{"title":"语义化版本","level":"1.6.7","depth":2,"path":"Laravel/语义化版本.md","ref":"Laravel/语义化版本.md","articles":[]},"previous":{"title":"事件与监听","level":"1.6.5","depth":2,"path":"Laravel/事件与监听.md","ref":"Laravel/事件与监听.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","prism","-highlight","copy-code-button","search-pro","-search","-lunr","expandable-chapters","splitter","-sharing","github-buttons","tbfed-pagefooter","anchor-navigation-ex","disqus","github","hide-element","insert-logo","pageview-count","popup"],"ignores":["node_modules","docs","_DelSyncFiles"],"root":".","styles":{"website":"./styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy Kagami丶 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"shell":"bash"}},"disqus":{"useIdentifier":false,"shortName":"jk4905"},"github":{"url":"https://github.com/jk4905"},"splitter":{},"search-pro":{},"popup":{},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"},{"user":"jk4905","width":"160","type":"follow","count":true,"size":"small"}]},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 30px; min-height: 30px","url":"https://raw.githubusercontent.com/jk4905/PHP-Interview/master/docs/images/logo.png"},"expandable-chapters":{}},"theme":"default","author":"Kagami丶","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Kagami丶PHP-Interview","sortedBy":"num.","variables":{},"title":"PHP-Interview","language":"zh-hans","output.name":"docs","catalog":"all","gitbook":"3.2.3","unchanged":[],"description":"Kagami丶 的 PHP 复习笔记","outputfile":"SUMMARY.md"},"file":{"path":"Laravel/延迟任务.md","mtime":"2019-10-21T08:00:14.174Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T05:36:35.218Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-hide-element/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-insert-logo/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

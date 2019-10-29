@@ -2,10 +2,29 @@
 
 - 操作系统
   * [简单知识](操作系统/简单知识.md)
+  * [Nginx](操作系统/Nginx.md)
+- 面试
+  * [分布式](面试/分布式.md)
+  * [高并发下，先操作数据库还是先操作缓存](面试/高并发下，先操作数据库还是先操作缓存.md)
+  * [Git Pull Rebase](面试/git pull --rebase.md)
+  * [php 面试题](面试/php 面试题.md)
+- 数据结构
+  * [红黑树](数据结构/红黑树.md)
 - 网路协议
+  * [网络安全](网路协议/网络安全.md)
+  * [HTTP协议](网路协议/HTTP协议.md)
   * [TCP IP](网路协议/TCP-IP.md)
 - Laravel
+  * [定义辅助函数](Laravel/定义辅助函数.md)
+  * [基础知识](Laravel/基础知识.md)
   * [请求周期](Laravel/请求周期.md)
+  * [实现方式](Laravel/实现方式.md)
+  * [事件与监听](Laravel/事件与监听.md)
+  * [延迟任务](Laravel/延迟任务.md)
+  * [语义化版本](Laravel/语义化版本.md)
+  * [中间件](Laravel/中间件.md)
+  * [Deployer-自动部署](Laravel/Deployer-自动部署.md)
+  * [Laravel 的请求周期](Laravel/Laravel 的请求周期.md)
 - My SQL
   * [01.初识 MySQL](MySQL/01.初识 MySQL.md)
   * [02.字符集与比较规则](MySQL/02.字符集与比较规则.md)
@@ -16,6 +35,7 @@
   * [事务的隔离级别](MySQL/事务的隔离级别.md)
   * [索引描述](MySQL/索引描述.md)
   * [锁](MySQL/锁.md)
+  * [主从复制](MySQL/主从复制.md)
   * [redo 和 undo](MySQL/redo 和 undo.md)
 - PHP-基础知识
   * [01.类型](PHP-基础知识/01.类型.md)
@@ -28,6 +48,8 @@
   * [08.类与对象3](PHP-基础知识/08.类与对象3.md)
   * [09.命名空间](PHP-基础知识/09.命名空间.md)
   * [10.PHP-FPM 与 Nginx](PHP-基础知识/10.PHP-FPM 与 Nginx.md)
+  * [垃圾回收机制](PHP-基础知识/垃圾回收机制.md)
+  * [写时复制](PHP-基础知识/写时复制.md)
 - Redis
   * [01.基础数据结构](Redis/01.基础数据结构.md)
   * [02.分布式锁](Redis/02.分布式锁.md)
@@ -53,3 +75,5 @@
   * [22.spiped 原理](Redis/22.spiped 原理.md)
   * [23.LUA 脚本执行原理](Redis/23.LUA 脚本执行原理.md)
   * [24.命令行工具](Redis/24.命令行工具.md)
+  * [缓存穿透-缓存击穿-缓存雪崩](Redis/缓存穿透-缓存击穿-缓存雪崩.md)
+  * [扣库存](Redis/扣库存.md)
