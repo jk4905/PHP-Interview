@@ -1341,36 +1341,36 @@
 </ul>
 <h5 id="&#x5B57;&#x7B26;&#x96C6;&#x7684;&#x67E5;&#x770B;"><a name="&#x5B57;&#x7B26;&#x96C6;&#x7684;&#x67E5;&#x770B;" class="anchor-navigation-ex-anchor" href="#&#x5B57;&#x7B26;&#x96C6;&#x7684;&#x67E5;&#x770B;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B57;&#x7B26;&#x96C6;&#x7684;&#x67E5;&#x770B;</h5>
 <p>&#x901A;&#x8FC7; SHOW (CHARACTER SET|CHARSET) [LIKE &#x5339;&#x914D;&#x6A21;&#x5F0F;]; &#x6765;&#x67E5;&#x770B;&#x3002;</p>
-<pre class="language-"><code class="lang-mysql">mysql&gt; SHOW CHARSET;
-+----------+---------------------------------+---------------------+--------+
-| Charset  | Description                     | Default collation   | Maxlen |
-+----------+---------------------------------+---------------------+--------+
-| big5     | Big5 Traditional Chinese        | big5_chinese_ci     |      2 |
-...
-| latin1   | cp1252 West European            | latin1_swedish_ci   |      1 |
-| latin2   | ISO 8859-2 Central European     | latin2_general_ci   |      1 |
-...
-| ascii    | US ASCII                        | ascii_general_ci    |      1 |
-...
-| gb2312   | GB2312 Simplified Chinese       | gb2312_chinese_ci   |      2 |
-...
-| gbk      | GBK Simplified Chinese          | gbk_chinese_ci      |      2 |
-| latin5   | ISO 8859-9 Turkish              | latin5_turkish_ci   |      1 |
-...
-| utf8     | UTF-8 Unicode                   | utf8_general_ci     |      3 |
-| ucs2     | UCS-2 Unicode                   | ucs2_general_ci     |      2 |
-...
-| latin7   | ISO 8859-13 Baltic              | latin7_general_ci   |      1 |
-| utf8mb4  | UTF-8 Unicode                   | utf8mb4_general_ci  |      4 |
-| utf16    | UTF-16 Unicode                  | utf16_general_ci    |      4 |
-| utf16le  | UTF-16LE Unicode                | utf16le_general_ci  |      4 |
-...
-| utf32    | UTF-32 Unicode                  | utf32_general_ci    |      4 |
-| binary   | Binary pseudo charset           | binary              |      1 |
-...
-| gb18030  | China National Standard GB18030 | gb18030_chinese_ci  |      4 |
-+----------+---------------------------------+---------------------+--------+
-41 rows in set (0.01 sec)
+<pre class="language-"><code class="lang-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">SHOW</span> <span class="token keyword">CHARSET</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">----------+---------------------------------+---------------------+--------+</span>
+<span class="token operator">|</span> <span class="token keyword">Charset</span>  <span class="token operator">|</span> Description                     <span class="token operator">|</span> <span class="token keyword">Default</span> collation   <span class="token operator">|</span> Maxlen <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">----------+---------------------------------+---------------------+--------+</span>
+<span class="token operator">|</span> big5     <span class="token operator">|</span> Big5 Traditional Chinese        <span class="token operator">|</span> big5_chinese_ci     <span class="token operator">|</span>      <span class="token number">2</span> <span class="token operator">|</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">|</span> latin1   <span class="token operator">|</span> cp1252 West European            <span class="token operator">|</span> latin1_swedish_ci   <span class="token operator">|</span>      <span class="token number">1</span> <span class="token operator">|</span>
+<span class="token operator">|</span> latin2   <span class="token operator">|</span> ISO <span class="token number">8859</span><span class="token operator">-</span><span class="token number">2</span> Central European     <span class="token operator">|</span> latin2_general_ci   <span class="token operator">|</span>      <span class="token number">1</span> <span class="token operator">|</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">|</span> ascii    <span class="token operator">|</span> US ASCII                        <span class="token operator">|</span> ascii_general_ci    <span class="token operator">|</span>      <span class="token number">1</span> <span class="token operator">|</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">|</span> gb2312   <span class="token operator">|</span> GB2312 Simplified Chinese       <span class="token operator">|</span> gb2312_chinese_ci   <span class="token operator">|</span>      <span class="token number">2</span> <span class="token operator">|</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">|</span> gbk      <span class="token operator">|</span> GBK Simplified Chinese          <span class="token operator">|</span> gbk_chinese_ci      <span class="token operator">|</span>      <span class="token number">2</span> <span class="token operator">|</span>
+<span class="token operator">|</span> latin5   <span class="token operator">|</span> ISO <span class="token number">8859</span><span class="token operator">-</span><span class="token number">9</span> Turkish              <span class="token operator">|</span> latin5_turkish_ci   <span class="token operator">|</span>      <span class="token number">1</span> <span class="token operator">|</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">|</span> utf8     <span class="token operator">|</span> UTF<span class="token operator">-</span><span class="token number">8</span> Unicode                   <span class="token operator">|</span> utf8_general_ci     <span class="token operator">|</span>      <span class="token number">3</span> <span class="token operator">|</span>
+<span class="token operator">|</span> ucs2     <span class="token operator">|</span> UCS<span class="token operator">-</span><span class="token number">2</span> Unicode                   <span class="token operator">|</span> ucs2_general_ci     <span class="token operator">|</span>      <span class="token number">2</span> <span class="token operator">|</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">|</span> latin7   <span class="token operator">|</span> ISO <span class="token number">8859</span><span class="token operator">-</span><span class="token number">13</span> Baltic              <span class="token operator">|</span> latin7_general_ci   <span class="token operator">|</span>      <span class="token number">1</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8mb4  <span class="token operator">|</span> UTF<span class="token operator">-</span><span class="token number">8</span> Unicode                   <span class="token operator">|</span> utf8mb4_general_ci  <span class="token operator">|</span>      <span class="token number">4</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf16    <span class="token operator">|</span> UTF<span class="token operator">-</span><span class="token number">16</span> Unicode                  <span class="token operator">|</span> utf16_general_ci    <span class="token operator">|</span>      <span class="token number">4</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf16le  <span class="token operator">|</span> UTF<span class="token operator">-</span><span class="token number">16</span>LE Unicode                <span class="token operator">|</span> utf16le_general_ci  <span class="token operator">|</span>      <span class="token number">4</span> <span class="token operator">|</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">|</span> utf32    <span class="token operator">|</span> UTF<span class="token operator">-</span><span class="token number">32</span> Unicode                  <span class="token operator">|</span> utf32_general_ci    <span class="token operator">|</span>      <span class="token number">4</span> <span class="token operator">|</span>
+<span class="token operator">|</span> <span class="token keyword">binary</span>   <span class="token operator">|</span> <span class="token keyword">Binary</span> pseudo <span class="token keyword">charset</span>           <span class="token operator">|</span> <span class="token keyword">binary</span>              <span class="token operator">|</span>      <span class="token number">1</span> <span class="token operator">|</span>
+<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token operator">|</span> gb18030  <span class="token operator">|</span> China <span class="token keyword">National</span> Standard GB18030 <span class="token operator">|</span> gb18030_chinese_ci  <span class="token operator">|</span>      <span class="token number">4</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">----------+---------------------------------+---------------------+--------+</span>
+<span class="token number">41</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.01</span> sec<span class="token punctuation">)</span>
 </code></pre>
 <p>mysql &#x603B;&#x5171;&#x6709; 41 &#x4E2A;&#x5B57;&#x7B26;&#x96C6;&#xFF0C;&#x5176;&#x4E2D; default collation &#x662F;&#x9ED8;&#x8BA4;&#x6BD4;&#x8F83;&#x89C4;&#x5219;&#xFF0C;maxlen &#x8868;&#x793A;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#x7684;&#x6700;&#x5927;&#x5B57;&#x8282;&#x957F;&#x5EA6;&#x3002;</p>
 <p>&#x9700;&#x8981;&#x8BB0;&#x4F4F;</p>
@@ -1410,39 +1410,39 @@
 </table>
 <h5 id="&#x67E5;&#x770B;&#x6BD4;&#x8F83;&#x89C4;&#x5219;"><a name="&#x67E5;&#x770B;&#x6BD4;&#x8F83;&#x89C4;&#x5219;" class="anchor-navigation-ex-anchor" href="#&#x67E5;&#x770B;&#x6BD4;&#x8F83;&#x89C4;&#x5219;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x67E5;&#x770B;&#x6BD4;&#x8F83;&#x89C4;&#x5219;</h5>
 <p>&#x901A;&#x8FC7; SHOW COLLATION [LIKE &#x5339;&#x914D;&#x6A21;&#x5F0F;]; &#x6765;&#x67E5;&#x770B;</p>
-<pre class="language-"><code class="lang-mysql">mysql&gt; SHOW COLLATION LIKE &apos;utf8\_%&apos;;
-+--------------------------+---------+-----+---------+----------+---------+
-| Collation                | Charset | Id  | Default | Compiled | Sortlen |
-+--------------------------+---------+-----+---------+----------+---------+
-| utf8_general_ci          | utf8    |  33 | Yes     | Yes      |       1 |
-| utf8_bin                 | utf8    |  83 |         | Yes      |       1 |
-| utf8_unicode_ci          | utf8    | 192 |         | Yes      |       8 |
-| utf8_icelandic_ci        | utf8    | 193 |         | Yes      |       8 |
-| utf8_latvian_ci          | utf8    | 194 |         | Yes      |       8 |
-| utf8_romanian_ci         | utf8    | 195 |         | Yes      |       8 |
-| utf8_slovenian_ci        | utf8    | 196 |         | Yes      |       8 |
-| utf8_polish_ci           | utf8    | 197 |         | Yes      |       8 |
-| utf8_estonian_ci         | utf8    | 198 |         | Yes      |       8 |
-| utf8_spanish_ci          | utf8    | 199 |         | Yes      |       8 |
-| utf8_swedish_ci          | utf8    | 200 |         | Yes      |       8 |
-| utf8_turkish_ci          | utf8    | 201 |         | Yes      |       8 |
-| utf8_czech_ci            | utf8    | 202 |         | Yes      |       8 |
-| utf8_danish_ci           | utf8    | 203 |         | Yes      |       8 |
-| utf8_lithuanian_ci       | utf8    | 204 |         | Yes      |       8 |
-| utf8_slovak_ci           | utf8    | 205 |         | Yes      |       8 |
-| utf8_spanish2_ci         | utf8    | 206 |         | Yes      |       8 |
-| utf8_roman_ci            | utf8    | 207 |         | Yes      |       8 |
-| utf8_persian_ci          | utf8    | 208 |         | Yes      |       8 |
-| utf8_esperanto_ci        | utf8    | 209 |         | Yes      |       8 |
-| utf8_hungarian_ci        | utf8    | 210 |         | Yes      |       8 |
-| utf8_sinhala_ci          | utf8    | 211 |         | Yes      |       8 |
-| utf8_german2_ci          | utf8    | 212 |         | Yes      |       8 |
-| utf8_croatian_ci         | utf8    | 213 |         | Yes      |       8 |
-| utf8_unicode_520_ci      | utf8    | 214 |         | Yes      |       8 |
-| utf8_vietnamese_ci       | utf8    | 215 |         | Yes      |       8 |
-| utf8_general_mysql500_ci | utf8    | 223 |         | Yes      |       1 |
-+--------------------------+---------+-----+---------+----------+---------+
-27 rows in set (0.00 sec)
+<pre class="language-"><code class="lang-sql">mysql<span class="token operator">&gt;</span> <span class="token keyword">SHOW</span> COLLATION <span class="token operator">LIKE</span> <span class="token string">&apos;utf8\_%&apos;</span><span class="token punctuation">;</span>
+<span class="token operator">+</span><span class="token comment">--------------------------+---------+-----+---------+----------+---------+</span>
+<span class="token operator">|</span> Collation                <span class="token operator">|</span> <span class="token keyword">Charset</span> <span class="token operator">|</span> Id  <span class="token operator">|</span> <span class="token keyword">Default</span> <span class="token operator">|</span> Compiled <span class="token operator">|</span> Sortlen <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------------------------+---------+-----+---------+----------+---------+</span>
+<span class="token operator">|</span> utf8_general_ci          <span class="token operator">|</span> utf8    <span class="token operator">|</span>  <span class="token number">33</span> <span class="token operator">|</span> Yes     <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">1</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_bin                 <span class="token operator">|</span> utf8    <span class="token operator">|</span>  <span class="token number">83</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">1</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_unicode_ci          <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">192</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_icelandic_ci        <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">193</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_latvian_ci          <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">194</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_romanian_ci         <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">195</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_slovenian_ci        <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">196</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_polish_ci           <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">197</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_estonian_ci         <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">198</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_spanish_ci          <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">199</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_swedish_ci          <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">200</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_turkish_ci          <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">201</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_czech_ci            <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">202</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_danish_ci           <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">203</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_lithuanian_ci       <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">204</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_slovak_ci           <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">205</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_spanish2_ci         <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">206</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_roman_ci            <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">207</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_persian_ci          <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">208</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_esperanto_ci        <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">209</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_hungarian_ci        <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">210</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_sinhala_ci          <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">211</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_german2_ci          <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">212</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_croatian_ci         <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">213</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_unicode_520_ci      <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">214</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_vietnamese_ci       <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">215</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">8</span> <span class="token operator">|</span>
+<span class="token operator">|</span> utf8_general_mysql500_ci <span class="token operator">|</span> utf8    <span class="token operator">|</span> <span class="token number">223</span> <span class="token operator">|</span>         <span class="token operator">|</span> Yes      <span class="token operator">|</span>       <span class="token number">1</span> <span class="token operator">|</span>
+<span class="token operator">+</span><span class="token comment">--------------------------+---------+-----+---------+----------+---------+</span>
+<span class="token number">27</span> <span class="token keyword">rows</span> <span class="token operator">in</span> <span class="token keyword">set</span> <span class="token punctuation">(</span><span class="token number">0.00</span> sec<span class="token punctuation">)</span>
 </code></pre>
 <p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x8FD9;&#x662F; utf8 &#x7684;&#x6BD4;&#x8F83;&#x89C4;&#x5219;&#xFF0C;&#x6709;&#x51E0;&#x4E2A;&#x7279;&#x70B9;</p>
 <ul>
@@ -1499,34 +1499,34 @@
 <ul>
 <li>character_set_database    &#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x7684;&#x5B57;&#x7B26;&#x96C6;</li>
 <li><p>collation_database    &#x5F53;&#x524D;&#x6570;&#x636E;&#x5E93;&#x7684;&#x6BD4;&#x8F83;&#x89C4;&#x5219;</p>
-<pre class="language-"><code class="lang-mysql">CREATE DATABASE &#x6570;&#x636E;&#x5E93;&#x540D;
-  [[DEFAULT] CHARACTER SET &#x5B57;&#x7B26;&#x96C6;&#x540D;&#x79F0;]
-  [[DEFAULT] COLLATE &#x6BD4;&#x8F83;&#x89C4;&#x5219;&#x540D;&#x79F0;];
+<pre class="language-"><code class="lang-sql"><span class="token keyword">CREATE</span> <span class="token keyword">DATABASE</span> &#x6570;&#x636E;&#x5E93;&#x540D;
+  <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token keyword">DEFAULT</span><span class="token punctuation">]</span> <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> &#x5B57;&#x7B26;&#x96C6;&#x540D;&#x79F0;<span class="token punctuation">]</span>
+  <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token keyword">DEFAULT</span><span class="token punctuation">]</span> <span class="token keyword">COLLATE</span> &#x6BD4;&#x8F83;&#x89C4;&#x5219;&#x540D;&#x79F0;<span class="token punctuation">]</span><span class="token punctuation">;</span>
 
-ALTER DATABASE &#x6570;&#x636E;&#x5E93;&#x540D;
-  [[DEFAULT] CHARACTER SET &#x5B57;&#x7B26;&#x96C6;&#x540D;&#x79F0;]
-  [[DEFAULT] COLLATE &#x6BD4;&#x8F83;&#x89C4;&#x5219;&#x540D;&#x79F0;];
+<span class="token keyword">ALTER</span> <span class="token keyword">DATABASE</span> &#x6570;&#x636E;&#x5E93;&#x540D;
+  <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token keyword">DEFAULT</span><span class="token punctuation">]</span> <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> &#x5B57;&#x7B26;&#x96C6;&#x540D;&#x79F0;<span class="token punctuation">]</span>
+  <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token keyword">DEFAULT</span><span class="token punctuation">]</span> <span class="token keyword">COLLATE</span> &#x6BD4;&#x8F83;&#x89C4;&#x5219;&#x540D;&#x79F0;<span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre>
 </li>
 </ul>
 </li>
 <li><p>&#x8868;&#x7EA7;&#x522B;</p>
-<pre class="language-"><code class="lang-mysql">   CREATE TABLE &#x8868;&#x540D; (&#x5217;&#x7684;&#x4FE1;&#x606F;)
-      [[DEFAULT] CHARACTER SET &#x5B57;&#x7B26;&#x96C6;&#x540D;&#x79F0;]
-      [COLLATE &#x6BD4;&#x8F83;&#x89C4;&#x5219;&#x540D;&#x79F0;]]
+<pre class="language-"><code class="lang-sql">   <span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> &#x8868;&#x540D; <span class="token punctuation">(</span>&#x5217;&#x7684;&#x4FE1;&#x606F;<span class="token punctuation">)</span>
+      <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token keyword">DEFAULT</span><span class="token punctuation">]</span> <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> &#x5B57;&#x7B26;&#x96C6;&#x540D;&#x79F0;<span class="token punctuation">]</span>
+      <span class="token punctuation">[</span><span class="token keyword">COLLATE</span> &#x6BD4;&#x8F83;&#x89C4;&#x5219;&#x540D;&#x79F0;<span class="token punctuation">]</span><span class="token punctuation">]</span>
 
-  ALTER TABLE &#x8868;&#x540D;
-      [[DEFAULT] CHARACTER SET &#x5B57;&#x7B26;&#x96C6;&#x540D;&#x79F0;]
-      [COLLATE &#x6BD4;&#x8F83;&#x89C4;&#x5219;&#x540D;&#x79F0;]
+  <span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> &#x8868;&#x540D;
+      <span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token keyword">DEFAULT</span><span class="token punctuation">]</span> <span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> &#x5B57;&#x7B26;&#x96C6;&#x540D;&#x79F0;<span class="token punctuation">]</span>
+      <span class="token punctuation">[</span><span class="token keyword">COLLATE</span> &#x6BD4;&#x8F83;&#x89C4;&#x5219;&#x540D;&#x79F0;<span class="token punctuation">]</span>
 </code></pre>
 </li>
 <li><p>&#x884C;&#x7EA7;&#x522B;</p>
-<pre class="language-"><code class="lang-mysql">  REATE TABLE &#x8868;&#x540D;(
-      &#x5217;&#x540D; &#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B; [CHARACTER SET &#x5B57;&#x7B26;&#x96C6;&#x540D;&#x79F0;] [COLLATE &#x6BD4;&#x8F83;&#x89C4;&#x5219;&#x540D;&#x79F0;],
-      &#x5176;&#x4ED6;&#x5217;...
-  );
+<pre class="language-"><code class="lang-sql">  REATE <span class="token keyword">TABLE</span> &#x8868;&#x540D;<span class="token punctuation">(</span>
+      &#x5217;&#x540D; &#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B; <span class="token punctuation">[</span><span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> &#x5B57;&#x7B26;&#x96C6;&#x540D;&#x79F0;<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token keyword">COLLATE</span> &#x6BD4;&#x8F83;&#x89C4;&#x5219;&#x540D;&#x79F0;<span class="token punctuation">]</span><span class="token punctuation">,</span>
+      &#x5176;&#x4ED6;&#x5217;<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  ALTER TABLE &#x8868;&#x540D; MODIFY &#x5217;&#x540D; &#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B; [CHARACTER SET &#x5B57;&#x7B26;&#x96C6;&#x540D;&#x79F0;] [COLLATE &#x6BD4;&#x8F83;&#x89C4;&#x5219;&#x540D;&#x79F0;];
+  <span class="token keyword">ALTER</span> <span class="token keyword">TABLE</span> &#x8868;&#x540D; <span class="token keyword">MODIFY</span> &#x5217;&#x540D; &#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B; <span class="token punctuation">[</span><span class="token keyword">CHARACTER</span> <span class="token keyword">SET</span> &#x5B57;&#x7B26;&#x96C6;&#x540D;&#x79F0;<span class="token punctuation">]</span> <span class="token punctuation">[</span><span class="token keyword">COLLATE</span> &#x6BD4;&#x8F83;&#x89C4;&#x5219;&#x540D;&#x79F0;<span class="token punctuation">]</span><span class="token punctuation">;</span>
 </code></pre>
 </li>
 </ul>
@@ -1577,7 +1577,7 @@ ALTER DATABASE &#x6570;&#x636E;&#x5E93;&#x540D;
 </li>
 </ul>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; Kagami&#x4E36; 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2019-12-10 20:25:25
+2019-12-10 21:47:13
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1622,7 +1622,7 @@ ALTER DATABASE &#x6570;&#x636E;&#x5E93;&#x540D;
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"02.字符集与比较规则","level":"1.7.2","depth":2,"next":{"title":"03.InnoDB 页的简介","level":"1.7.3","depth":2,"path":"MySQL/03.InnoDB 页的简介.md","ref":"MySQL/03.InnoDB 页的简介.md","articles":[]},"previous":{"title":"01.初识 MySQL","level":"1.7.1","depth":2,"path":"MySQL/01.初识 MySQL.md","ref":"MySQL/01.初识 MySQL.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","prism","-highlight","copy-code-button","search-pro","-search","-lunr","expandable-chapters","splitter","-sharing","github-buttons","tbfed-pagefooter","anchor-navigation-ex","disqus","github","hide-element","insert-logo","pageview-count","popup"],"ignores":["node_modules","docs","_DelSyncFiles"],"root":".","styles":{"website":"./styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy Kagami丶 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"shell":"bash"}},"disqus":{"useIdentifier":false,"shortName":"jk4905"},"github":{"url":"https://github.com/jk4905"},"splitter":{},"search-pro":{},"popup":{},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"},{"user":"jk4905","width":"160","type":"follow","count":true,"size":"small"}]},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 30px; min-height: 30px","url":"https://raw.githubusercontent.com/jk4905/PHP-Interview/master/docs/images/logo.png"},"expandable-chapters":{}},"theme":"default","author":"Kagami丶","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Kagami丶PHP-Interview","sortedBy":"num.","variables":{},"title":"PHP-Interview","language":"zh-hans","output.name":"docs","catalog":"all","gitbook":"3.2.3","unchanged":[],"description":"Kagami丶的 PHP 复习笔记","outputfile":"SUMMARY.md"},"file":{"path":"MySQL/02.字符集与比较规则.md","mtime":"2019-12-10T12:25:25.351Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-10T13:46:41.303Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"02.字符集与比较规则","level":"1.7.2","depth":2,"next":{"title":"03.InnoDB 页的简介","level":"1.7.3","depth":2,"path":"MySQL/03.InnoDB 页的简介.md","ref":"MySQL/03.InnoDB 页的简介.md","articles":[]},"previous":{"title":"01.初识 MySQL","level":"1.7.1","depth":2,"path":"MySQL/01.初识 MySQL.md","ref":"MySQL/01.初识 MySQL.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","prism","-highlight","copy-code-button","search-pro","-search","-lunr","expandable-chapters","splitter","-sharing","github-buttons","tbfed-pagefooter","anchor-navigation-ex","disqus","github","hide-element","insert-logo","pageview-count","popup"],"ignores":["node_modules","docs","_DelSyncFiles"],"root":".","styles":{"website":"./styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy Kagami丶 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"shell":"bash"}},"disqus":{"useIdentifier":false,"shortName":"jk4905"},"github":{"url":"https://github.com/jk4905"},"splitter":{},"search-pro":{},"popup":{},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"},{"user":"jk4905","width":"160","type":"follow","count":true,"size":"small"}]},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 30px; min-height: 30px","url":"https://raw.githubusercontent.com/jk4905/PHP-Interview/master/docs/images/logo.png"},"expandable-chapters":{}},"theme":"default","author":"Kagami丶","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Kagami丶PHP-Interview","sortedBy":"num.","variables":{},"title":"PHP-Interview","language":"zh-hans","output.name":"docs","catalog":"all","gitbook":"3.2.3","unchanged":[],"description":"Kagami丶的 PHP 复习笔记","outputfile":"SUMMARY.md"},"file":{"path":"MySQL/02.字符集与比较规则.md","mtime":"2019-12-10T13:47:13.873Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-10T13:47:53.015Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
