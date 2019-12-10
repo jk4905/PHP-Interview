@@ -38,7 +38,7 @@ worker_num 代表服务启用了几个线程
 ```shell
 ps aft|grep server.php
 ```
-![-w439](/media/15759629201849.jpg)
+![-w439](/https://kagami-1259053372.cos.ap-chengdu.myqcloud.com/images/15759629201849.jpg)
 当修改 worker_num 时，再次使用命令可以查看到线程数改变
 
 
