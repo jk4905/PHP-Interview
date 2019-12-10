@@ -76,4 +76,10 @@
   * [23.LUA 脚本执行原理](Redis/23.LUA 脚本执行原理.md)
   * [24.命令行工具](Redis/24.命令行工具.md)
   * [缓存穿透-缓存击穿-缓存雪崩](Redis/缓存穿透-缓存击穿-缓存雪崩.md)
+  * [缓存的使用](Redis/缓存的使用.md)
   * [扣库存](Redis/扣库存.md)
+- Swoole
+  * [1.task 和 timer](Swoole/1.task 和 timer.md)
+  * [安装 Swoole](Swoole/安装 Swoole.md)
+  * [快速开始 tcp](Swoole/快速开始 tcp.md)
+  * [快速开始 udp](Swoole/快速开始 udp.md)

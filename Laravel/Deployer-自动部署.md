@@ -9,17 +9,17 @@ $ composer global require deployer/deployer
 ```
 
 通过 dep 命令查看是否安装成功
-![](http://pzjwh5v7g.bkt.clouddn.com/mweb/15716487404871.jpg)
+![](media/15716487404871.jpg)
 
 ```初始化
 $ mkdir -p ~/Code/deploy-laravel-shop
 $ cd ~/Code/deploy-laravel-shop
 $ dep init
 ```
-![](http://pzjwh5v7g.bkt.clouddn.com/mweb/15716487829565.jpg)
+![](media/15716487829565.jpg)
 
 是否允许匿名收集信息
-![](http://pzjwh5v7g.bkt.clouddn.com/mweb/15716487895564.jpg)
+![](media/15716487895564.jpg)
 
 打开 deploy.php 文件
 ```php

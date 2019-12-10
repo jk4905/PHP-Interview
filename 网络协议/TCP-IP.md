@@ -29,7 +29,7 @@
 2. UDP 无连接，不可靠，速度快，效率高。
 
 ##### UDP
-![UDP报文](http://pzjwh5v7g.bkt.clouddn.com/mweb/15713783153519.jpg)
+![UDP报文](media/15713783153519.jpg)
 
 
 UDP：
@@ -44,7 +44,7 @@ UDP：
 
 #### TCP
 
-![TCP报文](http://pzjwh5v7g.bkt.clouddn.com/mweb/15713783293283.jpg)
+![TCP报文](media/15713783293283.jpg)
 
 
 介绍：
@@ -61,9 +61,9 @@ UDP：
 注意： ACK 与 Ack 不是同一个东西。ACK 是标志位中的。Ack 是确认序号。
 
 #### TCP 的三次握手
-![三次握手动画](http://pzjwh5v7g.bkt.clouddn.com/mweb/1643a1dd6df4813b.gif)
+![三次握手动画](media/1643a1dd6df4813b.gif)
 
-![三次握手静态图](http://pzjwh5v7g.bkt.clouddn.com/mweb/15713784409185.jpg)
+![三次握手静态图](media/15713784409185.jpg)
 
 
 如 Client（C） Server（S） 是两个人，分别站在马路对面，准备隔空喊话：
@@ -74,7 +74,7 @@ S：S 看到后，进入了 established 状态。
 
 
 #### TCP 数据传输
-![数据传输动画](http://pzjwh5v7g.bkt.clouddn.com/mweb/1643a1f92f5af34a.gif)
+![数据传输动画](media/1643a1f92f5af34a.gif)
 
 当 S C 建立连接后，就可以传数据了。
 C 喊一句 S (传 data)，S 就回复一句（ACK）。
@@ -83,10 +83,10 @@ C 喊一句 S (传 data)，S 就回复一句（ACK）。
 
 
 #### TCP 的四次挥手
-![四次挥手动画](http://pzjwh5v7g.bkt.clouddn.com/mweb/1643a20296de1ff0.gif)
+![四次挥手动画](media/1643a20296de1ff0.gif)
 
 
-![四次挥手静态图](http://pzjwh5v7g.bkt.clouddn.com/mweb/15713785311113.jpg)
+![四次挥手静态图](media/15713785311113.jpg)
 
 
 TCP 的四次挥手分解成 C 挥手（FIN）- S 伤感微笑（ack）- S 挥手（FIN）- C 伤感微笑（ack）

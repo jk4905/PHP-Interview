@@ -15,7 +15,7 @@ web 模式与 CLI 模式的不同：
 1. CLI 模式每次都会执行完整的 5 个周期，因为脚本不执行完不会有下一个请求。
 2. WEB 为了应对并发，可能采用多线程，因此生命周期 1 5 只执行了一次，2-4 阶段重复执行，节省系统模块初始化所带来的开销。
 
-![](http://pzjwh5v7g.bkt.clouddn.com/mweb/15719180600121.jpg)
+![](media/15719180600121.jpg)
 
 
 作用：
@@ -24,7 +24,7 @@ web 模式与 CLI 模式的不同：
 
 #### Laravel 的生命周期
 Laravel 的请求周期是用处 public\index.php 开始，从 public\index.php 结束。
-![](http://pzjwh5v7g.bkt.clouddn.com/mweb/15719192533214.jpg)
+![](media/15719192533214.jpg)
 
 public\index.php 总共执行了四个步骤：
 ```php
@@ -45,7 +45,7 @@ $response->send();
 $kernel->terminate($request, $response);
 ```
 
-![](http://pzjwh5v7g.bkt.clouddn.com/mweb/15719197898521.jpg)
+![](media/15719197898521.jpg)
 
 
 #### 启动 Laravel 的基础服务
@@ -69,7 +69,7 @@ $kernel->terminate($request, $response);
        ``` 
     laravel 是按顺序遍历执行注册这些基础服务的，注意顺序：facades 先于 ServiceProviders ，注册 facades 就是注册了 config\app.php 中的 aliases 数组，你使用的很多类，如 Auth，Cache, DB 等等都是Facades；而 ServiceProviders 的 register 方法永远在 boot 之前，以避免 boot 方法依赖某个实例而实例未注册的现象。
 
-![Laravel 请求周期](http://pzjwh5v7g.bkt.clouddn.com/mweb/Laravel 请求周期.png)
+![Laravel 请求周期](media/Laravel 请求周期.png)
 
 
 #### 将请求传递给路由
@@ -80,14 +80,14 @@ $kernel->terminate($request, $response);
 然后开始遍历所有注册的路由，找到第一个符合条件的路由，经过它的路由中间件，进入到控制器或者闭包函数，执行你的代码。
 
 所以所有的请求到达你写的代码之前，都经过了重重检测，确保不符合和恶意的请求被 laravel 拒之门外。
-![](http://pzjwh5v7g.bkt.clouddn.com/mweb/15719236716200.jpg)
+![](media/15719236716200.jpg)
 
 #### 服务容器
 服务容器就是个普通的容器，用来装类的实例，然后需要用时在取出来。服务容器实现了依赖反转（Inversion of Control，缩写为IoC）。
 
 正常情况下 A 需要用 B 要手动 new 个 B，意味着需要知道 B 的细节。比如构造函数等，但是随着项目变大，这种依赖是毁灭性的。依赖反转的意思是，将 A 主动获取 B 类的过程颠倒过来，类 A 只需要声明它需要什么，然后由容器提供。
 
-![](http://pzjwh5v7g.bkt.clouddn.com/mweb/15719241677696.jpg)
+![](media/15719241677696.jpg)
 
 这样做的好处是，A 不再依赖 B 的实现，一定程度上解决了耦合。
 
@@ -175,7 +175,7 @@ $this->app->when(VideoController::class)
 
 #### Contracts & Facades（合同&门面）
 laravel 的一个强大之处是，在配置文件中声明缓存类型(redis，memcached，file......) laravel 就会自动帮你切换成这种驱动了，而不需要修改逻辑和代码。laravel 定义了一系列的 Contracts ，本质是一些 php 接口，一系列标准，用来解耦具体需求对实现的依赖关系。
-![](http://pzjwh5v7g.bkt.clouddn.com/mweb/15719267561310.jpg)
+![](media/15719267561310.jpg)
 上图在不是用 Contracts 时，对于一种逻辑，只会有一种结果。如果需求变更，就需要重构代码和逻辑。
 但是在使用 Contracts 之后，我们只需要按照接口写好逻辑，然后提供不同的实现，就可以再不动代码和逻辑的情况下得到更加多态的结果。
 
