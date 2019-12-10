@@ -17,7 +17,6 @@
 - Laravel
   * [定义辅助函数](Laravel/定义辅助函数.md)
   * [基础知识](Laravel/基础知识.md)
-  * [请求周期](Laravel/请求周期.md)
   * [实现方式](Laravel/实现方式.md)
   * [事件与监听](Laravel/事件与监听.md)
   * [延迟任务](Laravel/延迟任务.md)
