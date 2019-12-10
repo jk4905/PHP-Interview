@@ -11,7 +11,7 @@ php -i |grep php.ini
 ```
 
 在 php.ini 中添加
-```text
+```textile
 extension=swoole.so
 ```
 

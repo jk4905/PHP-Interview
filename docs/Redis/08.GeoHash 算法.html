@@ -1338,74 +1338,74 @@
 <p>Redis &#x7684; Geohash &#x57FA;&#x4E8E; zset&#x3002;</p>
 <h5 id="&#x6307;&#x4EE4;"><a name="&#x6307;&#x4EE4;" class="anchor-navigation-ex-anchor" href="#&#x6307;&#x4EE4;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6307;&#x4EE4;</h5>
 <p>&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#xFF0C;<code>geoadd [key] [lon1] [lat1] [member1] [lon2] [lat2] [member2] ...</code> &#xFF08;lon&#xFF1A;&#x7ECF;&#x5EA6;&#xFF0C;lat&#xFF1A;&#x7EF4;&#x5EA6;&#xFF09;</p>
-<pre class="language-"><code class="lang-redis">127.0.0.1:6379&gt; geoadd city 120.20000 30.26667 hangzhou  116.41667 39.91667 beijing 121.47 31.23 shanghai
-(integer) 3
+<pre class="language-"><code class="lang-lua"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> geoadd city <span class="token number">120.20000</span> <span class="token number">30.26667</span> hangzhou  <span class="token number">116.41667</span> <span class="token number">39.91667</span> beijing <span class="token number">121.47</span> <span class="token number">31.23</span> <span class="token function">shanghai</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">3</span>
 </code></pre>
 <p>geohash &#x6CA1;&#x6709;&#x5220;&#x9664;&#xFF0C;&#x4F46;&#x662F; geohash &#x57FA;&#x4E8E; zset &#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x6240;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528; zrem &#x5C31;&#x884C;&#x4E86;</p>
-<pre class="language-"><code class="lang-redis">127.0.0.1:6379&gt; zrem city hangzhou
-(integer) 1
+<pre class="language-"><code class="lang-lua"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> zrem city <span class="token function">hangzhou</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">1</span>
 </code></pre>
 <p>&#x8BA1;&#x7B97;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x4E4B;&#x95F4;&#x7684;&#x8DDD;&#x79BB;&#xFF0C;<code>geogist [key] [member1] [member2] [unit]</code></p>
 <pre class="language-"><code class="lang-lua"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> geodist city beijing shanghai km
 <span class="token string">&quot;1068.3890&quot;</span>
 </code></pre>
 <p>&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5143;&#x7D20;&#x4F4D;&#x7F6E;&#xFF0C;<code>geopos [key] [member1] [member2]...</code></p>
-<pre class="language-"><code class="lang-redis">127.0.0.1:6379&gt; geopos city beijing shanghai
-1) 1) &quot;116.41667157411575317&quot;
-   2) &quot;39.91667095273589183&quot;
-2) 1) &quot;121.47000163793563843&quot;
-   2) &quot;31.22999903975783553&quot;
+<pre class="language-"><code class="lang-lua"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> geopos city beijing shanghai
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;116.41667157411575317&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;39.91667095273589183&quot;</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;121.47000163793563843&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;31.22999903975783553&quot;</span>
 </code></pre>
 <p>&#x83B7;&#x53D6;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5143;&#x7D20; hash &#x503C;&#xFF0C;<code>geohash [key] [member1]....</code></p>
-<pre class="language-"><code class="lang-redis">127.0.0.1:6379&gt; geohash city beijing shanghai
-1) &quot;wx4g14s53n0&quot;
-2) &quot;wtw3sj5zbj0&quot;
+<pre class="language-"><code class="lang-lua"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> geohash city beijing shanghai
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;wx4g14s53n0&quot;</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;wtw3sj5zbj0&quot;</span>
 </code></pre>
 <p>&#x83B7;&#x53D6;&#x9644;&#x8FD1;&#x7684;&#x5143;&#x7D20;&#xFF0C;<code>georadiusbymember [key] [member1] [num] [unit] [withcoord|withdist|withhash] [count] [num] [asc|desc]</code></p>
 <blockquote>
 <p>&#x4E0D;&#x4F1A;&#x6392;&#x9664;&#x81EA;&#x5DF1;&#x3002;</p>
 </blockquote>
-<pre class="language-"><code class="lang-redis">127.0.0.1:6379&gt; geoadd company 116.48105 39.996794 juejin 116.514203 39.905409 ireader 116.489033 40.007669 meituan 116.562108 39.787602 jd 116.334255 40.027400 xiaomi
-(integer) 5
+<pre class="language-"><code class="lang-lua"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> geoadd company <span class="token number">116.48105</span> <span class="token number">39.996794</span> juejin <span class="token number">116.514203</span> <span class="token number">39.905409</span> ireader <span class="token number">116.489033</span> <span class="token number">40.007669</span> meituan <span class="token number">116.562108</span> <span class="token number">39.787602</span> jd <span class="token number">116.334255</span> <span class="token number">40.027400</span> <span class="token function">xiaomi</span>
+<span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">5</span>
 
-# &#x67E5;&#x627E; ireader &#x9644;&#x8FD1; 20KM &#x4EE5;&#x5185;&#xFF0C;&#x6700;&#x591A; 3 &#x4E2A;&#x516C;&#x53F8;&#xFF0C;&#x6309;&#x987A;&#x5E8F;&#x6392;&#x5217;&#xFF0C;&#x5B83;&#x4E0D;&#x4F1A;&#x6392;&#x9664;&#x81EA;&#x5DF1;
-127.0.0.1:6379&gt; georadiusbymember company ireader 20 km count 3 asc
-1) &quot;ireader&quot;
-2) &quot;juejin&quot;
-3) &quot;meituan&quot;
+<span class="token operator">#</span> &#x67E5;&#x627E; ireader &#x9644;&#x8FD1; 20KM &#x4EE5;&#x5185;&#xFF0C;&#x6700;&#x591A; <span class="token number">3</span> &#x4E2A;&#x516C;&#x53F8;&#xFF0C;&#x6309;&#x987A;&#x5E8F;&#x6392;&#x5217;&#xFF0C;&#x5B83;&#x4E0D;&#x4F1A;&#x6392;&#x9664;&#x81EA;&#x5DF1;
+<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> georadiusbymember company ireader <span class="token number">20</span> km count <span class="token number">3</span> asc
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;ireader&quot;</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;juejin&quot;</span>
+<span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;meituan&quot;</span>
 
-# &#x67E5;&#x627E; ireader &#x9644;&#x8FD1; 20KM &#x4EE5;&#x5185;&#xFF0C;&#x6700;&#x591A; 3 &#x4E2A;&#x516C;&#x53F8;&#xFF0C;&#x6309;&#x9006;&#x5E8F;&#x6392;&#x5217;&#xFF0C;&#x5B83;&#x4E0D;&#x4F1A;&#x6392;&#x9664;&#x81EA;&#x5DF1;
-127.0.0.1:6379&gt; georadiusbymember company ireader 20 km count 3 desc
-1) &quot;jd&quot;
-2) &quot;meituan&quot;
-3) &quot;juejin&quot;
+<span class="token operator">#</span> &#x67E5;&#x627E; ireader &#x9644;&#x8FD1; 20KM &#x4EE5;&#x5185;&#xFF0C;&#x6700;&#x591A; <span class="token number">3</span> &#x4E2A;&#x516C;&#x53F8;&#xFF0C;&#x6309;&#x9006;&#x5E8F;&#x6392;&#x5217;&#xFF0C;&#x5B83;&#x4E0D;&#x4F1A;&#x6392;&#x9664;&#x81EA;&#x5DF1;
+<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> georadiusbymember company ireader <span class="token number">20</span> km count <span class="token number">3</span> desc
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;jd&quot;</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;meituan&quot;</span>
+<span class="token number">3</span><span class="token punctuation">)</span> <span class="token string">&quot;juejin&quot;</span>
 
-# &#x4E09;&#x4E2A;&#x53EF;&#x9009;&#x53C2;&#x6570; withcoord&#xFF08;&#x5750;&#x6807;&#xFF09;&#x3001; withdist&#xFF08;&#x8DDD;&#x79BB;&#xFF09;&#x3001; withhash&#xFF08;hash &#x503C;&#xFF09;&#x3002;
-127.0.0.1:6379&gt; georadiusbymember company ireader 20 km withcoord withdist withhash  count 3 asc
-1) 1) &quot;ireader&quot;
-   2) &quot;0.0000&quot;
-   3) (integer) 4069886008361398
-   4) 1) &quot;116.5142020583152771&quot;
-      2) &quot;39.90540918662494363&quot;
-2) 1) &quot;juejin&quot;
-   2) &quot;10.5501&quot;
-   3) (integer) 4069887154388167
-   4) 1) &quot;116.48104995489120483&quot;
-      2) &quot;39.99679348858259686&quot;
-3) 1) &quot;meituan&quot;
-   2) &quot;11.5748&quot;
-   3) (integer) 4069887179083478
-   4) 1) &quot;116.48903220891952515&quot;
-      2) &quot;40.00766997707732031&quot;
+<span class="token operator">#</span> &#x4E09;&#x4E2A;&#x53EF;&#x9009;&#x53C2;&#x6570; withcoord&#xFF08;&#x5750;&#x6807;&#xFF09;&#x3001; withdist&#xFF08;&#x8DDD;&#x79BB;&#xFF09;&#x3001; withhash&#xFF08;hash &#x503C;&#xFF09;&#x3002;
+<span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> georadiusbymember company ireader <span class="token number">20</span> km withcoord withdist withhash  count <span class="token number">3</span> asc
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;ireader&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;0.0000&quot;</span>
+   <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">4069886008361398</span>
+   <span class="token number">4</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;116.5142020583152771&quot;</span>
+      <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;39.90540918662494363&quot;</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;juejin&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;10.5501&quot;</span>
+   <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">4069887154388167</span>
+   <span class="token number">4</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;116.48104995489120483&quot;</span>
+      <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;39.99679348858259686&quot;</span>
+<span class="token number">3</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;meituan&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;11.5748&quot;</span>
+   <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">(</span>integer<span class="token punctuation">)</span> <span class="token number">4069887179083478</span>
+   <span class="token number">4</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;116.48903220891952515&quot;</span>
+      <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;40.00766997707732031&quot;</span>
 </code></pre>
 <p>&#x6839;&#x636E;&#x5750;&#x6807;&#x67E5;&#x627E;&#x9644;&#x8FD1;&#x5143;&#x7D20;&#xFF0C;<code>georadius [key] [lon] [lat] [num] [unit] [withcoord|withdist|withhash] [count] [num] [asc|desc]</code></p>
-<pre class="language-"><code class="lang-rediss">127.0.0.1:6379&gt; georadius company 116.514202 39.905409 20 km withdist count 3 asc
-1) 1) &quot;ireader&quot;
-   2) &quot;0.0000&quot;
-2) 1) &quot;juejin&quot;
-   2) &quot;10.5501&quot;
-3) 1) &quot;meituan&quot;
-   2) &quot;11.5748&quot;
+<pre class="language-"><code class="lang-lua"><span class="token number">127.0</span><span class="token number">.0</span><span class="token number">.1</span><span class="token punctuation">:</span><span class="token number">6379</span><span class="token operator">&gt;</span> georadius company <span class="token number">116.514202</span> <span class="token number">39.905409</span> <span class="token number">20</span> km withdist count <span class="token number">3</span> asc
+<span class="token number">1</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;ireader&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;0.0000&quot;</span>
+<span class="token number">2</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;juejin&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;10.5501&quot;</span>
+<span class="token number">3</span><span class="token punctuation">)</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token string">&quot;meituan&quot;</span>
+   <span class="token number">2</span><span class="token punctuation">)</span> <span class="token string">&quot;11.5748&quot;</span>
 </code></pre>
 <h4 id="&#x6CE8;&#x610F;&#x4E8B;&#x9879;"><a name="&#x6CE8;&#x610F;&#x4E8B;&#x9879;" class="anchor-navigation-ex-anchor" href="#&#x6CE8;&#x610F;&#x4E8B;&#x9879;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h4>
 <p>&#x5728;&#x4E00;&#x4E2A;&#x5730;&#x56FE;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x8F66;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x9910;&#x9986;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4EBA;&#x7684;&#x6570;&#x636E;&#x53EF;&#x80FD;&#x6709;&#x51E0;&#x5343;&#x4E07;&#x6761;&#xFF0C;&#x5982;&#x679C;&#x4F7F;&#x7528; redis &#x7684; geo &#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5B83;&#x4EEC;&#x5C06;&#x88AB;&#x5168;&#x90E8;&#x653E;&#x5728;&#x4E00;&#x4E2A; zset &#x96C6;&#x5408;&#x4E2D;&#x3002;</p>
@@ -1416,7 +1416,7 @@
 <p>&#x6240;&#x4EE5;&#xFF0C;&#x4E00;&#x822C;&#x5EFA;&#x8BAE;&#x8981;&#x5BF9; geo &#x6570;&#x636E;&#x4F7F;&#x7528;&#x5355;&#x72EC;&#x7684; redis &#x5B9E;&#x529B;&#x90E8;&#x7F72;&#xFF0C;&#x4E0D;&#x4F7F;&#x7528;&#x96C6;&#x7FA4;&#x3002;
 &#x5982;&#x679C;&#x6570;&#x636E;&#x91CF;&#x8FC7;&#x4EBF;&#xFF0C;&#x751A;&#x81F3;&#x66F4;&#x5927;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5BF9; geo &#x6570;&#x636E;&#x8FDB;&#x884C;&#x62C6;&#x5206;&#xFF0C;&#x6309;&#x56FD;&#x5BB6;&#x3001;&#x6309;&#x7701;&#x4EFD;&#x3001;&#x6309;&#x5E02;&#x3001;&#x6309;&#x533A;&#x57DF;&#x62C6;&#x5206;&#xFF0C;&#x663E;&#x8457;&#x964D;&#x4F4E;&#x5355;&#x4E2A; zset &#x96C6;&#x5408;&#x5927;&#x5C0F;&#x3002; </p>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; Kagami&#x4E36; 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2019-12-10 20:25:25
+2019-12-10 21:45:40
 </span></footer>
 <script>console.log("plugin-popup....");document.onclick = function(e){ e.target.tagName === "IMG" && window.open(e.target.src,e.target.src)}</script><style>img{cursor:pointer}</style>
                                 
@@ -1461,7 +1461,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"08.GeoHash 算法","level":"1.9.8","depth":2,"next":{"title":"09.大海捞针-scan","level":"1.9.9","depth":2,"path":"Redis/09.大海捞针-scan.md","ref":"Redis/09.大海捞针-scan.md","articles":[]},"previous":{"title":"07.限流","level":"1.9.7","depth":2,"path":"Redis/07.限流.md","ref":"Redis/07.限流.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","prism","-highlight","copy-code-button","search-pro","-search","-lunr","expandable-chapters","splitter","-sharing","github-buttons","tbfed-pagefooter","anchor-navigation-ex","disqus","github","hide-element","insert-logo","pageview-count","popup"],"ignores":["node_modules","docs","_DelSyncFiles"],"root":".","styles":{"website":"./styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy Kagami丶 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"shell":"bash"}},"disqus":{"useIdentifier":false,"shortName":"jk4905"},"github":{"url":"https://github.com/jk4905"},"splitter":{},"search-pro":{},"popup":{},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"},{"user":"jk4905","width":"160","type":"follow","count":true,"size":"small"}]},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 30px; min-height: 30px","url":"https://raw.githubusercontent.com/jk4905/PHP-Interview/master/docs/images/logo.png"},"expandable-chapters":{}},"theme":"default","author":"Kagami丶","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Kagami丶PHP-Interview","sortedBy":"num.","variables":{},"title":"PHP-Interview","language":"zh-hans","output.name":"docs","catalog":"all","gitbook":"3.2.3","unchanged":[],"description":"Kagami丶的 PHP 复习笔记","outputfile":"SUMMARY.md"},"file":{"path":"Redis/08.GeoHash 算法.md","mtime":"2019-12-10T12:25:25.306Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-10T13:02:36.550Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"08.GeoHash 算法","level":"1.9.8","depth":2,"next":{"title":"09.大海捞针-scan","level":"1.9.9","depth":2,"path":"Redis/09.大海捞针-scan.md","ref":"Redis/09.大海捞针-scan.md","articles":[]},"previous":{"title":"07.限流","level":"1.9.7","depth":2,"path":"Redis/07.限流.md","ref":"Redis/07.限流.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-comscore","prism","-highlight","copy-code-button","search-pro","-search","-lunr","expandable-chapters","splitter","-sharing","github-buttons","tbfed-pagefooter","anchor-navigation-ex","disqus","github","hide-element","insert-logo","pageview-count","popup"],"ignores":["node_modules","docs","_DelSyncFiles"],"root":".","styles":{"website":"./styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy Kagami丶 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-solarizedlight.css"],"lang":{"shell":"bash"}},"disqus":{"useIdentifier":false,"shortName":"jk4905"},"github":{"url":"https://github.com/jk4905"},"splitter":{},"search-pro":{},"popup":{},"hide-element":{"elements":[".gitbook-link"]},"fontsettings":{"theme":"white","family":"sans","size":2},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"jk4905","repo":"PHP-Interview","type":"star","count":true,"size":"small"},{"user":"jk4905","width":"160","type":"follow","count":true,"size":"small"}]},"copy-code-button":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"insert-logo":{"style":"background: none; max-height: 30px; min-height: 30px","url":"https://raw.githubusercontent.com/jk4905/PHP-Interview/master/docs/images/logo.png"},"expandable-chapters":{}},"theme":"default","author":"Kagami丶","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"Kagami丶PHP-Interview","sortedBy":"num.","variables":{},"title":"PHP-Interview","language":"zh-hans","output.name":"docs","catalog":"all","gitbook":"3.2.3","unchanged":[],"description":"Kagami丶的 PHP 复习笔记","outputfile":"SUMMARY.md"},"file":{"path":"Redis/08.GeoHash 算法.md","mtime":"2019-12-10T13:45:40.517Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-10T13:46:41.303Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
