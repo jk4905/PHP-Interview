@@ -11,7 +11,7 @@ $ composer global require deployer/deployer
 通过 dep 命令查看是否安装成功
 ![](https://kagami-1259053372.cos.ap-chengdu.myqcloud.com/images/15716487404871.jpg)
 
-```初始化
+```shell
 $ mkdir -p ~/Code/deploy-laravel-shop
 $ cd ~/Code/deploy-laravel-shop
 $ dep init
